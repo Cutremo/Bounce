@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Bounce
+namespace Bounce.Runtime
 {
     public class Platform : MonoBehaviour
     {

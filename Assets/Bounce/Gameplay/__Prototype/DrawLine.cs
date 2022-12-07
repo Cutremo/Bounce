@@ -1,28 +1,29 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Bounce.Runtime
 {
     public class DrawLine : MonoBehaviour
     {
-        [SerializeField] LineRenderer lineRenderer;
-        [SerializeField] Platform platformPrefab;
-        bool drawing;
+        [SerializeField]
+        LineRenderer lineRenderer;
+        [SerializeField]
+        Platform platformPrefab;
         [SerializeField]
         float maxLineLength;
+        bool drawing;
+        public Vector3 StartPosition { get; private set; }
+        public Vector3 EndPosition { get; set; }
+
+        [SerializeField]
+        DrawInput drawInput;
+        
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                StartDrawing();
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                EndDrawing();
-            }
+            drawInput.Input();
 
             if (drawing)
             {
@@ -38,31 +39,36 @@ namespace Bounce.Runtime
             }
         }
 
-        void EndDrawing()
+        public void EndDrawing()
         {
             drawing = false;
-            Instantiate(platformPrefab, Vector3.zero, Quaternion.identity, transform)
+            Object.Instantiate(platformPrefab, Vector3.zero, Quaternion.identity)
                 .Build(lineRenderer.GetPosition(0), lineRenderer.GetPosition(1));
             lineRenderer.positionCount = 0;
         }
 
-        void StartDrawing()
+        public void StartDrawing()
         {
             drawing = true;
             AddPosition();
             AddPosition();
         }
 
-        void AddPosition()
+        public void AddPosition()
         {
             lineRenderer.positionCount++;
             UpdateLastPosition();
         }
 
-        void UpdateLastPosition()
+        public void UpdateLastPosition()
         {
             lineRenderer.SetPosition(lineRenderer.positionCount - 1,
-                (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                (Vector2) Camera.main.ScreenToWorldPoint(EndPosition));
+        }
+
+        public void UpdateCursor(Vector3 pos)
+        {
+            EndPosition = pos;
         }
     }
 }

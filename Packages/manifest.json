@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.boundfoxstudios.fluentassertions": "https://github.com/BoundfoxStudios/fluentassertions-unity.git#upm",
+    "com.rgv.designbycontract": "https://github.com/RicardoGuzmanVelasco/RGV.git?path=/Assets/RGV.DesignByContract",
+    "com.svermeulen.extenject": "9.1.0",
     "com.unity.collab-proxy": "1.15.18",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.15",
@@ -43,5 +46,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.svermeulen.extenject"
+      ]
+    }
+  ]
 }

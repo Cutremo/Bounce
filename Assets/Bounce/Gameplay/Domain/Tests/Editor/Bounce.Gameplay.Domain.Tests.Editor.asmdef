@@ -1,0 +1,23 @@
+{
+    "name": "Bounce.Gameplay.Domain.Tests.Editor",
+    "rootNamespace": "Bounce.Gameplay.Domain.Tests.Editor",
+    "references": [
+        "GUID:e372c541aba5148868e12aa078ca7c20",
+        "GUID:66e31060f5d1b0c468d39f745c179957",
+        "GUID:4764913e29b5d97458b0ad11ce20df92",
+        "GUID:7328033255f3407c9c743ec308a84404"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

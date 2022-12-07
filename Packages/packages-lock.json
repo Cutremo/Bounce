@@ -1,5 +1,26 @@
 {
   "dependencies": {
+    "com.boundfoxstudios.fluentassertions": {
+      "version": "https://github.com/BoundfoxStudios/fluentassertions-unity.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "73575516048ef17c212d93e03517740d429183e8"
+    },
+    "com.rgv.designbycontract": {
+      "version": "https://github.com/RicardoGuzmanVelasco/RGV.git?path=/Assets/RGV.DesignByContract",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "6b833a51db7d6cce6f22ad422af63870d494de2e"
+    },
+    "com.svermeulen.extenject": {
+      "version": "9.1.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.6",
       "depth": 1,
