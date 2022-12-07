@@ -1,9 +1,8 @@
-﻿using Bounce.Runtime.Domain;
-using JunityEngine;
+﻿using JunityEngine;
 using JunityEngine.Maths.Runtime;
 using RGV.DesignByContract.Runtime;
 
-namespace Bounce.Gameplay.Runtime.Domain
+namespace Bounce.Gameplay.Domain.Runtime
 {
     public class Sketchbook
     {

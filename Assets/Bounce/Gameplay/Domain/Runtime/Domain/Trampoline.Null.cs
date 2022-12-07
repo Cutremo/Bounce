@@ -1,6 +1,6 @@
 using JunityEngine;
 
-namespace Bounce.Runtime.Domain
+namespace Bounce.Gameplay.Domain.Runtime
 {
     partial record Trampoline
     {
