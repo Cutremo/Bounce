@@ -56,7 +56,7 @@ namespace Bounce.Gameplay.Domain.Tests
         public void PlayerDrawsTrampoline()
         {
             var sketchbook = new Sketchbook();
-            var sut = new Player(sketchbook);
+            var sut = new Area(sketchbook, Bounds2D.Infinite);
             
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
@@ -68,7 +68,7 @@ namespace Bounce.Gameplay.Domain.Tests
         public void TrampolineRemains()
         {
             var sketchbook = new Sketchbook();
-            var sut = new Player(sketchbook);
+            var sut = new Area(sketchbook, Bounds2D.Infinite);
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
             
@@ -81,7 +81,7 @@ namespace Bounce.Gameplay.Domain.Tests
         public void TrampolineChangesWhenDrawingNew()
         {
             var sketchbook = new Sketchbook();
-            var sut = new Player(sketchbook);
+            var sut = new Area(sketchbook, Bounds2D.Infinite);
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
             sut.StopDrawing();

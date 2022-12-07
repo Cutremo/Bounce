@@ -1,0 +1,22 @@
+{
+    "name": "JunityEngine.Commons.Tests.Editor",
+    "rootNamespace": "JunityEngine.Commons.Tests.Editor",
+    "references": [
+        "GUID:e372c541aba5148868e12aa078ca7c20",
+        "GUID:7328033255f3407c9c743ec308a84404",
+        "GUID:4764913e29b5d97458b0ad11ce20df92"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

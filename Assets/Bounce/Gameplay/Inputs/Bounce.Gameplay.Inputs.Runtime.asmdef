@@ -1,8 +1,8 @@
 {
-    "name": "JunityEngine.Commons.Runtime",
-    "rootNamespace": "JunityEngine.Maths.Runtime",
+    "name": "Bounce.Gameplay.Inputs.Runtime",
+    "rootNamespace": "",
     "references": [
-        "GUID:4f3166ce75f1424a9d8c84f49b07f6c9",
+        "GUID:c8ea9a485723a0347881a35edff04da5",
         "GUID:4764913e29b5d97458b0ad11ce20df92"
     ],
     "includePlatforms": [],
@@ -13,5 +13,5 @@
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
-    "noEngineReferences": true
+    "noEngineReferences": false
 }

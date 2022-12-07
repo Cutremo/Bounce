@@ -1,0 +1,21 @@
+{
+    "name": "Bounce.Gameplay.Infrastructure.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:66e31060f5d1b0c468d39f745c179957",
+        "GUID:c8ea9a485723a0347881a35edff04da5",
+        "GUID:c1c2a4e87378a2c42924fc3e8d1374a2",
+        "GUID:4764913e29b5d97458b0ad11ce20df92",
+        "GUID:7328033255f3407c9c743ec308a84404"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

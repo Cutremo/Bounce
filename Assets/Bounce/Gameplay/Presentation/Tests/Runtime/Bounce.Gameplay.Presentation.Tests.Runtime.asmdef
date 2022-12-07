@@ -1,0 +1,24 @@
+{
+    "name": "Bounce.Gameplay.Presentation.Tests.Runtime",
+    "rootNamespace": "Bounce.Gameplay.Presentation.Tests.Runtime",
+    "references": [
+        "GUID:c8ea9a485723a0347881a35edff04da5",
+        "GUID:66e31060f5d1b0c468d39f745c179957",
+        "GUID:e372c541aba5148868e12aa078ca7c20",
+        "GUID:c1c2a4e87378a2c42924fc3e8d1374a2",
+        "GUID:ddd092456ea34ff4a9a498fd92b3d690",
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:0acc523941302664db1f4e527237feb3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

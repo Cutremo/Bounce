@@ -32,7 +32,8 @@ namespace Bounce.Gameplay.Domain.Runtime
         }
 
         public void StopDrawing()
-        {
+        { 
+            Contract.Require(Drawing).True();
             Result = Trampoline.Null;
         }
     }

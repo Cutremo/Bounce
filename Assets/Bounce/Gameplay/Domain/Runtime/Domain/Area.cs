@@ -1,22 +1,29 @@
 ﻿using JunityEngine.Maths.Runtime;
+using RGV.DesignByContract.Runtime;
 
 namespace Bounce.Gameplay.Domain.Runtime
 {
-    public class Player
+    public class Area
     {
         public Trampoline Trampoline => trampoline;
         
         Trampoline trampoline;
         
         readonly Sketchbook sketchbook;
+        readonly Bounds2D bounds;
 
-        public Player(Sketchbook sketchbook)
+        public bool InsideBounds(Vector2 end) => bounds.Contains(end);
+        public bool Drawing => sketchbook.Drawing;
+        
+        public Area(Sketchbook sketchbook, Bounds2D bounds)
         {
             this.sketchbook = sketchbook;
+            this.bounds = bounds;
         }
 
         public void Draw(Vector2 end)
         {
+            Contract.Require(InsideBounds(end)).True();
             sketchbook.Draw(end);
             trampoline = sketchbook.Result;
         }
