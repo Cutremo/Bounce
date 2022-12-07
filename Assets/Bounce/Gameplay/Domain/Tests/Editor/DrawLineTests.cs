@@ -33,7 +33,7 @@ namespace Bounce.Bounce.Tests
         [Test]
         public void ClampToMaxLength()
         {
-            var sut = new Sketchbook(maxTrampolineLength: 1);
+            var sut = new Sketchbook { MaxTrampolineLength = 1};
             sut.Draw(Vector2.Zero);
             
             sut.Draw(new Vector2(2, 0 ));

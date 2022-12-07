@@ -7,18 +7,9 @@ namespace Bounce.Gameplay.Runtime.Domain
 {
     public class Sketchbook
     {
-        public int MaxTrampolineLength { get; private set; } = int.MaxValue;
+        public int MaxTrampolineLength { get; init; } = int.MaxValue;
         public Trampoline Result { get; private set; } = Trampoline.Null;
         public bool Drawing => Result is not INull;
-
-        public Sketchbook(int maxTrampolineLength)
-        {
-            this.MaxTrampolineLength = maxTrampolineLength;
-        }
-
-        public Sketchbook()
-        {
-        }
 
         public void Draw(Vector2 end)
         {
@@ -31,7 +22,7 @@ namespace Bounce.Gameplay.Runtime.Domain
         Vector2 CalcOrigin(Vector2 end)
         {
             return Result.Origin.To(end).Size > MaxTrampolineLength
-                ? end + (end.To(Result.Origin).Normalized() * MaxTrampolineLength)
+                ? end + (end.To(Result.Origin).Normalized * MaxTrampolineLength)
                 : Result.Origin;
         }
 

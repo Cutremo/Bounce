@@ -25,9 +25,9 @@ namespace JunityEngine.Maths.Runtime
         public static Vector2 operator - (Vector2 a, Vector2 b) => new(a.X - b.X, a.Y - b.Y);
         public static Vector2 operator * (Vector2 v, int t) => new(v.X * t, v.Y * t);
         public Vector2 To(Vector2 other) => other - this;
-        public Vector2 Normalized() => new(X / Size, Y / Size);
-        public Vector2 WithSymmetryOnYAxis() => new(-X, Y);
-        public Vector2 WithSymmetryOnXAxis() => new(X, -Y);
-        public Vector2 Reverse() => new(-X, -Y);
+        public Vector2 Normalized => new(X / Size, Y / Size);
+        public Vector2 WithSymmetryOnYAxis => new(-X, Y);
+        public Vector2 WithSymmetryOnXAxis => new(X, -Y);
+        public Vector2 Reverse => new(-X, -Y);
     }
 }

@@ -10,7 +10,7 @@ namespace JunityEngine.Maths.Tests
         public void NormalizeVector()
         {
             new Vector2(2, 0)
-                .Normalized()
+                .Normalized
                 .Should().Be(new Vector2(1, 0));
         }
     }
