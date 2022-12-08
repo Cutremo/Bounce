@@ -38,5 +38,7 @@ namespace JunityEngine.Maths.Runtime
         public Vector2 WithSymmetryOnYAxis => new(-X, Y);
         public Vector2 WithSymmetryOnXAxis => new(X, -Y);
         public Vector2 Reverse => new(-X, -Y);
+
+        public override string ToString() => "(" + X + ", " + Y +")";
     }
 }

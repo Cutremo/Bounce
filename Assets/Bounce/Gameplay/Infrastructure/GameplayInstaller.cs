@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Bounce.Gameplay.Application.Runtime;
 using Bounce.Gameplay.Domain.Runtime;
 using JunityEngine.Maths.Runtime;
@@ -11,11 +12,15 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
     {
         public override void InstallBindings()
         {
+            var player = new Player();
             var sketchBook = new Sketchbook();
             var bounds = new Bounds2D(Vector2.Zero, new Vector2(4));
             var area = new Area(sketchBook, bounds);
-
-            Container.BindInstance(area).AsSingle();
+            var game = new Game(new Dictionary<Player, Area>() {{player, area}});
+            game.Start(); //Mover a controlador
+            
+            Container.BindInstance(game).AsSingle();
+            Container.BindInstance(player).AsSingle();
 
             Container.Bind<DrawLine>().AsSingle().NonLazy();
 

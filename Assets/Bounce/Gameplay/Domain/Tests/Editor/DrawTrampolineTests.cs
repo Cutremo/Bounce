@@ -4,7 +4,7 @@ using JunityEngine;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
 
-namespace Bounce.Gameplay.Domain.Tests
+namespace Bounce.Gameplay.Domain.Tests.Editor
 {
     public class DrawTrampolineTests
     {
@@ -23,21 +23,21 @@ namespace Bounce.Gameplay.Domain.Tests
         {
             var sut = new Sketchbook();
             sut.Draw(Vector2.Zero);
-            
+
             sut.Draw(Vector2.Up);
 
-            sut.Result.Should().BeEquivalentTo(new Trampoline { Origin = Vector2.Zero, End = Vector2.Up });
+            sut.Result.Should().BeEquivalentTo(new Trampoline {Origin = Vector2.Zero, End = Vector2.Up});
         }
 
         [Test]
         public void ClampToMaxLength()
         {
-            var sut = new Sketchbook { MaxTrampolineLength = 1};
+            var sut = new Sketchbook {MaxTrampolineLength = 1};
             sut.Draw(Vector2.Zero);
-            
-            sut.Draw(new Vector2(2, 0 ));
 
-            sut.Result.Should().Be(new Trampoline { Origin = new Vector2(1, 0), End = new Vector2(2, 0) });
+            sut.Draw(new Vector2(2, 0));
+
+            sut.Result.Should().Be(new Trampoline {Origin = new Vector2(1, 0), End = new Vector2(2, 0)});
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace Bounce.Gameplay.Domain.Tests
             sut.Draw(Vector2.Up);
 
             sut.StopDrawing();
-            
+
             sut.Result.Should().BeAssignableTo<INull>();
         }
 
@@ -57,11 +57,11 @@ namespace Bounce.Gameplay.Domain.Tests
         {
             var sketchbook = new Sketchbook();
             var sut = new Area(sketchbook, Bounds2D.Infinite);
-            
+
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
 
-            sut.Trampoline.Should().Be(new Trampoline{ Origin = Vector2.Zero, End = Vector2.Up } );
+            sut.Trampoline.Should().Be(new Trampoline {Origin = Vector2.Zero, End = Vector2.Up});
         }
 
         [Test]
@@ -71,10 +71,10 @@ namespace Bounce.Gameplay.Domain.Tests
             var sut = new Area(sketchbook, Bounds2D.Infinite);
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
-            
+
             sut.StopDrawing();
 
-            sut.Trampoline.Should().Be(new Trampoline{ Origin = Vector2.Zero, End = Vector2.Up } );
+            sut.Trampoline.Should().Be(new Trampoline {Origin = Vector2.Zero, End = Vector2.Up});
         }
 
         [Test]
@@ -85,10 +85,11 @@ namespace Bounce.Gameplay.Domain.Tests
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
             sut.StopDrawing();
-            
-            sut.Draw(new Vector2(3,4));
 
-            sut.Trampoline.Should().Be(new Trampoline{ Origin = new Vector2(3,4), End = new Vector2(3,4) } );
+            sut.Draw(new Vector2(3, 4));
+
+            sut.Trampoline.Should().Be(new Trampoline {Origin = new Vector2(3, 4), End = new Vector2(3, 4)});
         }
     }
 }
+    

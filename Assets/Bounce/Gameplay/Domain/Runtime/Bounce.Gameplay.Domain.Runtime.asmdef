@@ -1,6 +1,6 @@
 {
     "name": "Bounce.Gameplay.Domain.Runtime",
-    "rootNamespace": "Bounce.Gameplay.Runtime.Domain",
+    "rootNamespace": "",
     "references": [
         "GUID:4764913e29b5d97458b0ad11ce20df92",
         "GUID:4f3166ce75f1424a9d8c84f49b07f6c9",
