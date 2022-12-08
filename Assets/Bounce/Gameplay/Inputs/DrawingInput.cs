@@ -7,34 +7,41 @@ using Vector2 = JunityEngine.Maths.Runtime.Vector2;
 
 namespace Bounce.Gameplay.Input.Runtime
 {
-    public class DrawingInput : MonoBehaviour
+    public class DrawingInput : MonoBehaviour, DrawLineInput
     {
-        [Inject] DrawLine drawLine;
         [Inject] Player player;
-        
-        async void Update()
+        [Inject] DrawLine drawLine;
+
+        //Como testear esto sin llamadas directas?
+        public async Task<(Player, Vector2)> DrawInput()
         {
-            if (UnityEngine.Input.GetMouseButton(0))
+            while (!UnityEngine.Input.GetMouseButton(0))
             {
-                Debug.Log("asdasdadsasd");
-                await Draw(Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition));
+                await Task.Yield();
             }
 
-            if (UnityEngine.Input.GetMouseButtonUp(0))
+            var position = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
+            return (player, new Vector2(position.x, position.y));
+        }
+
+        public async Task<Player> EndDrawInput()
+        {
+            while (!UnityEngine.Input.GetMouseButtonUp(0))
             {
-                await StopDrawing();
+                await Task.Yield();
             }
+            
+            return player;
         }
 
         public async Task Draw(Vector3 position)
         {
-            Debug.Log("asdasdadsasd");
             await drawLine.Draw(player, new Vector2(position.x, position.y));
         }
-
+        
         public async Task StopDrawing()
         {
-            await drawLine.StopDrawing(player);
+            await drawLine.EndDrawing(player);
         }
     }
 }

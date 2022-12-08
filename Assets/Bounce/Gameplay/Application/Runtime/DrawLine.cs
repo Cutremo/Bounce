@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
+using Bounce.Gameplay.Input.Runtime;
 using UnityEngine;
 using Vector2 = JunityEngine.Maths.Runtime.Vector2;
 
@@ -9,27 +10,36 @@ namespace Bounce.Gameplay.Application.Runtime
     {
         readonly Game game;
         readonly DrawLineView drawLineView;
-
-        public DrawLine(Game game, DrawLineView drawLineView)
+        readonly DrawLineInput drawingInput;
+        public DrawLine(Game game, DrawLineView drawLineView, DrawLineInput drawingInput)
         {
             this.game = game;
             this.drawLineView = drawLineView;
+            this.drawingInput = drawingInput;
         }
 
+        public async Task HandleDraw()
+        {
+            var endDrawInput = drawingInput.EndDrawInput();
+            while (!endDrawInput.IsCompleted)
+            {
+                var drawInput = drawingInput.DrawInput();
+                await drawInput;
+                await Draw(drawInput.Result.Item1, drawInput.Result.Item2);
+            }
+            await EndDrawing(endDrawInput.Result);
+        }
+        
         public async Task Draw(Player player, Vector2 end)
         {
-            Debug.Log(end);
-            Debug.Log(game.InsideBounds(player, end));
             if (!game.InsideBounds(player, end))
                 return;
             
-            Debug.Log(game.TrampolineOf(player));
-
             game.Draw(player, end);
             await drawLineView.Draw(game.TrampolineOf(player));
         }
 
-        public async Task StopDrawing(Player player)
+        public async Task EndDrawing(Player player)
         {
             if (!game.IsDrawing(player))
                 return;

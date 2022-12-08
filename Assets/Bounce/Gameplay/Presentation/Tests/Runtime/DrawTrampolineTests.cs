@@ -45,5 +45,6 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             Object.FindObjectOfType<LineRenderer>().GetPosition(0).Should().Be(new Vector3(3,3,0));
             Object.FindObjectOfType<LineRenderer>().GetPosition(1).Should().Be(new Vector3(4,4,0));
         }
+        
     }
 }

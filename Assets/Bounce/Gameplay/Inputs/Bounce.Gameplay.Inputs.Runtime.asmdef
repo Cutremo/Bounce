@@ -2,9 +2,9 @@
     "name": "Bounce.Gameplay.Inputs.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:c8ea9a485723a0347881a35edff04da5",
         "GUID:4764913e29b5d97458b0ad11ce20df92",
-        "GUID:66e31060f5d1b0c468d39f745c179957"
+        "GUID:66e31060f5d1b0c468d39f745c179957",
+        "GUID:c8ea9a485723a0347881a35edff04da5"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
