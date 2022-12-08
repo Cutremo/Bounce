@@ -17,8 +17,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             var sketchBook = new Sketchbook();
             var bounds = new Bounds2D(Vector2.Zero, new Vector2(4));
             var area = new Area(sketchBook, bounds);
-            var game = new Game(new Dictionary<Player, Area>() {{player, area}});
-            game.Start(); //Mover a controlador
+            var game = new Game(new Dictionary<Player, Area>() {{player, area}}, 1);
             
             Container.BindInstance(game).AsSingle();
             Container.BindInstance(player).AsSingle();

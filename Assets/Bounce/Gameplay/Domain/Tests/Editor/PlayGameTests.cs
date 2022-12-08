@@ -7,7 +7,7 @@ using NUnit.Framework;
 
 namespace Bounce.Gameplay.Domain.Tests.Editor
 {
-    public class GameTests
+    public class PlayGameTests
     {
         [Test]
         public void StartsGame()
@@ -15,7 +15,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var sut = new Game(new Dictionary<Player, Area>()
                 {{new Player(), new Area(new Sketchbook(), Bounds2D.Infinite)}});
 
-            sut.Start();
+            sut.Begin();
 
             sut.Playing.Should().BeTrue();
         }
@@ -35,7 +35,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var area = new Area(new Sketchbook(), Bounds2D.Infinite);
             var sut = new Game(new Dictionary<Player, Area>() {{player, area}});
-            sut.Start();
+            sut.Begin();
 
             sut.Draw(player, new Vector2(5));
 
@@ -49,7 +49,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var area = new Area(new Sketchbook(), Bounds2D.Infinite);
             var sut = new Game(new Dictionary<Player, Area> {{player, area}});
-            sut.Start();
+            sut.Begin();
             sut.Draw(player, new Vector2(5));
 
             sut.StopDrawing(player);

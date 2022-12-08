@@ -26,6 +26,7 @@ namespace Bounce.Gameplay.Application.Runtime
                 var drawInput = drawingInput.DrawInput();
                 await drawInput;
                 await Draw(drawInput.Result.Item1, drawInput.Result.Item2);
+                await Task.Yield(); //Por que esto tiene que estar aqui para no petar? 
             }
             await EndDrawing(endDrawInput.Result);
         }

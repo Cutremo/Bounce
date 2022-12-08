@@ -8,16 +8,22 @@ namespace Bounce.Gameplay.Domain.Runtime
     public class Game
     {
         readonly IDictionary<Player, Area> areas;
-        public bool Playing { get; private set; } = false;
+        readonly int targetScore;
+        readonly Score score;
+        public bool Playing { get; private set; }
 
-        public Game(IDictionary<Player, Area> areas)
+        
+        //Pasar el int.
+        public Game(IDictionary<Player, Area> areas, int targetScore = int.MaxValue)
         {
             Require(areas).Not.Null();
             Require(areas).Not.Empty();
             this.areas = areas;
+            this.targetScore = targetScore;
+            score = new Score(areas.Keys);
         }
 
-        public void Start()
+        public void Begin()
         {
             Require(Playing).False();
             Playing = true;
@@ -50,5 +56,23 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             return areas[player].InsideBounds(position);
         }
+
+        public void GivePointTo(Player player)
+        {
+            Require(Playing).True();
+            score.GivePointTo(player);
+
+            if (PointsOf(player) >= targetScore)
+            {
+                End();
+            }
+        }
+
+        void End()
+        {
+            Playing = false;
+        }
+
+        public int PointsOf(Player player) => score.PointsOf(player);
     }
 }
