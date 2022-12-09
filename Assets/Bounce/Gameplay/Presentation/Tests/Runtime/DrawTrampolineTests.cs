@@ -46,5 +46,36 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             Object.FindObjectOfType<LineRenderer>().GetPosition(1).Should().Be(new Vector3(4,4,0));
         }
         
+        [Test]
+        public async Task EndDrawTrampolineRemains()
+        {
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(new Vector3(3,3,0));
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(new Vector3(4,4,0));
+            
+            Object.FindObjectOfType<DrawingInput>().SendEndDrawInput();
+
+            await Task.Yield();
+            using var _ = new AssertionScope();
+            Object.FindObjectOfType<LineRenderer>().GetPosition(0).Should().Be(new Vector3(3,3,0));
+            Object.FindObjectOfType<LineRenderer>().GetPosition(1).Should().Be(new Vector3(4,4,0));
+        }
+        
+                
+        [Test]
+        public async Task DrawingAnotherTrampoline()
+        {
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(new Vector3(3,3,0));
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(new Vector3(4,4,0));
+            Object.FindObjectOfType<DrawingInput>().SendEndDrawInput();
+
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(new Vector3(2,2,0));
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(new Vector3(3,3,0));
+            
+            await Task.Delay(500);
+            using var _ = new AssertionScope();
+            Object.FindObjectsOfType<LineRenderer>().Should().HaveCount(1);
+            Object.FindObjectOfType<LineRenderer>().GetPosition(0).Should().Be(new Vector3(2, 2,0));
+            Object.FindObjectOfType<LineRenderer>().GetPosition(1).Should().Be(new Vector3(3,3,0));
+        }
     }
 }

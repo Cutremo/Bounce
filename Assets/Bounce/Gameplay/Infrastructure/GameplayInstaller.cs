@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Bounce.Gameplay.Application.Runtime;
 using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Input.Runtime;
+using Bounce.Gameplay.Presentation.Runtime;
 using JunityEngine.Maths.Runtime;
 using UnityEngine;
 using Zenject;
@@ -27,6 +28,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
 
             Container.Bind<DrawTrampolineInput>().FromComponentInHierarchy().AsSingle();
             Container.Bind<DrawTrampolineView>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<TrampolineView>().FromComponentInHierarchy().AsSingle();
         }
     }
 }
