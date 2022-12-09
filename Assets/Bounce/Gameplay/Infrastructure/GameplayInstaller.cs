@@ -22,10 +22,10 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             Container.BindInstance(game).AsSingle();
             Container.BindInstance(player).AsSingle();
 
-            Container.Bind<DrawLine>().AsSingle().NonLazy();
+            Container.Bind<DrawTrampoline>().AsSingle().NonLazy();
             Container.Bind<Application.Runtime.Gameplay>().AsSingle();
 
-            Container.Bind<DrawLineInput>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<DrawTrampolineInput>().FromComponentInHierarchy().AsSingle();
             Container.Bind<DrawLineView>().FromComponentInHierarchy().AsSingle();
         }
     }

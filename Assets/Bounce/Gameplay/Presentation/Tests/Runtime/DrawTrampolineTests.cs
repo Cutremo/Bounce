@@ -23,8 +23,8 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task DrawTrampoline()
         {
-            Object.FindObjectOfType<DrawingInput>().Draw(Vector3.zero);
-            Object.FindObjectOfType<DrawingInput>().Draw(Vector3.one);
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(Vector3.zero);
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(Vector3.one);
             
             await Task.Yield();
             
@@ -36,8 +36,8 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task DrawOutOfBounds()
         {
-            Object.FindObjectOfType<DrawingInput>().Draw(new Vector3(3,3,0));
-            Object.FindObjectOfType<DrawingInput>().Draw(new Vector3(4,4,0));
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(new Vector3(3,3,0));
+            Object.FindObjectOfType<DrawingInput>().SendDrawInput(new Vector3(4,4,0));
             
             await Task.Yield();
             

@@ -8,22 +8,23 @@ namespace Bounce.Gameplay.Application.Runtime
 {
     public class Gameplay
     {
-        readonly DrawLine drawLine;
+        readonly DrawTrampoline drawTrampoline;
         readonly Game game;
-        public Gameplay(DrawLine drawLine, Game game)
+        public Gameplay(DrawTrampoline drawTrampoline, Game game)
         {
-            this.drawLine = drawLine;
+            this.drawTrampoline = drawTrampoline;
             this.game = game;
         }
 
         public async Task Play()
         {
             game.Begin();
+            drawTrampoline.AllowDraw();
             while (game.Playing)
             {
-                await drawLine.HandleDraw();
                 await Task.Yield();
             }
+            drawTrampoline.DisallowDraw();
         }
 
         //Empezar.
