@@ -26,7 +26,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             Container.Bind<Application.Runtime.Gameplay>().AsSingle();
 
             Container.Bind<DrawTrampolineInput>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<DrawLineView>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<DrawTrampolineView>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

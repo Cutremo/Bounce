@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Bounce.Gameplay.Presentation.Runtime
 {
-    public class LineRendererDrawLine : MonoBehaviour, DrawLineView
+    public class TrampolineRenderer : MonoBehaviour, DrawTrampolineView
     {
         [SerializeField] LineRenderer lineRenderer;
         

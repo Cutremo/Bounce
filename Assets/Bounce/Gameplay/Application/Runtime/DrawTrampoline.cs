@@ -9,32 +9,29 @@ namespace Bounce.Gameplay.Application.Runtime
     public class DrawTrampoline 
     {
         readonly Game game;
-        readonly DrawLineView drawLineView;
+        readonly DrawTrampolineView drawTrampolineView;
         readonly DrawTrampolineInput drawingInput;
-        
-        bool drawing; //Mover a dominio
-        
-        public DrawTrampoline(Game game, DrawLineView drawLineView, DrawTrampolineInput drawingInput)
+        public DrawTrampoline(Game game, DrawTrampolineView drawTrampolineView, DrawTrampolineInput drawingInput)
         {
             this.game = game;
-            this.drawLineView = drawLineView;
+            this.drawTrampolineView = drawTrampolineView;
             this.drawingInput = drawingInput;
         }
 
         public void AllowDraw()
         {
-            if (drawing) return;
-            drawing = true;
+            if (game.CanDraw) return;
             drawingInput.DrawInputReceived += Draw;
             drawingInput.EndDrawInputReceived += EndDraw;
+            game.CanDraw = true;
         }
         
         public void DisallowDraw()
         {
-            if (!drawing) return;
-            drawing = false;
+            if (!game.CanDraw) return;
             drawingInput.DrawInputReceived -= Draw;
             drawingInput.EndDrawInputReceived -= EndDraw;
+            game.CanDraw = false;
         }
         
         void Draw(DrawInputReceivedArgs args)
@@ -43,7 +40,7 @@ namespace Bounce.Gameplay.Application.Runtime
                 return;
             
             game.Draw(args.Actor, args.Position);
-            drawLineView.Draw(game.TrampolineOf(args.Actor));
+            drawTrampolineView.Draw(game.TrampolineOf(args.Actor));
         }
 
         void EndDraw(Player player)
@@ -52,7 +49,7 @@ namespace Bounce.Gameplay.Application.Runtime
                 return;
             
             game.StopDrawing(player);
-            drawLineView.StopDrawing(game.TrampolineOf(player));
+            drawTrampolineView.StopDrawing(game.TrampolineOf(player));
         }
     }
 }
