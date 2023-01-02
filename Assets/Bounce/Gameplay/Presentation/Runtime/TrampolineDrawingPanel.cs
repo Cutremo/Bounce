@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Bounce.Gameplay.Application.Runtime;
 using Bounce.Gameplay.Domain.Runtime;
 using UnityEngine;
@@ -8,6 +9,11 @@ namespace Bounce.Gameplay.Presentation.Runtime
     public class TrampolineDrawingPanel : MonoBehaviour, DrawTrampolineView
     {
         [field: SerializeField] public LineRenderer Trampoline { get; private set; }
+
+        void Start()
+        {
+            Trampoline.positionCount = 0;
+        }
 
         public Task Draw(Trampoline trampoline)
         {

@@ -10,10 +10,8 @@ namespace Bounce.Gameplay.Input.Runtime
 {
     public class DrawingInput : MonoBehaviour, DrawTrampolineInput
     {
-        [Inject] Player player;
-
-        public event Action<DrawInputReceivedArgs> DrawInputReceived;
-        public event Action<Player> EndDrawInputReceived;
+        public event Action<Vector2> DrawInputReceived;
+        public event Action EndDrawInputReceived;
 
         public void Update()
         {
@@ -31,12 +29,12 @@ namespace Bounce.Gameplay.Input.Runtime
 
         public void SendEndDrawInput()
         {
-            EndDrawInputReceived?.Invoke(player);
+            EndDrawInputReceived?.Invoke();
         }
 
         public void SendDrawInput(Vector3 position)
         {
-            DrawInputReceived?.Invoke(new DrawInputReceivedArgs(player, new Vector2(position.x, position.y)));
+            DrawInputReceived?.Invoke(new Vector2(position.x, position.y));
         }
     }
 }

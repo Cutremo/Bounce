@@ -10,8 +10,19 @@ namespace Bounce.Gameplay.Domain.Runtime
         readonly IDictionary<Player, Area> areas;
         readonly int targetScore;
         readonly Score score;
+
+        bool playersEnabled;
         public bool Playing { get; private set; }
-        public bool CanDraw { get; set; }
+
+        public bool PlayersEnabled
+        {
+            get => playersEnabled;
+            set
+            {
+                Require(playersEnabled != value).True();
+                playersEnabled = value;
+            }
+        }
 
         //Pasar el int.
         public Game(IDictionary<Player, Area> areas, int targetScore = int.MaxValue)

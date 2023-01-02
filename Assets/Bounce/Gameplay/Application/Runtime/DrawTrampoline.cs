@@ -5,47 +5,45 @@ using Vector2 = JunityEngine.Maths.Runtime.Vector2;
 
 namespace Bounce.Gameplay.Application.Runtime
 {
-    public class DrawTrampoline 
+    public class  DrawTrampoline 
     {
         readonly Game game;
+        readonly Player player;
         readonly DrawTrampolineView drawTrampolineView;
         readonly TrampolineView trampolineView;
         readonly DrawTrampolineInput drawingInput;
-        public DrawTrampoline(Game game, DrawTrampolineView drawTrampolineView, TrampolineView trampolineView, DrawTrampolineInput drawingInput)
+        public DrawTrampoline(Game game, Player player, DrawTrampolineView drawTrampolineView, TrampolineView trampolineView, DrawTrampolineInput drawingInput)
         {
             this.game = game;
+            this.player = player;
             this.drawTrampolineView = drawTrampolineView;
             this.trampolineView = trampolineView;
             this.drawingInput = drawingInput;
         }
 
-        public void AllowDraw()
+        public void EnableDraw()
         {
-            if (game.CanDraw) return;
             drawingInput.DrawInputReceived += Draw;
             drawingInput.EndDrawInputReceived += EndDraw;
-            game.CanDraw = true;
         }
         
-        public void DisallowDraw()
+        public void DisableDraw()
         {
-            if (!game.CanDraw) return;
             drawingInput.DrawInputReceived -= Draw;
             drawingInput.EndDrawInputReceived -= EndDraw;
-            game.CanDraw = false;
-        }
-        
-        void Draw(DrawInputReceivedArgs args)
-        {
-            if (!game.InsideBounds(args.Actor, args.Position))
-                return;
-            
-            trampolineView.RemoveCurrent(args.Actor);
-            game.Draw(args.Actor, args.Position);
-            drawTrampolineView.Draw(game.TrampolineOf(args.Actor));
         }
 
-        void EndDraw(Player player)
+        void Draw(Vector2 position)
+        {
+            if (!game.InsideBounds(player, position))
+                return;
+            
+            trampolineView.RemoveCurrent(player);
+            game.Draw(player, position);
+            drawTrampolineView.Draw(game.TrampolineOf(player));
+        }
+
+        void EndDraw()
         {
             if (!game.IsDrawing(player))
                 return;

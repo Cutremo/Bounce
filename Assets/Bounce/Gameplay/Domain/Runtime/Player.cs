@@ -2,9 +2,11 @@
 {
     public class Player
     {
-        public Player()
-        {
+        public string Id { get; }
 
+        public Player(string id = "")
+        {
+            Id = id;
         }
     }
 }

@@ -8,25 +8,23 @@ namespace Bounce.Gameplay.Application.Runtime
 {
     public class Gameplay
     {
-        readonly DrawTrampoline drawTrampoline;
+        readonly PlayersController playersController;
         readonly Game game;
-        public Gameplay(DrawTrampoline drawTrampoline, Game game)
+        public Gameplay(PlayersController playersController, Game game)
         {
-            this.drawTrampoline = drawTrampoline;
+            this.playersController = playersController;
             this.game = game;
         }
 
         public async Task Play()
         {
             game.Begin();
-            drawTrampoline.AllowDraw();
+            playersController.EnablePlayers();
             while (game.Playing)
             {
                 await Task.Yield();
             }
-            drawTrampoline.DisallowDraw();
+            playersController.DisablePlayers();
         }
-
-        //Empezar.
     }
 }

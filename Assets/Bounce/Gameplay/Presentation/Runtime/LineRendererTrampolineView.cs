@@ -16,6 +16,7 @@ namespace Bounce.Gameplay.Presentation.Runtime
         public Task Add(Player _0, Trampoline _1)
         {
             trampoline = Instantiate(drawingPanel.Trampoline.gameObject, transform);
+            trampoline.name = "Trampoline";
             return Task.CompletedTask;
         }
 

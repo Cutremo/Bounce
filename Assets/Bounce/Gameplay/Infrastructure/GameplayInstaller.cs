@@ -12,23 +12,44 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
 {
     public class GameplayInstaller : MonoInstaller
     {
+        [SerializeField] GameObject playerPrefab;
         public override void InstallBindings()
         {
-            var player = new Player();
-            var sketchBook = new Sketchbook();
-            var bounds = new Bounds2D(Vector2.Zero, new Vector2(4));
-            var area = new Area(sketchBook, bounds);
-            var game = new Game(new Dictionary<Player, Area>() {{player, area}}, 1);
+            var player0 = new Player("player0");
+            var sketchBook0 = new Sketchbook {MaxTrampolineLength = 3};
+            var bounds0 = new Bounds2D(Vector2.Zero, new Vector2(4));
+            var area0 = new Area(sketchBook0, bounds0);
+            
+            var player1 = new Player("player1");
+            var sketchBook1 = new Sketchbook {MaxTrampolineLength = 3};
+            var bounds1 = new Bounds2D(new Vector2(-4), Vector2.Zero);
+            var area1 = new Area(sketchBook1, bounds1);
+            
+            var players = new List<Player>();
+            players.Add(player0);
+            players.Add(player1);
+            
+            var game = new Game(new Dictionary<Player, Area>() {{player0, area0}, {player1, area1}}, 1);
             
             Container.BindInstance(game).AsSingle();
-            Container.BindInstance(player).AsSingle();
 
-            Container.Bind<DrawTrampoline>().AsSingle().NonLazy();
-            Container.Bind<Application.Runtime.Gameplay>().AsSingle();
+            Container.Bind<PlayersController>().AsSingle().NonLazy();
 
-            Container.Bind<DrawTrampolineInput>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<DrawTrampolineView>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<TrampolineView>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<Application.Runtime.Gameplay>().AsSingle().NonLazy();
+            
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByMethod(subContainer => InstallPlayer(player0, subContainer)).AsTransient();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByMethod(subContainer => InstallPlayer(player1, subContainer)).AsTransient();
+        }
+
+        void InstallPlayer(Player player, DiContainer subcontainer)
+        {
+            subcontainer.BindInstance(player);
+            var playerInstance = Instantiate(playerPrefab);
+            playerInstance.name = player.Id;
+            subcontainer.Bind<DrawTrampoline>().AsSingle();
+            subcontainer.Bind<DrawTrampolineInput>().FromInstance(playerInstance.GetComponent<DrawTrampolineInput>()).AsSingle();
+            subcontainer.Bind<DrawTrampolineView>().FromInstance(playerInstance.GetComponent<DrawTrampolineView>()).AsSingle();
+            subcontainer.Bind<TrampolineView>().FromInstance(playerInstance.GetComponent<TrampolineView>()).AsSingle();
         }
     }
 }

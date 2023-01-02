@@ -7,7 +7,7 @@ namespace Bounce.Gameplay.Input.Runtime
 {
     public interface DrawTrampolineInput
     {
-        public event Action<DrawInputReceivedArgs> DrawInputReceived; 
-        public event Action<Player> EndDrawInputReceived;
+        public event Action<Vector2> DrawInputReceived; 
+        public event Action EndDrawInputReceived;
     }
 }
