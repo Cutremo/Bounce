@@ -1,4 +1,6 @@
 using System;
+using RGV.DesignByContract.Runtime;
+using static RGV.DesignByContract.Runtime.Contract;
 
 namespace JunityEngine.Maths.Runtime
 {
@@ -29,16 +31,54 @@ namespace JunityEngine.Maths.Runtime
             Y = y;
         }
         
+        public Vector2(float size, Vector2 direction)
+        {
+            Require(direction.Normalized).True();
+            
+            X = direction.X * size;
+            Y = direction.Y * size;
+        }
+
+        
         public static Vector2 operator + (Vector2 a, Vector2 b) => new(a.X + b.X, a.Y + b.Y);
 
         public static Vector2 operator - (Vector2 a, Vector2 b) => new(a.X - b.X, a.Y - b.Y);
         public static Vector2 operator * (Vector2 v, int t) => new(v.X * t, v.Y * t);
+        public static Vector2 operator * (Vector2 v, float t) => new(v.X * t, v.Y * t);
+        public static Vector2 operator * (int t, Vector2 v) => new(v.X * t, v.Y * t);
+        public static Vector2 operator * (float t, Vector2 v) => new(v.X * t, v.Y * t);
         public Vector2 To(Vector2 other) => other - this;
-        public Vector2 Normalized => new(X / Size, Y / Size);
+        public bool Normalized => Equals(this, Normalize);
+        public Vector2 Normalize => new(X / Size, Y / Size);
         public Vector2 WithSymmetryOnYAxis => new(-X, Y);
         public Vector2 WithSymmetryOnXAxis => new(X, -Y);
         public Vector2 Reverse => new(-X, -Y);
 
         public override string ToString() => "(" + X + ", " + Y +")";
+
+        public bool Equals(Vector2 other)
+        {
+            return X.Equals(other.X) && Y.Equals(other.Y);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Vector2 other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(X, Y);
+        }
+
+        public static bool operator ==(Vector2 left, Vector2 right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Vector2 left, Vector2 right)
+        {
+            return !left.Equals(right);
+        }
     }
 }

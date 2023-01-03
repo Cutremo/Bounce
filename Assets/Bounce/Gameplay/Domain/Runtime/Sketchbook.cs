@@ -21,7 +21,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         Vector2 CalcOrigin(Vector2 end)
         {
             return Result.Origin.To(end).Size > MaxTrampolineLength
-                ? end + (end.To(Result.Origin).Normalized * MaxTrampolineLength)
+                ? end + (end.To(Result.Origin).Normalize * MaxTrampolineLength)
                 : Result.Origin;
         }
 
