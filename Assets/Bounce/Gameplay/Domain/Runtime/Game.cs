@@ -96,11 +96,16 @@ namespace Bounce.Gameplay.Domain.Runtime
             }
         }
 
-        void End()
+        public void End()
         {
             Playing = false;
         }
 
         public int PointsOf(Player player) => score.PointsOf(player);
+
+        public void SimulateBall(float seconds)
+        {
+            pitch.SimulateBall(seconds);
+        }
     }
 }

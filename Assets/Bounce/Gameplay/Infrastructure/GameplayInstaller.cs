@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using Bounce.Gameplay.Application.Runtime;
 using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Input.Runtime;
@@ -43,6 +44,8 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByMethod(subContainer => InstallPlayer(player1, subContainer)).AsTransient();
             Container.Bind<DropBall>().AsSingle();
             Container.Bind<BallsView>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<MoveBall>().AsSingle();
+            Container.BindInstance(new CancellationTokenSource());
         }
 
         void InstallPlayer(Player player, DiContainer subcontainer)

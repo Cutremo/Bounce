@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
 using Zenject;
 
@@ -8,9 +9,15 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
     {
         [Inject] readonly Application.Runtime.Gameplay gameplay;
 
+        [Inject] CancellationTokenSource cancellationTokenSource;
         async void Start()
         {
-            await gameplay.Play();
+            await gameplay.Play(cancellationTokenSource.Token);
+        }
+
+        void OnDestroy()
+        {
+            gameplay.Quit();
         }
     }
 }

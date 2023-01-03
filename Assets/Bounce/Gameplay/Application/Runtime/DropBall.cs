@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
 
 namespace Bounce.Gameplay.Application.Runtime
@@ -14,10 +15,10 @@ namespace Bounce.Gameplay.Application.Runtime
             this.ballsView = ballsView;
         }
 
-        public async Task Run()
+        public async Task Run(CancellationToken cancellationToken)
         {
             game.DropBall();
-            await ballsView.DropBall(game.Ball);
+            await ballsView.DropBall(game.Ball, cancellationToken);
         }
     }
 }

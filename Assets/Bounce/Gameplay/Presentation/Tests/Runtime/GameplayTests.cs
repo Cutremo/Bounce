@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Input.Runtime;
@@ -24,7 +25,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             yield return null;
             yield return null;
         }
-        
+
         [Test]
         public async Task SecondPlayerPlays()
         {

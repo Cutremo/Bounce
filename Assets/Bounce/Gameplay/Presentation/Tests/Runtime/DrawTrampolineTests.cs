@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
@@ -26,6 +27,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             lineRenderer = player.GetComponentInChildren<LineRenderer>();
             yield return null;
         }
+        
         
         [Test]
         public async Task DrawTrampoline()
