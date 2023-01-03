@@ -16,18 +16,12 @@ namespace Bounce.Gameplay.Presentation.Runtime
         public async Task DropBall(Ball ball, CancellationToken cancellationToken)
         {
             instance = Instantiate(prefab, new Vector3(ball.Position.X, ball.Position.Y, 0), Quaternion.identity);
-            var endScale = ball.Diameter;
-            
-            instance.transform.localScale = Vector3.one * 0.5f * endScale;
-            var sequence = DOTween.Sequence();
-            sequence.Append(instance.transform.DOScale(Vector3.one * 3 * endScale, 1f))
-                .Append(instance.transform.DOScale(Vector3.one * endScale, 0.66f));
-            await sequence.AsTask(cancellationToken);
+            await instance.ShowAnimation(ball, cancellationToken);
         }
 
         public void MoveBall(Ball ball)
         {
-            instance.transform.position = new Vector3(ball.Position.X, ball.Position.Y, 0);
+            instance.MoveTo(new Vector3(ball.Position.X, ball.Position.Y, 0));
         }
     }
 }
