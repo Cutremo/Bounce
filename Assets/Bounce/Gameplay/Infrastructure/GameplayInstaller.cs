@@ -46,6 +46,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             Container.Bind<BallsView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<MoveBall>().AsSingle();
             Container.BindInstance(new CancellationTokenSource());
+            Container.Bind<EndGame>().AsSingle();
         }
 
         void InstallPlayer(Player player, DiContainer subcontainer)
