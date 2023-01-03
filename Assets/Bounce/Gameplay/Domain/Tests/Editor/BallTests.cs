@@ -90,6 +90,21 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Position.Should().Be(Vector2.Half);
         }
+
+        [Test]
+        public void BallWithMoreSpeed()
+        {
+            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(5)));
+            var sut = new Ball(Vector2.Zero, Vector2.Right, 1);
+            sut.Speed = 3;
+            field.DropBall(sut);
+            
+            field.MoveBall(sut, 1f);
+
+            sut.Position.Should().Be(new Vector2(3, 0));
+        }
+        
         //Double bounce edge case
+        //Cambia de direccion al rebotar
     }
 }

@@ -14,18 +14,18 @@ namespace Bounce.Gameplay.Domain.Runtime
             this.bounds = bounds;
         }
 
-        public void MoveBall(Ball ball, float amount)
+        public void MoveBall(Ball ball, float seconds)
         {
             Contract.Require(balls.Contains(ball)).True();
             
-            var targetPosition = BouncePosition(ball, amount);
+            var targetPosition = PositionAfterCollisions(ball, seconds);
 
             ball.Position = targetPosition;
         }
 
-        Vector2 BouncePosition(Ball ball, float amount)
+        Vector2 PositionAfterCollisions(Ball ball, float seconds)
         {
-            var idealPosition = ball.Position + ball.Orientation * amount;
+            var idealPosition = ball.Position + ball.Orientation * seconds * ball.Speed;
             var targetPosition = idealPosition;
             
             if(bounds.OnRight(idealPosition + new Vector2(ball.Radius, 0)))
