@@ -15,7 +15,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             
             sut.DropBall(new Ball(Vector2.Zero));
 
-            sut.Balls.Count().Should().Be(1);
+            sut.Ball.Should().NotBeNull();
         }
 
         [Test]
@@ -25,7 +25,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var sut = new Ball(Vector2.Zero, Vector2.Right);
             field.DropBall(sut);
             
-            field.MoveBall(sut, 2f);
+            field.SimulateBall(2f);
 
             sut.Position.Should().Be(new Vector2(2, 0));
         }
@@ -37,7 +37,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var sut = new Ball(Vector2.Zero, Vector2.Right);
             field.DropBall(sut);
             
-            field.MoveBall(sut, 3f);
+            field.SimulateBall(3f);
 
             sut.Position.Should().Be(new Vector2(1, 0));
         }
@@ -49,7 +49,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var sut = new Ball(Vector2.Right, Vector2.Left);
             field.DropBall(sut);
             
-            field.MoveBall(sut, 3f);
+            field.SimulateBall(3f);
 
             sut.Position.Should().Be(new Vector2(2, 0));
         }
@@ -61,7 +61,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var sut = new Ball(Vector2.Zero, Vector2.One.Normalize);
             field.DropBall(sut);
             
-            field.MoveBall(sut, 1);
+            field.SimulateBall(1);
 
             sut.Position.Should().Be(new Vector2(1, Vector2.One.Normalize));
         }
@@ -73,7 +73,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var sut = new Ball(Vector2.Half, Vector2.Right, 1);
             field.DropBall(sut);
             
-            field.MoveBall(sut, 0.5f);
+            field.SimulateBall(0.5f);
 
             sut.Position.Should().Be(Vector2.Half);
         }
@@ -86,7 +86,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var sut = new Ball(Vector2.Half, Vector2.Left, 1);
             field.DropBall(sut);
             
-            field.MoveBall(sut, 0.5f);
+            field.SimulateBall(0.5f);
 
             sut.Position.Should().Be(Vector2.Half);
         }
@@ -99,7 +99,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             sut.Speed = 3;
             field.DropBall(sut);
             
-            field.MoveBall(sut, 1f);
+            field.SimulateBall(1f);
 
             sut.Position.Should().Be(new Vector2(3, 0));
         }
@@ -110,9 +110,9 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(1)));
             var sut = new Ball(Vector2.Half, Vector2.Right);
             field.DropBall(sut);
-            field.MoveBall(sut, 1);
+            field.SimulateBall(1);
             
-            field.MoveBall(sut, 0.1f);
+            field.SimulateBall(0.1f);
 
             sut.Position.Should().Be(new Vector2(0.4f, 0.5f));
         }

@@ -41,5 +41,6 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             GameObject.Find("player1").GetComponentInChildren<LineRenderer>().GetPosition(0).Should().Be(new Vector3(3,3,0));
             GameObject.Find("player1").GetComponentInChildren<LineRenderer>().GetPosition(1).Should().Be(new Vector3(4,4,0));
         }
+        
     }
 }

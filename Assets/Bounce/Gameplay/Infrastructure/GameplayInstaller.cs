@@ -6,6 +6,7 @@ using Bounce.Gameplay.Presentation.Runtime;
 using JunityEngine.Maths.Runtime;
 using UnityEngine;
 using Zenject;
+using BallsView = Bounce.Gameplay.Application.Runtime.BallsView;
 using Vector2 = JunityEngine.Maths.Runtime.Vector2;
 
 namespace Bounce.Gameplay.Infrastructure.Runtime
@@ -40,6 +41,8 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             
             Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByMethod(subContainer => InstallPlayer(player0, subContainer)).AsTransient();
             Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByMethod(subContainer => InstallPlayer(player1, subContainer)).AsTransient();
+            Container.Bind<DropBall>().AsSingle();
+            Container.Bind<BallsView>().FromComponentInHierarchy().AsSingle();
         }
 
         void InstallPlayer(Player player, DiContainer subcontainer)

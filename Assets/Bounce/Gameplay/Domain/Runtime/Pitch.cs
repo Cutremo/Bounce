@@ -6,7 +6,8 @@ namespace Bounce.Gameplay.Domain.Runtime
 {
     public class Pitch
     {
-        readonly List<Ball> balls = new();
+        public Ball Ball { get; private set; }
+        
         readonly Bounds2D bounds;
         public Vector2 Center => bounds.Center;
         public Pitch(Bounds2D bounds)
@@ -14,18 +15,18 @@ namespace Bounce.Gameplay.Domain.Runtime
             this.bounds = bounds;
         }
 
-        public void MoveBall(Ball ball, float seconds)
+        public void SimulateBall(float seconds)
         {
-            Contract.Require(balls.Contains(ball)).True();
+            Contract.Require(this.Ball).Not.Null();
             
-            var idealPosition = ball.Position + ball.Orientation * seconds * ball.Speed;
+            var idealPosition = Ball.Position + Ball.Orientation * seconds * Ball.Speed;
 
-            var targetPosition = PositionAfterCollisions(idealPosition, ball.Radius);
+            var targetPosition = PositionAfterCollisions(idealPosition, Ball.Radius);
 
             if(idealPosition != targetPosition)
-                ball.Orientation = ball.Orientation.SymmetricOnYAxis;
+                Ball.Orientation = Ball.Orientation.SymmetricOnYAxis;
 
-            ball.Position = targetPosition;
+            Ball.Position = targetPosition;
         }
 
         Vector2 PositionAfterCollisions(Vector2 idealPosition, float radius)
@@ -39,13 +40,13 @@ namespace Bounce.Gameplay.Domain.Runtime
             
             return targetPosition;
         }
-
-        public IEnumerable<Ball> Balls => balls;
-
+        
         public void DropBall(Ball ball)
         {
             Contract.Require(bounds.Contains(ball.Position)).True();
-            balls.Add(ball);
+            Contract.Require(this.Ball == null).True();
+
+            this.Ball = ball;
         }
 
         public bool Contains(Area area) => bounds.Contains(area.Bounds);

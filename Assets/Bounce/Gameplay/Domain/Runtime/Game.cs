@@ -25,6 +25,8 @@ namespace Bounce.Gameplay.Domain.Runtime
             }
         }
 
+        public Ball Ball => pitch.Ball;
+
         //Pasar el int.
         public Game(Pitch pitch, IDictionary<Player, Area> pairs, int targetScore = int.MaxValue)
         {
@@ -47,7 +49,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void DropBall()
         {
-            var ball = new Ball(pitch.Center, Vector2.Up, 0.25f)
+            var ball = new Ball(pitch.Center, Vector2.Up, 0.75f)
             {
                 Speed = 1
             };

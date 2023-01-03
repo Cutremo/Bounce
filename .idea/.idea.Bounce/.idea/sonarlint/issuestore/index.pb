@@ -89,8 +89,6 @@ h
 8Assets/JunityEngine/Commons/Tests/Editor/Bounds2DTest.cs,4\8\4877b11f35b3bd4975269a97cf8bcb290f46012a
 ì
 cAssets/Bounce/Gameplay/Presentation/Tests/Runtime/Bounce.Gameplay.Presentation.Tests.Runtime.asmdef,9\4\94b7fc0bc1ba03d402a943745b8f4b69b01a338f
-á
-WAssets/Bounce/Gameplay/Presentation/Runtime/Bounce.Gameplay.Presentation.Runtime.asmdef,b\2\b2b5722e5339ea4e90069a50a25b7f1042258cb2
 Y
 )ProjectSettings/EditorBuildSettings.asset,f\9\f968d6b48da1ab8199dcd0d76fda71b42abb7187
 Å
@@ -105,8 +103,6 @@ c
 KAssets/Bounce/Gameplay/Domain/Runtime/Bounce.Gameplay.Domain.Runtime.asmdef,a\e\ae2f0e55732746ef8811712f9251085a060bdecc
 s
 CAssets/Bounce/Gameplay/Inputs/Bounce.Gameplay.Inputs.Runtime.asmdef,a\9\a9cbd6f41d2d3afa4ccdf5d7decff793c45df096
-h
-8Assets/Bounce/Gameplay/Infrastructure/GameInitializer.cs,e\a\ea5660bd1d7c56e616f8b9ec38af0dd20431a623
 ^
 .Assets/Bounce/Gameplay/Domain/Runtime/Score.cs,0\2\02284d64a5a10b0babecd9bbe4e9e0b9960559c8
 l

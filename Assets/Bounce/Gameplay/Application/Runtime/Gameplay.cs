@@ -9,10 +9,12 @@ namespace Bounce.Gameplay.Application.Runtime
     public class Gameplay
     {
         readonly PlayersController playersController;
+        readonly DropBall dropBall;
         readonly Game game;
-        public Gameplay(PlayersController playersController, Game game)
+        public Gameplay(PlayersController playersController, DropBall dropBall, Game game)
         {
             this.playersController = playersController;
+            this.dropBall = dropBall;
             this.game = game;
         }
 
@@ -20,6 +22,7 @@ namespace Bounce.Gameplay.Application.Runtime
         {
             game.Begin();
             playersController.EnablePlayers();
+            await dropBall.Run();
             while (game.Playing)
             {
                 await Task.Yield();

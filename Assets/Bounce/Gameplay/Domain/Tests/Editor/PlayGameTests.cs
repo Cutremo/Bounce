@@ -9,10 +9,11 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 {
     public class PlayGameTests
     {
+        Bounds2D Bounds => new Bounds2D(Vector2.NegativeInfinite, Vector2.Infinite);
         [Test]
         public void StartsGame()
         {
-            var sut = new Game(new Pitch(new Bounds2D()), new Dictionary<Player, Area>()
+            var sut = new Game(new Pitch(Bounds), new Dictionary<Player, Area>()
                 {{new Player(), new Area(new Sketchbook(), Bounds2D.Infinite)}});
 
             sut.Begin();
@@ -23,7 +24,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void NotPlayingByDefault()
         {
-            var sut = new Game(new Pitch(new Bounds2D()),new Dictionary<Player, Area>()
+            var sut = new Game(new Pitch(Bounds),new Dictionary<Player, Area>()
                 {{new Player(), new Area(new Sketchbook(), Bounds2D.Infinite)}});
 
             sut.Playing.Should().BeFalse();
@@ -34,7 +35,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = new Area(new Sketchbook(), Bounds2D.Infinite);
-            var sut = new Game(new Pitch(new Bounds2D()), 
+            var sut = new Game(new Pitch(Bounds), 
                 new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}}));
             sut.Begin();
 
@@ -49,8 +50,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = new Area(new Sketchbook(), Bounds2D.Infinite);
-            var sut = new Game(new Pitch(new Bounds2D()),
-                new Dictionary<Player, Area> {{player, area}});
+            var sut = new Game(new Pitch(Bounds), new Dictionary<Player, Area> {{player, area}});
             sut.Begin();
             sut.Draw(player, new Vector2(5));
 
