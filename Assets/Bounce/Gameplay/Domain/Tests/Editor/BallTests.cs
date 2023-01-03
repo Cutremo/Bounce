@@ -70,7 +70,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void BallWithSizeBounceRight()
         {
             var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(1)));
-            var sut = new Ball(Vector2.Half, Vector2.Right, 1);
+            var sut = new Ball(Vector2.Half, Vector2.Right, 0.5f);
             field.DropBall(sut);
             
             field.SimulateBall(0.5f);
@@ -83,7 +83,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void BallWithSizeBounceLeft()
         {
             var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(1)));
-            var sut = new Ball(Vector2.Half, Vector2.Left, 1);
+            var sut = new Ball(Vector2.Half, Vector2.Left, 0.5f);
             field.DropBall(sut);
             
             field.SimulateBall(0.5f);
