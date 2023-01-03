@@ -46,6 +46,8 @@ namespace JunityEngine.Maths.Runtime
         public static Vector2 operator - (Vector2 a, Vector2 b) => new(a.X - b.X, a.Y - b.Y);
         public static Vector2 operator * (Vector2 v, int t) => new(v.X * t, v.Y * t);
         public static Vector2 operator * (Vector2 v, float t) => new(v.X * t, v.Y * t);
+        public static Vector2 operator / (Vector2 v, int d) => new(v.X / d, v.Y / d);
+        public static Vector2 operator / (Vector2 v, float d) => new(v.X / d, v.Y / d);
         public static Vector2 operator * (int t, Vector2 v) => new(v.X * t, v.Y * t);
         public static Vector2 operator * (float t, Vector2 v) => new(v.X * t, v.Y * t);
         public Vector2 To(Vector2 other) => other - this;

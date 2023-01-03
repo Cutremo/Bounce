@@ -29,7 +29,9 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var area0 = new Area(new Sketchbook(), Bounds2D.Infinite);
             var player1 = new Player();
             var area1 = new Area(new Sketchbook(), Bounds2D.Infinite);
-            var sut = new Game(new Dictionary<Player, Area> {{player0, area0}, {player1, area1}}, 1);
+            var sut = new Game(new Pitch(new Bounds2D()), 
+                new Dictionary<Player, Area> {{player0, area0}, {player1, area1}},
+                1);
             sut.Begin();
             
             sut.GivePointTo(player0);

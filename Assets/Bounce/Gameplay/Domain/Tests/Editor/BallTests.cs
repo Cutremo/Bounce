@@ -11,7 +11,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void DropBall()
         {
-            var sut = new Field(new Bounds2D(Vector2.Zero, Vector2.One));
+            var sut = new Pitch(new Bounds2D(Vector2.Zero, Vector2.One));
             
             sut.DropBall(new Ball(Vector2.Zero));
 
@@ -21,7 +21,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void MoveBall()
         {
-            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(5)));
+            var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(5)));
             var sut = new Ball(Vector2.Zero, Vector2.Right);
             field.DropBall(sut);
             
@@ -33,7 +33,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void BounceOnRightEdge()
         {
-            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(2)));
+            var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(2)));
             var sut = new Ball(Vector2.Zero, Vector2.Right);
             field.DropBall(sut);
             
@@ -45,7 +45,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void BounceOnLeftEdge()
         {
-            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(2)));
+            var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(2)));
             var sut = new Ball(Vector2.Right, Vector2.Left);
             field.DropBall(sut);
             
@@ -57,7 +57,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void DiagonalMovement()
         {
-            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(2)));
+            var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(2)));
             var sut = new Ball(Vector2.Zero, Vector2.One.Normalize);
             field.DropBall(sut);
             
@@ -69,7 +69,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void BallWithSizeBounceRight()
         {
-            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(1)));
+            var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(1)));
             var sut = new Ball(Vector2.Half, Vector2.Right, 1);
             field.DropBall(sut);
             
@@ -82,7 +82,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void BallWithSizeBounceLeft()
         {
-            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(1)));
+            var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(1)));
             var sut = new Ball(Vector2.Half, Vector2.Left, 1);
             field.DropBall(sut);
             
@@ -94,7 +94,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void BallWithMoreSpeed()
         {
-            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(5)));
+            var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(5)));
             var sut = new Ball(Vector2.Zero, Vector2.Right, 1);
             sut.Speed = 3;
             field.DropBall(sut);
@@ -107,7 +107,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void ChangesDirectionAfterBounce()
         {
-            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(1)));
+            var field = new Pitch(new Bounds2D(Vector2.Zero, new Vector2(1)));
             var sut = new Ball(Vector2.Half, Vector2.Right);
             field.DropBall(sut);
             field.MoveBall(sut, 1);

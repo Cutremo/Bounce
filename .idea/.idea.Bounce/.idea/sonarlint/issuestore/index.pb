@@ -99,8 +99,6 @@ QAssets/JunityEngine/Commons/Tests/Editor/JunityEngine.Commons.Tests.Editor.asmd
 UAssets/Bounce/Gameplay/Domain/Tests/Editor/Bounce.Gameplay.Domain.Tests.Editor.asmdef,6\e\6e9cee4cf3408cf02e1122f3902105929c850c53
 h
 8Assets/Bounce/Gameplay/Domain/Runtime/Trampoline.Null.cs,0\6\062172ab500bc5d23aedd29da384663c42215ff4
-]
--Assets/Bounce/Gameplay/Domain/Runtime/Area.cs,a\3\a3db6f7e4de1fca8abcb870eea7b79fc1a097bcd
 c
 3Assets/Bounce/Gameplay/Domain/Runtime/Trampoline.cs,a\f\afd03ae818417119b4c0b06b229e5fcf4bf8d5bf
 {
@@ -109,8 +107,6 @@ s
 CAssets/Bounce/Gameplay/Inputs/Bounce.Gameplay.Inputs.Runtime.asmdef,a\9\a9cbd6f41d2d3afa4ccdf5d7decff793c45df096
 h
 8Assets/Bounce/Gameplay/Infrastructure/GameInitializer.cs,e\a\ea5660bd1d7c56e616f8b9ec38af0dd20431a623
-k
-;Assets/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests.cs,b\5\b5067395330a237348fe30a35905e9a169741495
 ^
 .Assets/Bounce/Gameplay/Domain/Runtime/Score.cs,0\2\02284d64a5a10b0babecd9bbe4e9e0b9960559c8
 l

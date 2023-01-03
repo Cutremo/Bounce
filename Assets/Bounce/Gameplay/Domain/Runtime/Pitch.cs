@@ -4,12 +4,12 @@ using RGV.DesignByContract.Runtime;
 
 namespace Bounce.Gameplay.Domain.Runtime
 {
-    public class Field
+    public class Pitch
     {
         readonly List<Ball> balls = new();
         readonly Bounds2D bounds;
-        
-        public Field(Bounds2D bounds)
+        public Vector2 Center => bounds.Center;
+        public Pitch(Bounds2D bounds)
         {
             this.bounds = bounds;
         }
@@ -47,5 +47,7 @@ namespace Bounce.Gameplay.Domain.Runtime
             Contract.Require(bounds.Contains(ball.Position)).True();
             balls.Add(ball);
         }
+
+        public bool Contains(Area area) => bounds.Contains(area.Bounds);
     }
 }

@@ -14,7 +14,8 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public bool InsideBounds(Vector2 end) => bounds.Contains(end);
         public bool Drawing => sketchbook.Drawing;
-        
+        public Bounds2D Bounds => bounds;
+
         public Area(Sketchbook sketchbook, Bounds2D bounds)
         {
             this.sketchbook = sketchbook;

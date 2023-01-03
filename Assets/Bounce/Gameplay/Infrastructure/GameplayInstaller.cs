@@ -17,19 +17,20 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
         {
             var player0 = new Player("player0");
             var sketchBook0 = new Sketchbook {MaxTrampolineLength = 3};
-            var bounds0 = new Bounds2D(Vector2.Zero, new Vector2(4));
+            var bounds0 = new Bounds2D(new Vector2(-5, -8), new Vector2(5, -2));
             var area0 = new Area(sketchBook0, bounds0);
             
             var player1 = new Player("player1");
             var sketchBook1 = new Sketchbook {MaxTrampolineLength = 3};
-            var bounds1 = new Bounds2D(new Vector2(-4), Vector2.Zero);
+            var bounds1 = new Bounds2D(new Vector2(-5, 2), new Vector2(5, 8));
             var area1 = new Area(sketchBook1, bounds1);
             
             var players = new List<Player>();
             players.Add(player0);
             players.Add(player1);
-            
-            var game = new Game(new Dictionary<Player, Area>() {{player0, area0}, {player1, area1}}, 1);
+
+            var pitch = new Pitch(new Bounds2D(new Vector2(-5, -8), new Vector2(5, 8)));
+            var game = new Game(pitch, new Dictionary<Player, Area>() {{player0, area0}, {player1, area1}}, 1);
             
             Container.BindInstance(game).AsSingle();
 

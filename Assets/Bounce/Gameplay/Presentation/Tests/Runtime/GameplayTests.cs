@@ -28,18 +28,18 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task SecondPlayerPlays()
         {
-            GameObject.Find("player0").GetComponentInChildren<DrawingInput>().SendDrawInput(new Vector3(3,3,0));
-            GameObject.Find("player0").GetComponentInChildren<DrawingInput>().SendDrawInput(new Vector3(4,4,0));
+            GameObject.Find("player0").GetComponentInChildren<DrawingInput>().SendDrawInput(new Vector3(-3,-3,0));
+            GameObject.Find("player0").GetComponentInChildren<DrawingInput>().SendDrawInput(new Vector3(-4,-4,0));
 
-            GameObject.Find("player1").GetComponentInChildren<DrawingInput>().SendDrawInput(new Vector3(-1,-1,0));
-            GameObject.Find("player1").GetComponentInChildren<DrawingInput>().SendDrawInput(new Vector3(-2,-2,0));
+            GameObject.Find("player1").GetComponentInChildren<DrawingInput>().SendDrawInput(new Vector3(3,3,0));
+            GameObject.Find("player1").GetComponentInChildren<DrawingInput>().SendDrawInput(new Vector3(4,4,0));
 
             await Task.Delay(500);
             using var _ = new AssertionScope();
-            GameObject.Find("player0").GetComponentInChildren<LineRenderer>().GetPosition(0).Should().Be(new Vector3(3, 3, 0));
-            GameObject.Find("player0").GetComponentInChildren<LineRenderer>().GetPosition(1).Should().Be(new Vector3(4, 4, 0));
-            GameObject.Find("player1").GetComponentInChildren<LineRenderer>().GetPosition(0).Should().Be(new Vector3(-1,-1,0));
-            GameObject.Find("player1").GetComponentInChildren<LineRenderer>().GetPosition(1).Should().Be(new Vector3(-2,-2,0));
+            GameObject.Find("player0").GetComponentInChildren<LineRenderer>().GetPosition(0).Should().Be(new Vector3(-3,-3,0));
+            GameObject.Find("player0").GetComponentInChildren<LineRenderer>().GetPosition(1).Should().Be(new Vector3(-4,-4, 0));
+            GameObject.Find("player1").GetComponentInChildren<LineRenderer>().GetPosition(0).Should().Be(new Vector3(3,3,0));
+            GameObject.Find("player1").GetComponentInChildren<LineRenderer>().GetPosition(1).Should().Be(new Vector3(4,4,0));
         }
     }
 }

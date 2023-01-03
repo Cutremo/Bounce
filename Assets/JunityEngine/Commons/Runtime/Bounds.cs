@@ -7,6 +7,7 @@ namespace JunityEngine.Maths.Runtime
         public static Bounds2D Infinite => new Bounds2D(Vector2.NegativeInfinite, Vector2.Infinite);
         public float LeftEdge => lowerBounds.X;
         public float RightEdge => upperBounds.X;
+        public Vector2 Center => lowerBounds + (upperBounds - lowerBounds) / 2;
 
         readonly Vector2 lowerBounds;
         readonly Vector2 upperBounds;
@@ -30,5 +31,7 @@ namespace JunityEngine.Maths.Runtime
 
         public readonly bool OnLeft(Vector2 position) => position.X < lowerBounds.X;
         public readonly bool OnRight(Vector2 position) => position.X > upperBounds.X;
+
+        public readonly bool Contains(Bounds2D bounds) => Contains(bounds.upperBounds) && Contains(bounds.lowerBounds);
     }
 }
