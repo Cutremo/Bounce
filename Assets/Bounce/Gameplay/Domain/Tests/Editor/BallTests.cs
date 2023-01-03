@@ -103,8 +103,19 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Position.Should().Be(new Vector2(3, 0));
         }
-        
+
+        [Test]
+        public void ChangesDirectionAfterBounce()
+        {
+            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(1)));
+            var sut = new Ball(Vector2.Half, Vector2.Right);
+            field.DropBall(sut);
+            field.MoveBall(sut, 1);
+            
+            field.MoveBall(sut, 0.1f);
+
+            sut.Position.Should().Be(new Vector2(0.4f, 0.5f));
+        }
         //Double bounce edge case
-        //Cambia de direccion al rebotar
     }
 }

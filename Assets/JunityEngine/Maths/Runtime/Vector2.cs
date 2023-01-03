@@ -20,6 +20,7 @@ namespace JunityEngine.Maths.Runtime
         public static Vector2 Left => new(-1, 0);        
         public static Vector2 NegativeInfinite => new(float.NegativeInfinity, float.NegativeInfinity);
         public static Vector2 Infinite => new(float.PositiveInfinity, float.PositiveInfinity);
+        public static Vector2 HalfRight => new(0.5f, 0);
 
         public Vector2(float componentsValue)
         {
@@ -50,8 +51,8 @@ namespace JunityEngine.Maths.Runtime
         public Vector2 To(Vector2 other) => other - this;
         public bool Normalized => Equals(this, Normalize);
         public Vector2 Normalize => new(X / Size, Y / Size);
-        public Vector2 WithSymmetryOnYAxis => new(-X, Y);
-        public Vector2 WithSymmetryOnXAxis => new(X, -Y);
+        public Vector2 SymmetricOnYAxis => new(-X, Y);
+        public Vector2 SymmetricOnXAxis => new(X, -Y);
         public Vector2 Reverse => new(-X, -Y);
 
         public override string ToString() => "(" + X + ", " + Y +")";

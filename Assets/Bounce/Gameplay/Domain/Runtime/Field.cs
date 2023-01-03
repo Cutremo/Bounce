@@ -18,20 +18,24 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             Contract.Require(balls.Contains(ball)).True();
             
-            var targetPosition = PositionAfterCollisions(ball, seconds);
+            var idealPosition = ball.Position + ball.Orientation * seconds * ball.Speed;
+
+            var targetPosition = PositionAfterCollisions(idealPosition, ball.Radius);
+
+            if(idealPosition != targetPosition)
+                ball.Orientation = ball.Orientation.SymmetricOnYAxis;
 
             ball.Position = targetPosition;
         }
 
-        Vector2 PositionAfterCollisions(Ball ball, float seconds)
+        Vector2 PositionAfterCollisions(Vector2 idealPosition, float radius)
         {
-            var idealPosition = ball.Position + ball.Orientation * seconds * ball.Speed;
             var targetPosition = idealPosition;
             
-            if(bounds.OnRight(idealPosition + new Vector2(ball.Radius, 0)))
-                targetPosition = idealPosition.WithX(bounds.RightEdge - ball.Radius - idealPosition.X + bounds.RightEdge);
-            else if(bounds.OnLeft(idealPosition - new Vector2(ball.Radius, 0)))
-                targetPosition = idealPosition.WithX(bounds.LeftEdge + ball.Radius - idealPosition.X + bounds.LeftEdge);
+            if(bounds.OnRight(idealPosition + new Vector2(radius, 0)))
+                targetPosition = idealPosition.WithX(bounds.RightEdge - radius - idealPosition.X + bounds.RightEdge);
+            else if(bounds.OnLeft(idealPosition - new Vector2(radius, 0)))
+                targetPosition = idealPosition.WithX(bounds.LeftEdge + radius - idealPosition.X + bounds.LeftEdge);
             
             return targetPosition;
         }
