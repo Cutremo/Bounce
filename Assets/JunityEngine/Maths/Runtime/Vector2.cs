@@ -80,5 +80,14 @@ namespace JunityEngine.Maths.Runtime
         {
             return !left.Equals(right);
         }
+
+        public Vector2 WithX(float newX)
+        {
+            return new Vector2(newX, Y);
+        }
+        public Vector2 WithY(float newY)
+        {
+            return new Vector2(X, newY);
+        }
     }
 }

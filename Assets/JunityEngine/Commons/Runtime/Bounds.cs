@@ -20,7 +20,7 @@ namespace JunityEngine.Maths.Runtime
             this.upperBounds = upperBounds;
         }
 
-        public bool Contains(Vector2 position)
+        public readonly bool Contains(Vector2 position)
         {
             return position.X >= lowerBounds.X &&
                    position.X <= upperBounds.X &&
@@ -28,7 +28,7 @@ namespace JunityEngine.Maths.Runtime
                    position.Y <= upperBounds.Y;
         }
 
-        public bool OnLeft(Vector2 position) => position.X < lowerBounds.X;
-        public bool OnRight(Vector2 position) => position.X > upperBounds.X;
+        public readonly bool OnLeft(Vector2 position) => position.X < lowerBounds.X;
+        public readonly bool OnRight(Vector2 position) => position.X > upperBounds.X;
     }
 }

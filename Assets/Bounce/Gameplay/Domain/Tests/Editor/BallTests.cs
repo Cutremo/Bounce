@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using Bounce.Gameplay.Domain.Runtime;
 using FluentAssertions;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
-using RGV.DesignByContract.Runtime;
 
 namespace Bounce.Gameplay.Domain.Tests.Editor
 {
@@ -66,66 +65,31 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Position.Should().Be(new Vector2(1, Vector2.One.Normalize));
         }
+
+        [Test]
+        public void BallWithSizeBounceRight()
+        {
+            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(1)));
+            var sut = new Ball(Vector2.Half, Vector2.Right, 1);
+            field.DropBall(sut);
+            
+            field.MoveBall(sut, 0.5f);
+
+            sut.Position.Should().Be(Vector2.Half);
+        }
         
+        
+        [Test]
+        public void BallWithSizeBounceLeft()
+        {
+            var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(1)));
+            var sut = new Ball(Vector2.Half, Vector2.Left, 1);
+            field.DropBall(sut);
+            
+            field.MoveBall(sut, 0.5f);
+
+            sut.Position.Should().Be(Vector2.Half);
+        }
         //Double bounce edge case
-    }
-    
-    public class Field
-    {
-        readonly List<Ball> balls = new();
-        readonly Bounds2D bounds;
-        
-        public Field(Bounds2D bounds)
-        {
-            this.bounds = bounds;
-        }
-
-        public void MoveBall(Ball ball, float amount)
-        {
-            Contract.Require(balls.Contains(ball)).True();
-            var targetPosition = ball.Position + ball.Orientation * amount;
-            
-            if(bounds.OnRight(targetPosition))
-                targetPosition = new Vector2(bounds.RightEdge, 0) - targetPosition + new Vector2(bounds.RightEdge, 0);
-            else if(bounds.OnLeft(targetPosition))
-                targetPosition = new Vector2(bounds.LeftEdge, 0) - targetPosition + new Vector2(bounds.LeftEdge, 0);
-            
-            ball.Position = targetPosition;
-        }
-        
-        public IEnumerable<Ball> Balls => balls;
-
-        public void DropBall(Ball ball)
-        {
-            Contract.Require(bounds.Contains(ball.Position)).True();
-            balls.Add(ball);
-        }
-    }
-
-    public class Ball
-    {
-        public Vector2 Position { get; set; }
-
-        Vector2 orientation;
-
-        public Vector2 Orientation
-        {
-            get => orientation;
-            set
-            {
-                Contract.Require(value.Normalized).True();
-                orientation = value;
-            }
-        }
-
-        public Ball(Vector2 position)
-        {
-            Position = position;
-        }
-        
-        public Ball(Vector2 position, Vector2 orientation) : this(position)
-        {
-            Orientation = orientation;
-        }
     }
 }
