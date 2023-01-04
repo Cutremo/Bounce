@@ -49,9 +49,9 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void DropBall()
         {
-            var ball = new Ball(pitch.Center, Vector2.One.Normalize, 5f)
+            var ball = new Ball(pitch.Center, Vector2.One.Normalize, 1f)
             {
-                Speed = 8
+                Speed = 4
             };
 
             pitch.DropBall(ball);

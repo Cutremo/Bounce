@@ -90,6 +90,47 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Trampoline.Should().Be(new Trampoline {Origin = new Vector2(3, 4), End = new Vector2(3, 4)});
         }
+
+        [Test]
+        public void MinTrampolineSizeWhenEndingDraw()
+        {
+            var sketchbook = new Sketchbook();
+            var sut = new Area(sketchbook, Bounds2D.Infinite) {MinTrampolineSize = 1};
+            sut.Draw(new Vector2(0.25f, 0));
+            sut.Draw(new Vector2(0.75f, 0));           
+            
+            sut.StopDrawing();
+
+            sut.Trampoline.Should().Be(new Trampoline {Origin = Vector2.Zero, End = Vector2.Right});
+        }
+        
+        [Test]
+        public void MinTrampolineSizeDoesNotApplyBeforeEndingDraw()
+        {
+            var sketchbook = new Sketchbook();
+            var sut = new Area(sketchbook, Bounds2D.Infinite) {MinTrampolineSize = 1};
+            
+            sut.Draw(Vector2.Zero);
+            sut.Draw(Vector2.HalfRight);
+            
+            sut.Trampoline.Should().Be(new Trampoline {Origin = Vector2.Zero, End = Vector2.HalfRight});
+        }
+
+        [Test]
+        public void MinTrampolineSizeWhenOriginIsAtBorder()
+        {
+            var sketchbook = new Sketchbook();
+            var sut = new Area(sketchbook, Bounds2D.Infinite) {MinTrampolineSize = 1};
+            sut.Draw(new Vector2(0.25f, 0));
+            sut.Draw(new Vector2(0.75f, 0));           
+            
+            sut.StopDrawing();
+
+            sut.Trampoline.Should().Be(new Trampoline {Origin = Vector2.Zero, End = Vector2.Right});
+        }
+        //Trampolin tamaño minimo borde cercano al origen
+        //Trampolin tamaño minimo borde cercano al final.
+        //Trampolin tamaño minimo 2 bordes
     }
 }
     

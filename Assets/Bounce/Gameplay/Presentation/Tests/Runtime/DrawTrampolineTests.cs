@@ -68,8 +68,10 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             await Task.Delay(500);
             
             using var _ = new AssertionScope();
-            GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(0).Should().Be(new Vector3(4,-4,0));
-            GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(1).Should().Be(new Vector3(3,-4,0));
+            GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(0)
+                .Should().Be(new Vector3(4,-4,0));
+            GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(1)
+                .Should().Be(new Vector3(3,-4,0));
         }
         
                 
@@ -87,6 +89,20 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             using var _ = new AssertionScope();
             lineRenderer.GetPosition(0).Should().Be(new Vector3(4,-4,0));
             lineRenderer.GetPosition(1).Should().Be(new Vector3(3,-4,0));
+        }
+
+        [Test]
+        public void DrawTrampolineMinSize()
+        {
+            drawingInput.SendDrawInput(new Vector3(3,-5,0));
+            drawingInput.SendDrawInput(new Vector3(3,-4.5f,0));
+            drawingInput.SendEndDrawInput();
+            
+            using var _ = new AssertionScope();
+            GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(0)
+                .Should().Be(new Vector3(3,-5,0));
+            GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(1)
+                .Should().Be(new Vector3(3,-4,0));
         }
     }
 }

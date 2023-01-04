@@ -10,21 +10,26 @@ namespace Bounce.Gameplay.Presentation.Runtime
     public class LineRendererTrampolineView : MonoBehaviour, TrampolineView
     {
         [SerializeField] TrampolineDrawingPanel drawingPanel;
-        GameObject trampoline;
+        [SerializeField] LineRenderer trampolinePrefab;
         
+        LineRenderer trampolineInstance;
 
-        public Task Add(Player _0, Trampoline _1)
+        public Task Add(Player _0, Trampoline trampoline)
         {
-            trampoline = Instantiate(drawingPanel.Trampoline.gameObject, transform);
-            trampoline.name = "Trampoline";
+            trampolineInstance = Instantiate(trampolinePrefab, transform);
+            trampolineInstance.gameObject.name = "Trampoline";
+            trampolineInstance.positionCount = 2;
+            trampolineInstance.SetPosition(0, new Vector3(trampoline.Origin.X, trampoline.Origin.Y, 0));
+            trampolineInstance.SetPosition(1, new Vector3(trampoline.End.X, trampoline.End.Y, 0));
+
             return Task.CompletedTask;
         }
 
         public Task RemoveCurrent(Player player)
         {
-            if (trampoline != null)
+            if (trampolineInstance != null)
             {
-                Destroy(trampoline.gameObject);
+                Destroy(trampolineInstance.gameObject);
             }
             return Task.CompletedTask;
         }

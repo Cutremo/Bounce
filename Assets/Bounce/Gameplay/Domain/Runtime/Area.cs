@@ -1,4 +1,5 @@
-﻿using JunityEngine.Maths.Runtime;
+﻿using System;
+using JunityEngine.Maths.Runtime;
 using RGV.DesignByContract.Runtime;
 
 namespace Bounce.Gameplay.Domain.Runtime
@@ -6,6 +7,7 @@ namespace Bounce.Gameplay.Domain.Runtime
     public class Area
     {
         public Trampoline Trampoline => trampoline;
+        public float MinTrampolineSize { get; init; } = 0;
         
         Trampoline trampoline;
         
@@ -32,6 +34,19 @@ namespace Bounce.Gameplay.Domain.Runtime
         public void StopDrawing()
         {
             trampoline = sketchbook.Result;
+
+            if(trampoline.Origin.To(trampoline.End).Size < MinTrampolineSize)
+            {
+                var extraSize = MinTrampolineSize - trampoline.Origin.To(trampoline.End).Size;
+
+                trampoline = new Trampoline
+                {
+                    Origin = trampoline.Origin + trampoline.End.To(trampoline.Origin).Normalize * extraSize / 2,
+                    End = trampoline.End + trampoline.Origin.To(trampoline.End).Normalize * extraSize / 2
+                }; 
+            }
+
+            
             sketchbook.StopDrawing();
         }
     }

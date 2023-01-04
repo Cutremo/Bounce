@@ -33,5 +33,19 @@ namespace JunityEngine.Maths.Runtime
         public readonly bool OnRight(Vector2 position) => position.X > upperBounds.X;
 
         public readonly bool Contains(Bounds2D bounds) => Contains(bounds.upperBounds) && Contains(bounds.lowerBounds);
+
+        public readonly Vector2 Clamp(Vector2 position)
+        {
+            if(position.X < lowerBounds.X)
+                position = position.WithX(lowerBounds.X);
+            if(position.X > upperBounds.X)
+                position = position.WithX(upperBounds.X);
+            if(position.Y < lowerBounds.Y)
+                position = position.WithY(lowerBounds.Y);
+            if(position.Y > upperBounds.Y)
+                position = position.WithY(upperBounds.Y);
+
+            return position;
+        }
     }
 }
