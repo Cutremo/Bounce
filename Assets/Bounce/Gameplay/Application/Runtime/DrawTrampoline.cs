@@ -35,9 +35,6 @@ namespace Bounce.Gameplay.Application.Runtime
 
         void Draw(Vector2 position)
         {
-            if (!game.InsideBounds(player, position))
-                return;
-            
             trampolineView.RemoveCurrent(player);
             game.Draw(player, position);
             drawTrampolineView.Draw(game.TrampolineOf(player));

@@ -23,6 +23,7 @@ namespace JunityEngine.Maths.Runtime
 
 
         public Vector2 Center => lowerBounds + (upperBounds - lowerBounds) / 2;
+        public static Bounds2D One => new(Vector2.Zero, Vector2.One);
 
         readonly Vector2 lowerBounds;
         readonly Vector2 upperBounds;

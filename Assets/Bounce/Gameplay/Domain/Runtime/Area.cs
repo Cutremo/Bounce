@@ -9,7 +9,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Trampoline Trampoline => trampoline;
         public float MinTrampolineSize { get; init; } = 0;
         
-        Trampoline trampoline;
+        Trampoline trampoline = Trampoline.Null;
         
         readonly Sketchbook sketchbook;
         readonly Bounds2D bounds;
@@ -26,9 +26,17 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void Draw(Vector2 end)
         {
-            Contract.Require(InsideBounds(end)).True();
-            sketchbook.Draw(end);
+            if(!Drawing && bounds.Contains(end))
+            {
+                sketchbook.Draw(end);
+            }
+            else if(Drawing)
+            {
+                sketchbook.Draw(bounds.ClampWithRaycast(trampoline.Origin, end));
+            }
+            
             trampoline = sketchbook.Result;
+
         }
 
         public void StopDrawing()

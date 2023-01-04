@@ -128,6 +128,31 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Trampoline.Should().Be(new Trampoline {Origin = Vector2.Zero, End = Vector2.Right});
         }
+
+        [Test]
+        public void BeginDrawFromOutsideBoundsDoesNotDraw()
+        {
+            var sketchbook = new Sketchbook();
+            var sut = new Area(sketchbook, Bounds2D.One);
+
+            sut.Draw(new Vector2(2));
+
+            sut.Trampoline.Should().Be(Trampoline.Null);
+        }
+        
+        
+        [Test]
+        public void DrawingOutsideClamps()
+        {
+            var sketchbook = new Sketchbook();
+            var sut = new Area(sketchbook, Bounds2D.One);
+            sut.Draw(Vector2.Zero);
+
+            sut.Draw(new Vector2(2));
+
+            sut.Trampoline.Should().Be(new Trampoline { Origin = Vector2.Zero, End = Vector2.One});
+        }
+        
         //Trampolin tamaño minimo borde cercano al origen
         //Trampolin tamaño minimo borde cercano al final.
         //Trampolin tamaño minimo 2 bordes
