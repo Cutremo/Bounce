@@ -4,10 +4,12 @@ using static RGV.DesignByContract.Runtime.Contract;
 
 namespace JunityEngine.Maths.Runtime
 {
-    public struct Vector2 
+    public readonly struct Vector2 
     {
         public float X { get; }
         public float Y { get; }
+        bool Invalid { get; init; }
+        
         public float Size => (float) Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
 
         public static Vector2 Zero => new(0, 0);
@@ -21,15 +23,18 @@ namespace JunityEngine.Maths.Runtime
         public static Vector2 NegativeInfinite => new(float.NegativeInfinity, float.NegativeInfinity);
         public static Vector2 Infinite => new(float.PositiveInfinity, float.PositiveInfinity);
         public static Vector2 HalfRight => new(0.5f, 0);
-
+        public static Vector2 HalfUp => new(0, 0.5f);
+        public static Vector2 Null => new() { Invalid = true };
         public Vector2(float componentsValue)
         {
             X = Y = componentsValue;
+            Invalid = false;
         }
         public Vector2(float x, float y)
         {
             X = x;
             Y = y;
+            Invalid = false;
         }
         
         public Vector2(float size, Vector2 direction)
@@ -38,6 +43,7 @@ namespace JunityEngine.Maths.Runtime
             
             X = direction.X * size;
             Y = direction.Y * size;
+            Invalid = false;
         }
 
         
@@ -61,7 +67,7 @@ namespace JunityEngine.Maths.Runtime
 
         public bool Equals(Vector2 other)
         {
-            return X.Equals(other.X) && Y.Equals(other.Y);
+            return X.Equals(other.X) && Y.Equals(other.Y) && Invalid == other.Invalid;
         }
 
         public override bool Equals(object obj)
@@ -71,7 +77,7 @@ namespace JunityEngine.Maths.Runtime
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(X, Y);
+            return HashCode.Combine(X, Y, Invalid);
         }
 
         public static bool operator ==(Vector2 left, Vector2 right)
@@ -91,6 +97,11 @@ namespace JunityEngine.Maths.Runtime
         public readonly Vector2 WithY(float newY)
         {
             return new Vector2(X, newY);
+        }
+
+        public float Cross(Vector2 other)
+        {
+            return X * other.Y - Y * other.X;
         }
     }
 }

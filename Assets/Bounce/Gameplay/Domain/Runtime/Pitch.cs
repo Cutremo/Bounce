@@ -34,9 +34,9 @@ namespace Bounce.Gameplay.Domain.Runtime
             var targetPosition = idealPosition;
             
             if(bounds.OnRight(idealPosition + new Vector2(ball.Radius, 0)))
-                targetPosition = idealPosition.WithX(bounds.RightEdge - ball.Diameter - idealPosition.X + bounds.RightEdge);
+                targetPosition = idealPosition.WithX(bounds.RightEdgeX - ball.Diameter - idealPosition.X + bounds.RightEdgeX);
             else if(bounds.OnLeft(idealPosition - new Vector2(ball.Radius, 0)))
-                targetPosition = idealPosition.WithX(bounds.LeftEdge + ball.Diameter - idealPosition.X + bounds.LeftEdge);
+                targetPosition = idealPosition.WithX(bounds.LeftEdgeX + ball.Diameter - idealPosition.X + bounds.LeftEdgeX);
             
             return targetPosition;
         }
