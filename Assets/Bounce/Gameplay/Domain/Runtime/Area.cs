@@ -61,9 +61,9 @@ namespace Bounce.Gameplay.Domain.Runtime
             
             if(collisionPoint != Vector2.Null)
             {
-                var bounceMagnitude = (collisionPoint - previousBallPosition).Magnitude * 2;
-                ball.Orientation = ball.Orientation.Reverse;
-                ball.MoveForward(bounceMagnitude);
+                var bounceMagnitude = (ball.Position - collisionPoint).Magnitude;
+                ball.Orientation = trampoline.Reflect(ball.Orientation);
+                ball.Position = collisionPoint + ball.Orientation * bounceMagnitude;
             }
         }
     }

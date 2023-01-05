@@ -4,8 +4,9 @@ using static RGV.DesignByContract.Runtime.Contract;
 
 namespace JunityEngine.Maths.Runtime
 {
-    public readonly struct Vector2 
+    public readonly struct Vector2
     {
+        const float Tolerance = 0.001f;
         public float X { get; }
         public float Y { get; }
         bool Invalid { get; init; }
@@ -25,6 +26,8 @@ namespace JunityEngine.Maths.Runtime
         public static Vector2 HalfRight => new(0.5f, 0);
         public static Vector2 HalfUp => new(0, 0.5f);
         public static Vector2 Null => new() { Invalid = true };
+        public Vector2 NormalDirection0 => new Vector2(-Y, X).Normalize;
+        public Vector2 NormalDirection1 => new Vector2(Y, -X).Normalize;
         public Vector2(float componentsValue)
         {
             X = Y = componentsValue;
@@ -67,7 +70,7 @@ namespace JunityEngine.Maths.Runtime
 
         public bool Equals(Vector2 other)
         {
-            return X.Equals(other.X) && Y.Equals(other.Y) && Invalid == other.Invalid;
+            return Math.Abs(X - other.X) <= Tolerance && Math.Abs(Y - other.Y) <= Tolerance && Invalid == other.Invalid;
         }
 
         public override bool Equals(object obj)
@@ -102,6 +105,11 @@ namespace JunityEngine.Maths.Runtime
         public float Cross(Vector2 other)
         {
             return X * other.Y - Y * other.X;
+        }
+
+        public float Dot(Vector2 other)
+        {
+            return X * other.X + Y * other.Y;
         }
     }
 }

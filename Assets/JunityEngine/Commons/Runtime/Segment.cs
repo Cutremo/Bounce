@@ -26,5 +26,10 @@
                 return A + u * AToB;
             return Vector2.Null;
         }
+
+        public Vector2 Reflect(Vector2 vector)
+        {
+            return vector - 2 * vector.Dot(AToB.NormalDirection0) * AToB.NormalDirection0;
+        }
     }
 }

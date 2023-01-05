@@ -11,5 +11,10 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             return movement.CollisionTo(new Segment(Origin, End));
         }
+
+        public Vector2 Reflect(Vector2 ballOrientation)
+        {
+            return new Segment(Origin, End).Reflect(ballOrientation);
+        }
     }
 }
