@@ -27,14 +27,10 @@ namespace Bounce.Gameplay.Domain.Runtime
         public void Draw(Vector2 end)
         {
             if(!Drawing && bounds.Contains(end))
-            {
                 sketchbook.Draw(end);
-            }
             else if(Drawing)
-            {
                 sketchbook.Draw(bounds.ClampWithRaycast(trampoline.Origin, end));
-            }
-            
+
             trampoline = sketchbook.Result;
 
         }
@@ -43,9 +39,9 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             trampoline = sketchbook.Result;
 
-            if(trampoline.Origin.To(trampoline.End).Size < MinTrampolineSize)
+            if(trampoline.Origin.To(trampoline.End).Magnitude < MinTrampolineSize)
             {
-                var extraSize = MinTrampolineSize - trampoline.Origin.To(trampoline.End).Size;
+                var extraSize = MinTrampolineSize - trampoline.Origin.To(trampoline.End).Magnitude;
 
                 trampoline = new Trampoline
                 {
@@ -56,6 +52,19 @@ namespace Bounce.Gameplay.Domain.Runtime
 
             
             sketchbook.StopDrawing();
+        }
+
+        public void HandleCollision(Ball ball, Vector2 previousBallPosition)
+        {
+            var trajectory = new Segment(previousBallPosition, ball.Position);
+            var collisionPoint = trampoline.CollisionPoint(trajectory);
+            
+            if(collisionPoint != Vector2.Null)
+            {
+                var bounceMagnitude = (collisionPoint - previousBallPosition).Magnitude * 2;
+                ball.Orientation = ball.Orientation.Reverse;
+                ball.MoveForward(bounceMagnitude);
+            }
         }
     }
 }

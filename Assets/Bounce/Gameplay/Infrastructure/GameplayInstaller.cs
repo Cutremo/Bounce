@@ -31,7 +31,8 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             players.Add(player0);
             players.Add(player1);
 
-            var pitch = new Pitch(new Bounds2D(new Vector2(-5, -8), new Vector2(5, 8)));
+            var field = new Field(new Bounds2D(new Vector2(-5, -8), new Vector2(5, 8)));
+            var pitch = new Pitch(field, new Dictionary<Player, Area>() { { player0, area0 }, { player1, area1 } });
             var game = new Game(pitch, new Dictionary<Player, Area>() {{player0, area0}, {player1, area1}}, 1);
             
             Container.BindInstance(game).AsSingle();

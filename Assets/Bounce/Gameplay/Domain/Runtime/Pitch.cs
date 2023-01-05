@@ -6,50 +6,42 @@ namespace Bounce.Gameplay.Domain.Runtime
 {
     public class Pitch
     {
-        public Ball Ball { get; private set; }
-        
-        readonly Bounds2D bounds;
-        public Vector2 Center => bounds.Center;
-        public Pitch(Bounds2D bounds)
+        readonly Field field;
+        readonly IDictionary<Player, Area> areas;
+
+        public Pitch(Field field, IDictionary<Player, Area> areas)
         {
-            this.bounds = bounds;
+            this.field = field;
+            this.areas = areas;
         }
 
-        public void SimulateBall(float seconds)
+        public Vector2 Center => field.Center;
+        public Ball Ball => field.Ball;
+
+        public void Draw(Player player, Vector2 position)
         {
-            Contract.Require(this.Ball).Not.Null();
-            
-            var idealPosition = Ball.Position + Ball.Orientation * seconds * Ball.Speed;
-
-            var targetPosition = PositionAfterCollisions(idealPosition, Ball);
-
-            if(idealPosition != targetPosition)
-                Ball.Orientation = Ball.Orientation.SymmetricOnYAxis;
-
-            Ball.Position = targetPosition;
+            Contract.Require(areas.Keys.Contains(player)).True();
+            areas[player].Draw(position);
         }
 
-        Vector2 PositionAfterCollisions(Vector2 idealPosition, Ball ball)
-        {
-            var targetPosition = idealPosition;
-            
-            if(bounds.OnRight(idealPosition + new Vector2(ball.Radius, 0)))
-                targetPosition = idealPosition.WithX(bounds.RightEdgeX - ball.Diameter - idealPosition.X + bounds.RightEdgeX);
-            else if(bounds.OnLeft(idealPosition - new Vector2(ball.Radius, 0)))
-                targetPosition = idealPosition.WithX(bounds.LeftEdgeX + ball.Diameter - idealPosition.X + bounds.LeftEdgeX);
-            
-            return targetPosition;
-        }
-        
-        
         public void DropBall(Ball ball)
         {
-            Contract.Require(bounds.Contains(ball.Position)).True();
-            Contract.Require(this.Ball == null).True();
-
-            this.Ball = ball;
+            field.DropBall(ball);
         }
 
-        public bool Contains(Area area) => bounds.Contains(area.Bounds);
+        public void SimulateBall(float time)
+        {
+            var previousPosition = field.Ball.Position;
+            field.SimulateBall(time);
+            foreach(var area in areas)
+            {
+                area.Value.HandleCollision(field.Ball, previousPosition);
+            }
+        }
+
+        public bool Contains(Area area)
+        {
+            return field.Contains(area);
+        }
     }
 }

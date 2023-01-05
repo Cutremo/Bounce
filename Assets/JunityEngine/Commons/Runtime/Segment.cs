@@ -22,7 +22,6 @@
             var t = (A - other.A).Cross(AToB) / other.AToB.Cross(AToB);
             var u = (other.A - A).Cross(other.AToB) / AToB.Cross(other.AToB);
 
-            
             if(t is >= 0 and <= 1 && ((includeOrigin && u >= 0) || u > 0) && u <= 1)
                 return A + u * AToB;
             return Vector2.Null;

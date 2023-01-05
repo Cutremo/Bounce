@@ -10,7 +10,7 @@ namespace JunityEngine.Maths.Runtime
         public float Y { get; }
         bool Invalid { get; init; }
         
-        public float Size => (float) Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
+        public float Magnitude => (float) Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
 
         public static Vector2 Zero => new(0, 0);
         public static Vector2 One => new(1, 1);
@@ -58,7 +58,7 @@ namespace JunityEngine.Maths.Runtime
         public static Vector2 operator * (float t, Vector2 v) => new(v.X * t, v.Y * t);
         public Vector2 To(Vector2 other) => other - this;
         public bool Normalized => Equals(this, Normalize);
-        public Vector2 Normalize => new(X / Size, Y / Size);
+        public Vector2 Normalize => new(X / Magnitude, Y / Magnitude);
         public Vector2 SymmetricOnYAxis => new(-X, Y);
         public Vector2 SymmetricOnXAxis => new(X, -Y);
         public Vector2 Reverse => new(-X, -Y);

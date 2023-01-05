@@ -35,5 +35,10 @@ namespace Bounce.Gameplay.Domain.Runtime
             Orientation = orientation;
             Diameter = diameter;
         }
+
+        public void MoveForward(float movement)
+        {
+            Position += movement * Orientation;
+        }
     }
 }
