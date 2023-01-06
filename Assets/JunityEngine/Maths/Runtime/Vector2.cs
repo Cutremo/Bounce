@@ -9,7 +9,6 @@ namespace JunityEngine.Maths.Runtime
         const float Tolerance = 0.001f;
         public float X { get; }
         public float Y { get; }
-        bool Invalid { get; init; }
         
         public float Magnitude => (float) Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
 
@@ -25,19 +24,17 @@ namespace JunityEngine.Maths.Runtime
         public static Vector2 Infinite => new(float.PositiveInfinity, float.PositiveInfinity);
         public static Vector2 HalfRight => new(0.5f, 0);
         public static Vector2 HalfUp => new(0, 0.5f);
-        public static Vector2 Null => new() { Invalid = true };
+        public static Vector2 Null => new(float.NaN, float.NaN);
         public Vector2 NormalDirection0 => new Vector2(-Y, X).Normalize;
         public Vector2 NormalDirection1 => new Vector2(Y, -X).Normalize;
         public Vector2(float componentsValue)
         {
             X = Y = componentsValue;
-            Invalid = false;
         }
         public Vector2(float x, float y)
         {
             X = x;
             Y = y;
-            Invalid = false;
         }
         
         public Vector2(float size, Vector2 direction)
@@ -46,7 +43,6 @@ namespace JunityEngine.Maths.Runtime
             
             X = direction.X * size;
             Y = direction.Y * size;
-            Invalid = false;
         }
 
         
@@ -70,7 +66,10 @@ namespace JunityEngine.Maths.Runtime
 
         public bool Equals(Vector2 other)
         {
-            return Math.Abs(X - other.X) <= Tolerance && Math.Abs(Y - other.Y) <= Tolerance && Invalid == other.Invalid;
+            if(float.IsNaN(X) && float.IsNaN(Y) && float.IsNaN(other.X) && float.IsNaN(other.Y))
+                return true;
+            
+            return Math.Abs(X - other.X) <= Tolerance && Math.Abs(Y - other.Y) <= Tolerance;
         }
 
         public override bool Equals(object obj)
@@ -80,7 +79,7 @@ namespace JunityEngine.Maths.Runtime
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(X, Y, Invalid);
+            return HashCode.Combine(X, Y);
         }
 
         public static bool operator ==(Vector2 left, Vector2 right)
