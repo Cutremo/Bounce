@@ -26,11 +26,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void Draw(Vector2 end)
         {
-            if(!Drawing && bounds.Contains(end))
-                sketchbook.Draw(end);
-            else if(Drawing)
-                sketchbook.Draw(bounds.ClampWithRaycast(trampoline.Origin, end));
-
+            sketchbook.DrawClamped(end);
             trampoline = sketchbook.WIP;
         }
 

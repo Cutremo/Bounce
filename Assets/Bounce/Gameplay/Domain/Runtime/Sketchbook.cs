@@ -21,6 +21,13 @@ namespace Bounce.Gameplay.Domain.Runtime
         }
         public bool Drawing => trampoline is not INull;
 
+        public void DrawClamped(Vector2 end)
+        {
+            if(!Drawing && Bounds.Contains(end))
+                Draw(end);
+            else if(Drawing)
+                Draw(Bounds.ClampWithRaycast(trampoline.Origin, end));
+        }
         public void Draw(Vector2 end)
         {
             if (!Drawing) BeginDraw(end);
