@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Bounce.Gameplay.Presentation.Runtime
 {
-    public class TrampolineDrawingPanel : MonoBehaviour, DrawTrampolineView
+    public class SketchbookPanel : MonoBehaviour, SketchbookView
     {
         [field: SerializeField] public LineRenderer Trampoline { get; private set; }
 

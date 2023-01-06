@@ -9,14 +9,14 @@ namespace Bounce.Gameplay.Application.Runtime
     {
         readonly Game game;
         readonly Player player;
-        readonly DrawTrampolineView drawTrampolineView;
+        readonly SketchbookView sketchbookView;
         readonly TrampolinesView trampolinesView;
         readonly DrawTrampolineInput drawingInput;
-        public DrawTrampoline(Game game, Player player, DrawTrampolineView drawTrampolineView, TrampolinesView trampolinesView, DrawTrampolineInput drawingInput)
+        public DrawTrampoline(Game game, Player player, SketchbookView sketchbookView, TrampolinesView trampolinesView, DrawTrampolineInput drawingInput)
         {
             this.game = game;
             this.player = player;
-            this.drawTrampolineView = drawTrampolineView;
+            this.sketchbookView = sketchbookView;
             this.trampolinesView = trampolinesView;
             this.drawingInput = drawingInput;
         }
@@ -37,7 +37,7 @@ namespace Bounce.Gameplay.Application.Runtime
         {
             trampolinesView.RemoveCurrent(player);
             game.Draw(player, position);
-            drawTrampolineView.Draw(game.TrampolineOf(player));
+            sketchbookView.Draw(game.TrampolineOf(player));
         }
 
         void EndDraw()
@@ -50,7 +50,7 @@ namespace Bounce.Gameplay.Application.Runtime
             {
                 trampolinesView.Add(player, game.TrampolineOf(player));
             }
-            drawTrampolineView.StopDrawing(game.TrampolineOf(player));
+            sketchbookView.StopDrawing(game.TrampolineOf(player));
         }
     }
 }

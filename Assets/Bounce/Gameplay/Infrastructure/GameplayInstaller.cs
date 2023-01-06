@@ -57,7 +57,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             playerInstance.name = player.Id;
             subcontainer.Bind<DrawTrampoline>().AsSingle();
             subcontainer.Bind<DrawTrampolineInput>().FromInstance(playerInstance.GetComponent<DrawTrampolineInput>()).AsSingle();
-            subcontainer.Bind<DrawTrampolineView>().FromInstance(playerInstance.GetComponent<DrawTrampolineView>()).AsSingle();
+            subcontainer.Bind<SketchbookView>().FromInstance(playerInstance.GetComponent<SketchbookView>()).AsSingle();
             subcontainer.Bind<TrampolinesView>().FromInstance(playerInstance.GetComponent<TrampolinesView>()).AsSingle();
         }
     }

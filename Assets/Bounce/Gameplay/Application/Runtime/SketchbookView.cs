@@ -3,7 +3,7 @@ using Bounce.Gameplay.Domain.Runtime;
 
 namespace Bounce.Gameplay.Application.Runtime
 {
-    public interface DrawTrampolineView
+    public interface SketchbookView
     {
         public Task Draw(Trampoline trampoline);
         public Task StopDrawing(Trampoline trampoline);
