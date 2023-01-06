@@ -17,27 +17,19 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
             this.bounds = bounds;
             return this;
         }
-        
+
         public AreaBuilder WithMaxTrampolineLength(int maxTrampolineLength)
         {
             this.maxTrampolineLength = maxTrampolineLength;
             return this;
         }
-        
+
         public AreaBuilder WithMinTrampolineLength(int minTrampolineLength)
         {
             this.minTrampolineLength = minTrampolineLength;
             return this;
         }
-        
-        public Area Build() => new Area(
-            new Sketchbook() 
-            {
-                Bounds = bounds,
-                MaxTrampolineLength = maxTrampolineLength,
-                MinTrampolineLength = minTrampolineLength
-            },
-            bounds
-            ) { MinTrampolineSize = minTrampolineLength};
+
+        public Area Build() => new(bounds, minTrampolineLength, maxTrampolineLength);
     }
 }

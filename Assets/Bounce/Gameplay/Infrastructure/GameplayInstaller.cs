@@ -18,14 +18,13 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
         public override void InstallBindings()
         {
             var player0 = new Player("player0");
-            var sketchBook0 = new Sketchbook {MaxTrampolineLength = 3};
             var bounds0 = new Bounds2D(new Vector2(-5, -8), new Vector2(5, -2));
-            var area0 = new Area(sketchBook0, bounds0) {MinTrampolineSize = 1f};
+            var area0 = new Area(bounds0, 1f, 3f);
             
             var player1 = new Player("player1");
             var sketchBook1 = new Sketchbook {MaxTrampolineLength = 3};
             var bounds1 = new Bounds2D(new Vector2(-5, 2), new Vector2(5, 8));
-            var area1 = new Area(sketchBook1, bounds1) {MinTrampolineSize = 1f};
+            var area1 = new Area(bounds1, 1f, 3f);
             
             var players = new List<Player>();
             players.Add(player0);

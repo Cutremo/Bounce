@@ -7,7 +7,6 @@ namespace Bounce.Gameplay.Domain.Runtime
     public class Area
     {
         public Trampoline Trampoline => trampoline;
-        public float MinTrampolineSize { get; init; } = 0;
         
         Trampoline trampoline = Trampoline.Null;
         
@@ -18,9 +17,9 @@ namespace Bounce.Gameplay.Domain.Runtime
         public bool Drawing => sketchbook.Drawing;
         public Bounds2D Bounds => bounds;
 
-        public Area(Sketchbook sketchbook, Bounds2D bounds)
+        public Area(Bounds2D bounds, float minTrampolineLength, float maxTrampolineLength)
         {
-            this.sketchbook = sketchbook;
+            sketchbook = new Sketchbook { Bounds = bounds, MinTrampolineLength = minTrampolineLength, MaxTrampolineLength = maxTrampolineLength};
             this.bounds = bounds;
         }
 
