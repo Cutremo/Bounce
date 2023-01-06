@@ -58,7 +58,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Trampoline Result()
         {
             var returnValue = trampoline;
-            if(WIP.Origin == WIP.End)
+            if(!WIP.Completed)
             {
                 returnValue = Trampoline.Null;
             }

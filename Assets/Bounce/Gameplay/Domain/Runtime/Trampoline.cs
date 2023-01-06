@@ -2,11 +2,12 @@
 
 namespace Bounce.Gameplay.Domain.Runtime
 {
-    public partial record Trampoline 
+    public partial record Trampoline
     {
         public Vector2 Origin { get; set; }
         public Vector2 End { get; set; }
 
+        public bool Completed => Origin != End;
         public Vector2 CollisionPoint(Segment movement)
         {
             return movement.CollisionTo(new Segment(Origin, End));
