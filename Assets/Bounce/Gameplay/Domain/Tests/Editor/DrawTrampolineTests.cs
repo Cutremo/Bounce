@@ -1,4 +1,5 @@
-﻿using Bounce.Gameplay.Domain.Runtime;
+﻿using System;
+using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Domain.Tests.Builders;
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -18,9 +19,11 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Draw(Vector2.Zero);
 
+            using var _ = new AssertionScope();
             sut.Drawing.Should().BeTrue();
+            sut.Trampoline.Should().Be(new Trampoline { Origin = Vector2.Zero, End = Vector2.Zero });
         }
-
+        
         [Test]
         public void Draw()
         {
@@ -52,7 +55,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.StopDrawing();
 
-            var _ = new AssertionScope();
+            using var _ = new AssertionScope();
             sut.Drawing.Should().BeFalse();
             sut.Trampoline.Should().BeEquivalentTo(new Trampoline { Origin = Vector2.Zero, End = Vector2.Up});
         }
