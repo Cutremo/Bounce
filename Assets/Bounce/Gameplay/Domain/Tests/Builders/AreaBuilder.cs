@@ -34,7 +34,8 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
             new Sketchbook() 
             {
                 Bounds = bounds,
-                MaxTrampolineLength = maxTrampolineLength 
+                MaxTrampolineLength = maxTrampolineLength,
+                MinTrampolineLength = minTrampolineLength
             },
             bounds
             ) { MinTrampolineSize = minTrampolineLength};
