@@ -27,7 +27,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Draw(Vector2.Up);
 
-            sut.WIP.Should().BeEquivalentTo(new Trampoline {Origin = Vector2.Zero, End = Vector2.Up});
+            sut.Wip.Should().BeEquivalentTo(new Trampoline {Origin = Vector2.Zero, End = Vector2.Up});
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Draw(new Vector2(2, 0));
 
-            sut.WIP.Should().Be(new Trampoline {Origin = new Vector2(1, 0), End = new Vector2(2, 0)});
+            sut.Wip.Should().Be(new Trampoline {Origin = new Vector2(1, 0), End = new Vector2(2, 0)});
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.StopDrawing();
 
-            sut.WIP.Should().BeAssignableTo<INull>();
+            sut.Wip.Should().BeAssignableTo<INull>();
         }
 
         [Test]

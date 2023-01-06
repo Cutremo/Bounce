@@ -27,7 +27,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         public void Draw(Vector2 end)
         {
             sketchbook.DrawClamped(end);
-            trampoline = sketchbook.WIP;
+            trampoline = sketchbook.Wip;
         }
 
         public void StopDrawing()

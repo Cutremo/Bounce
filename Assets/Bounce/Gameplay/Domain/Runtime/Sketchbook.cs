@@ -10,75 +10,62 @@ namespace Bounce.Gameplay.Domain.Runtime
         public float MaxTrampolineLength { get; init; } = float.MaxValue;
         public float MinTrampolineLength { get; init; } = 0;
 
-        Trampoline trampoline = Trampoline.Null;
+        Trampoline wip = Trampoline.Null;
 
-        public Trampoline WIP
-        {
-            get
-            {
-                return trampoline;
-            }
-        }
-        public bool Drawing => trampoline is not INull;
+        public Trampoline Wip => wip;
+        public bool Drawing => wip is not INull;
 
         public void DrawClamped(Vector2 end)
         {
             if(!Drawing && Bounds.Contains(end))
                 Draw(end);
             else if(Drawing)
-                Draw(Bounds.ClampWithRaycast(trampoline.Origin, end));
+                Draw(Bounds.ClampWithRaycast(wip.Origin, end));
         }
         public void Draw(Vector2 end)
         {
             if (!Drawing) BeginDraw(end);
 
-            trampoline.Origin  = CalcOrigin(end);
-            trampoline.End  = end;
+            wip.Origin  = CalcOrigin(end);
+            wip.End  = end;
         }
 
         Vector2 CalcOrigin(Vector2 end)
         {
-            return trampoline.Origin.To(end).Magnitude > MaxTrampolineLength
-                ? end + (end.To(trampoline.Origin).Normalize * MaxTrampolineLength)
-                : trampoline.Origin;
+            return wip.Origin.To(end).Magnitude > MaxTrampolineLength
+                ? end + (end.To(wip.Origin).Normalize * MaxTrampolineLength)
+                : wip.Origin;
         }
 
         void BeginDraw(Vector2 position)
         {
             Contract.Require(Drawing).False();
-            trampoline = new Trampoline{ Origin = position, End = position};
+            wip = new Trampoline{ Origin = position, End = position};
         }
 
         public void StopDrawing()
         { 
             Contract.Require(Drawing).True();
-            trampoline = Trampoline.Null;
+            wip = Trampoline.Null;
         }
 
         public Trampoline Result()
         {
-            var returnValue = trampoline;
-            if(!WIP.Completed)
+            return wip.Completed ? WipWithAtLeastMinSize() : Trampoline.Null;
+        }
+
+        Trampoline WipWithAtLeastMinSize()
+        {
+            if(wip.Origin.To(wip.End).Magnitude > MinTrampolineLength)
+                return wip;
+            
+            var extraSize = MinTrampolineLength - wip.Origin.To(wip.End).Magnitude;
+
+            return new Trampoline
             {
-                returnValue = Trampoline.Null;
-            }
-            else
-            {
-                returnValue = WIP;
-
-                if(returnValue.Origin.To(returnValue.End).Magnitude < MinTrampolineLength)
-                {
-                    var extraSize = MinTrampolineLength - returnValue.Origin.To(returnValue.End).Magnitude;
-
-                    returnValue = new Trampoline
-                    {
-                        Origin = returnValue.Origin + returnValue.End.To(returnValue.Origin).Normalize * extraSize / 2,
-                        End = returnValue.End + returnValue.Origin.To(returnValue.End).Normalize * extraSize / 2
-                    }; 
-                }
-            }
-
-            return returnValue;
+                Origin = wip.Origin + wip.End.To(wip.Origin).Normalize * extraSize / 2,
+                End = wip.End + wip.Origin.To(wip.End).Normalize * extraSize / 2
+            };
         }
     }
 }
