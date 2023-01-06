@@ -3,6 +3,7 @@ using FluentAssertions;
 using JunityEngine;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
+using static Bounce.Gameplay.Domain.Tests.Builders.AreaBuilder;
 
 namespace Bounce.Gameplay.Domain.Tests.Editor
 {
@@ -55,8 +56,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void PlayerDrawsTrampoline()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.Infinite);
+            var sut = Area().Build();
 
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
@@ -67,8 +67,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void TrampolineRemains()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.Infinite);
+            var sut = Area().Build();
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
 
@@ -80,8 +79,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void TrampolineChangesWhenDrawingNew()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.Infinite);
+            var sut = Area().Build();
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.Up);
             sut.StopDrawing();
@@ -94,8 +92,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void MinTrampolineSizeWhenEndingDraw()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.Infinite) {MinTrampolineSize = 1};
+            var sut = Area().WithMinTrampolineLength(1).Build();
             sut.Draw(new Vector2(0.25f, 0));
             sut.Draw(new Vector2(0.75f, 0));           
             
@@ -107,8 +104,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void MinTrampolineSizeDoesNotApplyBeforeEndingDraw()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.Infinite) {MinTrampolineSize = 1};
+            var sut = Area().WithMinTrampolineLength(1).Build();
             
             sut.Draw(Vector2.Zero);
             sut.Draw(Vector2.HalfRight);
@@ -119,8 +115,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void MinTrampolineSizeWhenOriginIsAtBorder()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.Infinite) {MinTrampolineSize = 1};
+            var sut = Area().WithMinTrampolineLength(1).Build();
             sut.Draw(new Vector2(0.25f, 0));
             sut.Draw(new Vector2(0.75f, 0));           
             
@@ -132,8 +127,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void BeginDrawFromOutsideBoundsDoesNotDraw()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.One);
+            var sut = Area().WithBounds(Bounds2D.One).Build();
 
             sut.Draw(new Vector2(2));
 
@@ -144,8 +138,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void DrawingOutsideClamps()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.One);
+            var sut = Area().WithBounds(Bounds2D.One).Build();
             sut.Draw(Vector2.Zero);
 
             sut.Draw(new Vector2(2));
@@ -156,8 +149,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void DrawingDotDoesNotDraw()
         {
-            var sketchbook = new Sketchbook();
-            var sut = new Area(sketchbook, Bounds2D.One);
+            var sut = Area().WithBounds(Bounds2D.One).Build();
             
             sut.Draw(Vector2.Zero);
             sut.StopDrawing();

@@ -3,6 +3,7 @@ using Bounce.Gameplay.Domain.Runtime;
 using FluentAssertions;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
+using static Bounce.Gameplay.Domain.Tests.Builders.AreaBuilder;
 
 namespace Bounce.Gameplay.Domain.Tests.Editor
 {
@@ -12,7 +13,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void Bounces()
         {
             var player = new Player();
-            var area = new Area(new Sketchbook(), new Bounds2D(Vector2.Zero, new Vector2(5)));
+            var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
             var sut = new Pitch(
                 new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
                 new Dictionary<Player, Area>() { { player, area } });
@@ -30,7 +31,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void ChangesDirectionAfterBounce()
         {
             var player = new Player();
-            var area = new Area(new Sketchbook(), new Bounds2D(Vector2.Zero, new Vector2(5)));
+            var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
             var sut = new Pitch(
                 new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
                 new Dictionary<Player, Area>() { { player, area } });
@@ -49,7 +50,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void DiagonalDirection()
         {
             var player = new Player();
-            var area = new Area(new Sketchbook(), new Bounds2D(Vector2.Zero, new Vector2(5)));
+            var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
             var sut = new Pitch(
                 new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
                 new Dictionary<Player, Area>() { { player, area } });

@@ -32,7 +32,6 @@ namespace Bounce.Gameplay.Domain.Runtime
                 sketchbook.Draw(bounds.ClampWithRaycast(trampoline.Origin, end));
 
             trampoline = sketchbook.Result;
-
         }
 
         public void StopDrawing()

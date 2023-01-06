@@ -4,18 +4,19 @@ using FluentAssertions;
 using JunityEngine;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
+using static Bounce.Gameplay.Domain.Tests.Builders.AreaBuilder;
 
 namespace Bounce.Gameplay.Domain.Tests.Editor
 {
     public class PlayGameTests
     {
-        Bounds2D Bounds => new Bounds2D(Vector2.NegativeInfinite, Vector2.Infinite);
+        Bounds2D Bounds => Bounds2D.Infinite;
         [Test]
         public void StartsGame()
         {
             var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>()
-                {{new Player(), new Area(new Sketchbook(), Bounds2D.Infinite)}}), new Dictionary<Player, Area>()
-                {{new Player(), new Area(new Sketchbook(), Bounds2D.Infinite)}});
+                {{new Player(), Area().Build()}}), new Dictionary<Player, Area>()
+                {{new Player(), Area().Build()}});
 
             sut.Begin();
 
@@ -26,8 +27,8 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void NotPlayingByDefault()
         {
             var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>()
-                {{new Player(), new Area(new Sketchbook(), Bounds2D.Infinite)}}),new Dictionary<Player, Area>()
-                {{new Player(), new Area(new Sketchbook(), Bounds2D.Infinite)}});
+                {{new Player(), Area().Build()}}),new Dictionary<Player, Area>()
+                {{new Player(), Area().Build()}});
 
             sut.Playing.Should().BeFalse();
         }
@@ -36,7 +37,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void PlayerCanDrawWhenGameStarted()
         {
             var player = new Player();
-            var area = new Area(new Sketchbook(), Bounds2D.Infinite);
+            var area = Area().Build();
             var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}})), 
                 new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}}));
             sut.Begin();
@@ -51,7 +52,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void PlayerStopsDrawing()
         {
             var player = new Player();
-            var area = new Area(new Sketchbook(), Bounds2D.Infinite);
+            var area = Area().Build();
             var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}})),
                 new Dictionary<Player, Area> {{player, area}});
             sut.Begin();

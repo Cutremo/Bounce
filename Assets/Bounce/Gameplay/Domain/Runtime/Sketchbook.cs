@@ -6,6 +6,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 {
     public class Sketchbook
     {
+        public Bounds2D Bounds { get; init; } = Bounds2D.Infinite;
         public int MaxTrampolineLength { get; init; } = int.MaxValue;
         public Trampoline Result { get; private set; } = Trampoline.Null;
         public bool Drawing => Result is not INull;
