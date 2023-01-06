@@ -38,6 +38,8 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void HandleCollision(Ball ball, Vector2 previousBallPosition)
         {
+            Contract.Require(trampoline.Completed).True();
+            
             var trajectory = new Segment(previousBallPosition, ball.Position);
             var collisionPoint = trampoline.CollisionPoint(trajectory);
             

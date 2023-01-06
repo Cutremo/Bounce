@@ -33,9 +33,12 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             var previousPosition = field.Ball.Position;
             field.SimulateBall(time);
-            foreach(var area in areas)
+            foreach(var pairs in areas)
             {
-                area.Value.HandleCollision(field.Ball, previousPosition);
+                if(pairs.Value.Trampoline.Completed)
+                {
+                    pairs.Value.HandleCollision(field.Ball, previousPosition);
+                }
             }
         }
 
