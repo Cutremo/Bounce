@@ -55,12 +55,13 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}})),
                 new Dictionary<Player, Area> {{player, area}});
             sut.Begin();
-            sut.Draw(player, new Vector2(5));
+            sut.Draw(player, new Vector2(1));
+            sut.Draw(player, new Vector2(2));
 
             sut.StopDrawing(player);
 
             sut.IsDrawing(player).Should().BeFalse();
-            sut.TrampolineOf(player).Should().Be(new Trampoline {Origin = new Vector2(5), End = new Vector2(5)});
+            sut.TrampolineOf(player).Should().Be(new Trampoline {Origin = new Vector2(1), End = new Vector2(2)});
         }
     }
 }

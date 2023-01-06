@@ -37,20 +37,26 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void StopDrawing()
         {
-            trampoline = sketchbook.Result;
-
-            if(trampoline.Origin.To(trampoline.End).Magnitude < MinTrampolineSize)
+            if(sketchbook.Result.Origin == sketchbook.Result.End)
             {
-                var extraSize = MinTrampolineSize - trampoline.Origin.To(trampoline.End).Magnitude;
+                trampoline = Trampoline.Null;
+            }
+            else
+            {
+                trampoline = sketchbook.Result;
 
-                trampoline = new Trampoline
+                if(trampoline.Origin.To(trampoline.End).Magnitude < MinTrampolineSize)
                 {
-                    Origin = trampoline.Origin + trampoline.End.To(trampoline.Origin).Normalize * extraSize / 2,
-                    End = trampoline.End + trampoline.Origin.To(trampoline.End).Normalize * extraSize / 2
-                }; 
+                    var extraSize = MinTrampolineSize - trampoline.Origin.To(trampoline.End).Magnitude;
+
+                    trampoline = new Trampoline
+                    {
+                        Origin = trampoline.Origin + trampoline.End.To(trampoline.Origin).Normalize * extraSize / 2,
+                        End = trampoline.End + trampoline.Origin.To(trampoline.End).Normalize * extraSize / 2
+                    }; 
+                }
             }
 
-            
             sketchbook.StopDrawing();
         }
 

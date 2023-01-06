@@ -104,5 +104,14 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(1)
                 .Should().Be(new Vector3(3,-4.25f,0));
         }
+
+        [Test]
+        public async Task DrawingADotDoesNotThrow()
+        {
+            drawingInput.SendDrawInput(new Vector3(3,-5,0));
+            drawingInput.SendEndDrawInput();
+
+            await Task.Yield();
+        }
     }
 }
