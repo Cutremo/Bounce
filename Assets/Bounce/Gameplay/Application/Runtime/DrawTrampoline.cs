@@ -47,9 +47,8 @@ namespace Bounce.Gameplay.Application.Runtime
             
             game.StopDrawing(player);
             if(game.TrampolineOf(player) != Trampoline.Null)
-            {
                 trampolinesView.Add(player, game.TrampolineOf(player));
-            }
+            
             sketchbookView.StopDrawing(game.TrampolineOf(player));
         }
     }
