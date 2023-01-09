@@ -40,8 +40,8 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
 
             Container.Bind<Application.Runtime.Gameplay>().AsSingle().NonLazy();
             
-            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByMethod(subContainer => InstallPlayer(player0, subContainer)).AsTransient();
-            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByMethod(subContainer => InstallPlayer(player1, subContainer)).AsTransient();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, subContainer)).AsTransient();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, subContainer)).AsTransient();
             Container.Bind<DropBall>().AsSingle();
             Container.Bind<BallsView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<MoveBall>().AsSingle();
@@ -51,13 +51,12 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
 
         void InstallPlayer(Player player, DiContainer subcontainer)
         {
+            subcontainer.DefaultParent.gameObject.name = player.Id;
             subcontainer.BindInstance(player);
-            var playerInstance = Instantiate(playerPrefab);
-            playerInstance.name = player.Id;
             subcontainer.Bind<DrawTrampoline>().AsSingle();
-            subcontainer.Bind<DrawTrampolineInput>().FromInstance(playerInstance.GetComponent<DrawTrampolineInput>()).AsSingle();
-            subcontainer.Bind<SketchbookView>().FromInstance(playerInstance.GetComponent<SketchbookView>()).AsSingle();
-            subcontainer.Bind<TrampolinesView>().FromInstance(playerInstance.GetComponent<TrampolinesView>()).AsSingle();
+            subcontainer.Bind<DrawTrampolineInput>().FromComponentInHierarchy().AsSingle();
+            subcontainer.Bind<SketchbookView>().FromComponentInHierarchy().AsSingle();
+            subcontainer.Bind<TrampolinesView>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

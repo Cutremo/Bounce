@@ -3,6 +3,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Input.Runtime;
+using Bounce.Gameplay.Presentation.Runtime;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
@@ -22,9 +23,10 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         {
             SceneManager.LoadScene("MainScene");
             yield return null;
+            yield return null;
             var player = GameObject.Find("player0");
-            drawingInput = player.GetComponentInChildren<DrawingInput>();
-            lineRenderer = player.GetComponentInChildren<LineRenderer>();
+            drawingInput = player.GetComponentInChildren<DrawingInput>(true);
+            lineRenderer = player.GetComponentInChildren<LineRenderer>(true);
             yield return null;
         }
         
@@ -112,6 +114,55 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             drawingInput.SendEndDrawInput();
 
             await Task.Yield();
+        }
+
+        [Test]
+        public void ShowsAreaWhenDrawing()
+        {
+            drawingInput.SendDrawInput(new Vector3(3,-5,0));
+            
+            using var _ = new AssertionScope();
+            GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
+                .GetComponentInChildren<SpriteRenderer>().gameObject.activeInHierarchy.Should().BeTrue();
+        }
+        
+        [Test]
+        public async Task DrawingAreaShowsExample()
+        {
+            using var _ = new AssertionScope();
+
+            await Task.Yield();
+            
+            GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
+                .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeTrue();
+        }
+        
+        [Test]
+        public void AreaHiddenWhenNotDrawing()
+        {
+            drawingInput.SendDrawInput(new Vector3(3,-5,0));
+            drawingInput.SendEndDrawInput();
+            
+            
+            using var _ = new AssertionScope();
+            GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
+                .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeFalse();
+        }
+        
+        [Test]
+        public async Task AreaShowsForABriefTime_WhenDrawingOutOfBounds()
+        {
+            drawingInput.SendDrawInput(new Vector3(20,-5,0));
+
+            await Task.Yield();
+            using var _ = new AssertionScope();
+            GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
+                .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeTrue();
+
+            await Task.Delay(3000);
+            
+            GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
+                .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeFalse();
         }
     }
 }
