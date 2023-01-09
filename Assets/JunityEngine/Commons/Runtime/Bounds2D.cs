@@ -5,6 +5,10 @@ namespace JunityEngine.Maths.Runtime
     public readonly struct Bounds2D
     {
         public static Bounds2D Infinite => new Bounds2D(Vector2.NegativeInfinite, Vector2.Infinite);
+
+        public Vector2 Size => new Vector2(SizeX, SizeY);
+        public float SizeX => upperBounds.X - lowerBounds.X;
+        public float SizeY => upperBounds.Y - lowerBounds.Y;
         public float LeftEdgeX => lowerBounds.X;
         public float RightEdgeX => upperBounds.X;
         public float BottomEdgeY => lowerBounds.Y;

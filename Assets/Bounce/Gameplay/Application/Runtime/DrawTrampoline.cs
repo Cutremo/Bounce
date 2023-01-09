@@ -35,21 +35,28 @@ namespace Bounce.Gameplay.Application.Runtime
 
         void Draw(Vector2 position)
         {
-            trampolinesView.RemoveCurrent(player);
+            if(!game.IsDrawing(player))
+            {
+                trampolinesView.RemoveCurrent(player);
+                sketchbookView.BeginDraw(position);
+            }
             game.Draw(player, position);
             sketchbookView.Draw(game.TrampolineOf(player));
         }
 
         void EndDraw()
         {
-            if (!game.IsDrawing(player))
+            if(!game.IsDrawing(player))
+            {
+                Debug.LogWarning("Ended Drawing when not drawing. Handled.");
                 return;
+            }
             
             game.StopDrawing(player);
             if(game.TrampolineOf(player) != Trampoline.Null)
                 trampolinesView.Add(player, game.TrampolineOf(player));
             
-            sketchbookView.StopDrawing(game.TrampolineOf(player));
+            sketchbookView.StopDrawing();
         }
     }
 }
