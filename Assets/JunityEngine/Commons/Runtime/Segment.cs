@@ -14,6 +14,16 @@
         public Vector2 AToB => B - A;
         public Vector2 BToA => A - B;
 
+        public Segment Pararel0(float distance)
+        {
+            return new Segment(A + AToB.NormalDirection0 * distance, B + AToB.NormalDirection0 * distance);
+        }
+        
+        public Segment Pararel1(float distance)
+        {
+            return new Segment(A + AToB.NormalDirection1 * distance, B + AToB.NormalDirection1 * distance);
+        }
+
         // t == collision scalar in other.
         // u == collision scalar in this
         // other + t * other.AToB == A + u * AToB.
@@ -30,6 +40,11 @@
         public Vector2 Reflect(Vector2 vector)
         {
             return vector - 2 * vector.Dot(AToB.NormalDirection0) * AToB.NormalDirection0;
+        }
+
+        public Segment ExtendFromBothEnds(float magnitude)
+        {
+            return new Segment(A + BToA.Normalize * magnitude, B + AToB.Normalize * magnitude);
         }
     }
 }

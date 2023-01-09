@@ -143,7 +143,6 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             drawingInput.SendDrawInput(new Vector3(3,-5,0));
             drawingInput.SendEndDrawInput();
             
-            
             using var _ = new AssertionScope();
             GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
                 .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeFalse();

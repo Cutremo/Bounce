@@ -110,5 +110,15 @@ namespace JunityEngine.Maths.Runtime
         {
             return X * other.X + Y * other.Y;
         }
+
+        public float DistanceTo(Vector2 other)
+        {
+            return other.To(this).Magnitude;
+        }
+
+        public float Angle(Vector2 other)
+        {
+            return (float) Math.Acos(other.Normalize.Dot(this.Normalize));
+        }
     }
 }

@@ -39,14 +39,20 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             Contract.Require(trampoline.Completed).True();
             
-            var trajectory = new Segment(previousBallPosition, ball.Position);
-            var collisionPoint = trampoline.CollisionPoint(trajectory);
-            
+            var collisionPoint = trampoline.CollisionPoint(previousBallPosition, ball);
+
             if(collisionPoint != Vector2.Null)
             {
-                var bounceMagnitude = (ball.Position - collisionPoint).Magnitude;
+                var collisionToPreviousPosition = collisionPoint.To(previousBallPosition);
+                var angle = collisionToPreviousPosition.Angle(trampoline.Segment.AToB);
+                var collisionPointToAdjustedCenter =
+                    collisionToPreviousPosition.Normalize * (float)(ball.Radius / Math.Sin(angle));
+                var adjustedCenter = collisionPoint + collisionPointToAdjustedCenter;
+                var bounceMagnitude = previousBallPosition.To(ball.Position).Magnitude -
+                                      previousBallPosition.To(adjustedCenter).Magnitude;
+
                 ball.Orientation = trampoline.Reflect(ball.Orientation);
-                ball.Position = collisionPoint + ball.Orientation * bounceMagnitude;
+                ball.Position = adjustedCenter + ball.Orientation * bounceMagnitude;
             }
         }
     }

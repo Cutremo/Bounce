@@ -1,4 +1,5 @@
-﻿using JunityEngine.Maths.Runtime;
+﻿using System;
+using JunityEngine.Maths.Runtime;
 using RGV.DesignByContract.Runtime;
 
 namespace Bounce.Gameplay.Domain.Runtime

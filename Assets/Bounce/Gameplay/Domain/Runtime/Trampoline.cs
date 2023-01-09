@@ -8,10 +8,16 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Vector2 End { get; set; }
 
         public bool Completed => Origin != End;
-        public Vector2 CollisionPoint(Segment movement)
+        public Segment Segment => new Segment(Origin, End);
+        
+        
+        public Vector2 CollisionPoint(Vector2 previousPosition, Ball ball)
         {
-            return movement.CollisionTo(new Segment(Origin, End));
+            var movement = new Segment(previousPosition, ball.Position).ExtendFromBothEnds(ball.Radius);
+            
+            return movement.CollisionTo(Segment);
         }
+
 
         public Vector2 Reflect(Vector2 ballOrientation)
         {

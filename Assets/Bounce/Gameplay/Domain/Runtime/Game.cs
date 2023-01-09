@@ -49,6 +49,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void DropBall()
         {
+            //Mover esto a infraestructura o lo que sea.
             var ball = new Ball(pitch.Center, Vector2.Down.Normalize, 1f)
             {
                 Speed = 4
