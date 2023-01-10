@@ -39,21 +39,26 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             Contract.Require(trampoline.Completed).True();
             
-            var collisionPoint = trampoline.CollisionPoint(previousBallPosition, ball);
+            var trajectoryCollision = trampoline.CollisionCenter(previousBallPosition, ball);
 
-            if(collisionPoint != Vector2.Null)
-            {
-                var collisionToPreviousPosition = collisionPoint.To(previousBallPosition);
-                var angle = collisionToPreviousPosition.Angle(trampoline.Segment.AToB);
-                var collisionPointToAdjustedCenter =
-                    collisionToPreviousPosition.Normalize * (float)(ball.Radius / Math.Sin(angle));
-                var adjustedCenter = collisionPoint + collisionPointToAdjustedCenter;
-                var bounceMagnitude = previousBallPosition.To(ball.Position).Magnitude -
-                                      previousBallPosition.To(adjustedCenter).Magnitude;
+            if(trajectoryCollision == Vector2.Null)
+                return;
+            
+            var collisionToPreviousPosition = trajectoryCollision.To(previousBallPosition);
+            var angle = collisionToPreviousPosition.Angle(trampoline.Segment.AToB);
+            var collisionPointToAdjustedCenter =
+                collisionToPreviousPosition.Normalize * (float)(ball.Radius / Math.Sin(angle));
+            // var adjustedCenter = trajectoryCollision + collisionPointToAdjustedCenter;
+            // var bounceMagnitude = previousBallPosition.To(ball.Position).Magnitude -
+            //                       previousBallPosition.To(adjustedCenter).Magnitude;
 
-                ball.Orientation = trampoline.Reflect(ball.Orientation);
-                ball.Position = adjustedCenter + ball.Orientation * bounceMagnitude;
-            }
+            ball.Orientation = trampoline.Reflect(ball.Orientation);
+            // ball.Position = adjustedCenter + ball.Orientation * bounceMagnitude;
+
+            var center = trampoline.Segment.AToB.NormalDirection0 * ball.Radius + trajectoryCollision;
+            var bounceMagnitude = previousBallPosition.To(ball.Position).Magnitude -
+                                   previousBallPosition.To(trajectoryCollision).Magnitude;
+            ball.Position = trajectoryCollision + bounceMagnitude * ball.Orientation;
         }
     }
 }

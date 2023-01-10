@@ -1,4 +1,6 @@
-﻿namespace JunityEngine.Maths.Runtime
+﻿using RGV.DesignByContract.Runtime;
+
+namespace JunityEngine.Maths.Runtime
 {
     public readonly struct Segment
     {
@@ -45,6 +47,24 @@
         public Segment ExtendFromBothEnds(float magnitude)
         {
             return new Segment(A + BToA.Normalize * magnitude, B + AToB.Normalize * magnitude);
+        }
+
+        public bool CanBeProjected(Vector2 point)
+        {
+            float recArea = AToB.Dot(AToB);
+            float val = AToB.Dot(point);
+            return (val >= 0 && val <= recArea);
+        }
+        public Vector2 Project(Vector2 point)
+        {
+            // Contract.Require(CanBeProjected(point)).True();
+            return point.Dot(AToB) / AToB.Dot(AToB) * AToB;
+        }
+
+        public Vector2 To(Vector2 point)
+        {
+            var pointOnLine = Project(point);
+            return AToB.NormalDirection0 * point.DistanceTo(pointOnLine);
         }
     }
 }
