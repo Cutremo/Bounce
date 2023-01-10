@@ -99,5 +99,26 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             
             ball.Position.Should().Be(new Vector2(0.5f, 1f));
         }
+
+        [Test]
+        public void SpeedIncreases()
+        {
+            var player = new Player();
+            var area = Area()
+                .WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5)))
+                .WithSpeedBoost(1)
+                .Build();
+            var sut = new Pitch(
+                new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
+                new Dictionary<Player, Area>() { { player, area } });
+            var ball = new Ball(Vector2.One, Vector2.Down);
+            sut.DropBall(ball);
+            sut.Draw(player, Vector2.Half);
+            sut.Draw(player, new Vector2(1.5f, 0.5f));
+
+            sut.SimulateBall(1f);
+
+            ball.Speed.Should().Be(2);
+        }
     }
 }

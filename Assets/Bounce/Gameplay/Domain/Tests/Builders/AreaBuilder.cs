@@ -8,6 +8,7 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
         Bounds2D bounds = Bounds2D.Infinite;
         int maxTrampolineLength = int.MaxValue;
         float minTrampolineLength = 0;
+        float speedBoost;
 
         public static AreaBuilder Area() => new AreaBuilder();
 
@@ -30,6 +31,12 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
             return this;
         }
 
-        public Area Build() => new(bounds, minTrampolineLength, maxTrampolineLength);
+        public Area Build() => new(bounds, minTrampolineLength, maxTrampolineLength, speedBoost);
+
+        public AreaBuilder WithSpeedBoost(float boost)
+        {
+            speedBoost = boost;
+            return this;
+        }
     }
 }

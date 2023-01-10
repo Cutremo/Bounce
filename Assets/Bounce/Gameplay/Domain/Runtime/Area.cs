@@ -12,15 +12,17 @@ namespace Bounce.Gameplay.Domain.Runtime
         
         readonly Sketchbook sketchbook;
         readonly Bounds2D bounds;
+        readonly float speedBoost;
 
         public bool InsideBounds(Vector2 end) => bounds.Contains(end);
         public bool Drawing => sketchbook.Drawing;
         public Bounds2D Bounds => bounds;
 
-        public Area(Bounds2D bounds, float minTrampolineLength, float maxTrampolineLength)
+        public Area(Bounds2D bounds, float minTrampolineLength, float maxTrampolineLength, float speedBoost)
         {
             sketchbook = new Sketchbook { Bounds = bounds, MinTrampolineLength = minTrampolineLength, MaxTrampolineLength = maxTrampolineLength};
             this.bounds = bounds;
+            this.speedBoost = speedBoost;
         }
 
         public void Draw(Vector2 end)
@@ -48,6 +50,7 @@ namespace Bounce.Gameplay.Domain.Runtime
             var bounceMagnitude = previousBallPosition.To(ball.Position).Magnitude -
                                   previousBallPosition.To(trajectoryCollision).Magnitude;
             ball.Position = trajectoryCollision + bounceMagnitude * ball.Orientation;
+            ball.Speed += speedBoost;
         }
     }
 }
