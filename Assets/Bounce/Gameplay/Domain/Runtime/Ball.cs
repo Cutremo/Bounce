@@ -41,5 +41,14 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             Position += movement * Orientation;
         }
+
+        public Vector2 Collision(Vector2 previousPosition, Trampoline trampoline)
+        {
+            var movement = new Segment(previousPosition, Position);
+            var collision0 = movement.CollisionTo(trampoline.Segment.Pararel0(Radius));
+            var collision1 = movement.CollisionTo(trampoline.Segment.Pararel1(Radius));
+
+            return collision0 != Vector2.Null ? collision0 : collision1;
+        }
     }
 }
