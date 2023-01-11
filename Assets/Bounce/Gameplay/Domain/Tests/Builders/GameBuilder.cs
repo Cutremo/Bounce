@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Bounce.Gameplay.Domain.Runtime;
+using NUnit.Framework;
 using static Bounce.Gameplay.Domain.Tests.Builders.PitchBuilder;
 
 namespace Bounce.Gameplay.Domain.Tests.Builders
@@ -7,7 +8,7 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
     public class GameBuilder
     {
         int targetScore = 1;
-        IDictionary<Player,Area> areas = new Dictionary<Player, Area>();
+        IList<Player> players = new List<Player>();
         Pitch pitch = Pitch().Build();
         public static GameBuilder Game() => new();
 
@@ -19,14 +20,14 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
 
         public GameBuilder AddPlayer(Player player)
         {
-            areas.Add(player, AreaBuilder.Area().Build());
+            players.Add(player);
             return this;
         }
 
         public GameBuilder WithPlayers(int amount)
         {
             for (int i = 0; i < amount; i++)
-                areas.Add(new Player(), AreaBuilder.Area().Build());
+                players.Add(new Player());
 
             return this;
         }
@@ -37,6 +38,6 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
             return this;
         }
         
-        public Game Build() => new(pitch, areas, targetScore);    
+        public Game Build() => new(pitch, players, targetScore);    
     }
 }

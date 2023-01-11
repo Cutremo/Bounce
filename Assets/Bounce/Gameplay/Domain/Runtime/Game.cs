@@ -7,7 +7,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 {
     public class Game
     {
-        readonly IDictionary<Player, Area> areas;
+        readonly IEnumerable<Player> players;
         readonly int targetScore;
         readonly Score score;
         readonly Pitch pitch;
@@ -28,14 +28,14 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Ball Ball => pitch.Ball;
 
         //Pasar el int.
-        public Game(Pitch pitch, IDictionary<Player, Area> areas, int targetScore = int.MaxValue)
+        public Game(Pitch pitch, IEnumerable<Player> players, int targetScore = int.MaxValue)
         {
-            Require(areas).Not.Null();
-            Require(areas).Not.Empty();
+            Require(players).Not.Null();
+            Require(players).Not.Empty();
             this.pitch = pitch;
-            this.areas = areas;
+            this.players = players;
             this.targetScore = targetScore;
-            score = new Score(areas.Keys);
+            score = new Score(players);
         }
 
         public void Begin()

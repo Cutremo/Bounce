@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Bounce.Gameplay.Domain.Runtime;
+using Bounce.Gameplay.Domain.Tests.Builders;
 using FluentAssertions;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
@@ -29,12 +30,11 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void WinGame()
         {
             var player0 = new Player();
-            var area0 = Area().Build();
             var player1 = new Player();
-            var area1 = Area().Build();
-            var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area> {{player0, area0}, {player1, area1}}), 
-                new Dictionary<Player, Area> {{player0, area0}, {player1, area1}},
-                1);
+            var sut = GameBuilder.Game()
+                .AddPlayer(player0)
+                .AddPlayer(player1)
+                .Build();
             sut.Begin();
             
             sut.GivePointTo(player0);
