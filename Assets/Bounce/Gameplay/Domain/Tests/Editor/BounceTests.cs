@@ -14,7 +14,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void Bounces()
         {
             var player = new Player();
-            var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
+            var area = Area().Build();
             var sut = PitchBuilder.Pitch()
                 .AddPlayer(player, area)
                 .Build();
@@ -32,7 +32,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void ChangesDirectionAfterBounce()
         {
             var player = new Player();
-            var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
+            var area = Area().Build();
             var sut = PitchBuilder.Pitch()
                 .AddPlayer(player, area)
                 .Build();
@@ -51,7 +51,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void DiagonalDirection()
         {
             var player = new Player();
-            var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
+            var area = Area().Build();
             var sut = PitchBuilder.Pitch()
                 .AddPlayer(player, area)
                 .Build();
@@ -69,7 +69,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void BallWithRadius()
         {
             var player = new Player();
-            var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
+            var area = Area().Build();
             var sut = PitchBuilder.Pitch()
                 .AddPlayer(player, area)
                 .Build();
@@ -88,7 +88,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void DrawingOnTheOppositeDirectionDoesNotChangeBounce()
         {
             var player = new Player();
-            var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
+            var area = Area().Build();
             var sut = PitchBuilder.Pitch()
                 .AddPlayer(player, area)
                 .Build();
@@ -108,7 +108,6 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = Area()
-                .WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5)))
                 .WithSpeedBoost(1)
                 .Build();
             var sut = PitchBuilder.Pitch()
