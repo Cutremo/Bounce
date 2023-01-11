@@ -30,6 +30,8 @@ namespace Bounce.Gameplay.Domain.Runtime
         //Pasar el int.
         public Game(Pitch pitch, IDictionary<Player, Area> areas, int targetScore = int.MaxValue)
         {
+            Require(areas).Not.Null();
+            Require(areas).Not.Empty();
             this.pitch = pitch;
             this.areas = areas;
             this.targetScore = targetScore;

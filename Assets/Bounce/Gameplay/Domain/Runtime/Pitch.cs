@@ -12,8 +12,6 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public Pitch(Field field, IDictionary<Player, Area> areas)
         { 
-            Require(areas).Not.Null();
-            Require(areas).Not.Empty();
             this.field = field;
             this.areas = areas;
         }
