@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using JunityEngine.Maths.Runtime;
 using RGV.DesignByContract.Runtime;
+using static RGV.DesignByContract.Runtime.Contract;
 
 namespace Bounce.Gameplay.Domain.Runtime
 {
@@ -10,7 +11,9 @@ namespace Bounce.Gameplay.Domain.Runtime
         readonly IDictionary<Player, Area> areas;
 
         public Pitch(Field field, IDictionary<Player, Area> areas)
-        {
+        { 
+            Require(areas).Not.Null();
+            Require(areas).Not.Empty();
             this.field = field;
             this.areas = areas;
         }
@@ -20,7 +23,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void Draw(Player player, Vector2 position)
         {
-            Contract.Require(areas.Keys.Contains(player)).True();
+            Require(areas.Keys.Contains(player)).True();
             areas[player].Draw(position);
         }
 
@@ -46,5 +49,18 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             return field.Contains(area);
         }
+
+        public bool InsideArea(Player player, Vector2 position) => areas[player].InsideBounds(position);
+
+        public Bounds2D AreaBoundsOf(Player player) => areas[player].Bounds;
+
+        public void StopDrawing(Player player) => areas[player].StopDrawing();
+
+        public bool Drawing(Player player)
+        {
+            return areas[player].Drawing;
+        }
+
+        public Trampoline TrampolineOf(Player player) => areas[player].Trampoline;
     }
 }

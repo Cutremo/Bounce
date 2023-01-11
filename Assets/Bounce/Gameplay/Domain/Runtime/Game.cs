@@ -30,11 +30,6 @@ namespace Bounce.Gameplay.Domain.Runtime
         //Pasar el int.
         public Game(Pitch pitch, IDictionary<Player, Area> areas, int targetScore = int.MaxValue)
         {
-            Require(areas).Not.Null();
-            Require(areas).Not.Empty();
-            foreach(var pair in areas)
-                Require(pitch.Contains(pair.Value)).True();
-
             this.pitch = pitch;
             this.areas = areas;
             this.targetScore = targetScore;
@@ -61,30 +56,29 @@ namespace Bounce.Gameplay.Domain.Runtime
         public void Draw(Player player, Vector2 end)
         {
             Require(Playing).True();
-            areas[player].Draw(end);
+            pitch.Draw(player, end);
         }
 
         public Trampoline TrampolineOf(Player player)
         {
-            return areas[player].Trampoline;
+            return pitch.TrampolineOf(player);
         }
 
         public void StopDrawing(Player player)
         {
             Require(Playing).True();
-            areas[player].StopDrawing();
+            pitch.StopDrawing(player);
         }
 
         public bool IsDrawing(Player player)
         {
             Require(Playing).True();
-            return areas[player].Drawing;
+            return pitch.Drawing(player);
         }
 
-        public bool InsideBounds(Player player, Vector2 position)
-        {
-            return areas[player].InsideBounds(position);
-        }
+        public bool InsideBounds(Player player, Vector2 position) => pitch.InsideArea(player, position);
+
+        public Bounds2D AreaBoundsOf(Player player) => pitch.AreaBoundsOf(player);
 
         public void GivePointTo(Player player)
         {
@@ -104,11 +98,6 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public int PointsOf(Player player) => score.PointsOf(player);
 
-        public void SimulateBall(float seconds)
-        {
-            pitch.SimulateBall(seconds);
-        }
-
-        public Bounds2D AreaBoundsOf(Player player) => areas[player].Bounds;
+        public void SimulateBall(float seconds) => pitch.SimulateBall(seconds);
     }
 }
