@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Bounce.Gameplay.Domain.Runtime;
+using Bounce.Gameplay.Domain.Tests.Builders;
 using FluentAssertions;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
@@ -14,9 +15,9 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
-            var sut = new Pitch(
-                new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
-                new Dictionary<Player, Area>() { { player, area } });
+            var sut = PitchBuilder.Pitch()
+                .AddPlayer(player, area)
+                .Build();
             var ball = new Ball(Vector2.One, Vector2.Down);
             sut.DropBall(ball);
             sut.Draw(player, Vector2.Half);
@@ -32,9 +33,9 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
-            var sut = new Pitch(
-                new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
-                new Dictionary<Player, Area>() { { player, area } });
+            var sut = PitchBuilder.Pitch()
+                .AddPlayer(player, area)
+                .Build();
             var ball = new Ball(Vector2.One, Vector2.Down);
             sut.DropBall(ball);
             sut.Draw(player, Vector2.Half);
@@ -51,9 +52,9 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
-            var sut = new Pitch(
-                new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
-                new Dictionary<Player, Area>() { { player, area } });
+            var sut = PitchBuilder.Pitch()
+                .AddPlayer(player, area)
+                .Build();
             var ball = new Ball(new Vector2(1, 1.5f), Vector2.Down);
             sut.DropBall(ball);
             sut.Draw(player, new Vector2(1.5f, 1.5f));
@@ -69,9 +70,10 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
-            var sut = new Pitch(
-                new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
-                new Dictionary<Player, Area>() { { player, area } });
+            var sut = PitchBuilder.Pitch()
+                .AddPlayer(player, area)
+                .Build();
+            
             var ball = new Ball(new Vector2(1, 1.5f), Vector2.Down, 1);
             sut.DropBall(ball);
             sut.Draw(player, Vector2.Half);
@@ -87,9 +89,10 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = Area().WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5))).Build();
-            var sut = new Pitch(
-                new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
-                new Dictionary<Player, Area>() { { player, area } });
+            var sut = PitchBuilder.Pitch()
+                .AddPlayer(player, area)
+                .Build();
+            
             var ball = new Ball(new Vector2(1, 1.5f), Vector2.Down);
             sut.DropBall(ball);
             sut.Draw(player, Vector2.Half);
@@ -108,9 +111,10 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
                 .WithBounds(new Bounds2D(Vector2.Zero, new Vector2(5)))
                 .WithSpeedBoost(1)
                 .Build();
-            var sut = new Pitch(
-                new Field(new Bounds2D(Vector2.Zero, new Vector2(5))),
-                new Dictionary<Player, Area>() { { player, area } });
+            var sut = PitchBuilder.Pitch()
+                .AddPlayer(player, area)
+                .Build();
+            
             var ball = new Ball(Vector2.One, Vector2.Down);
             sut.DropBall(ball);
             sut.Draw(player, Vector2.Half);

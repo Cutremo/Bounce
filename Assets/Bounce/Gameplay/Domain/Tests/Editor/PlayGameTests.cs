@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Bounce.Gameplay.Domain.Runtime;
+using Bounce.Gameplay.Domain.Tests.Builders;
 using FluentAssertions;
 using JunityEngine;
 using JunityEngine.Maths.Runtime;
@@ -14,8 +15,8 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void StartsGame()
         {
-            var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>()
-                {{new Player(), Area().Build()}}), new Dictionary<Player, Area>()
+            var sut = new Game(PitchBuilder.Pitch().Build(), 
+                new Dictionary<Player, Area>()
                 {{new Player(), Area().Build()}});
 
             sut.Begin();
@@ -26,8 +27,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void NotPlayingByDefault()
         {
-            var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>()
-                {{new Player(), Area().Build()}}),new Dictionary<Player, Area>()
+            var sut = new Game(PitchBuilder.Pitch().Build(),new Dictionary<Player, Area>()
                 {{new Player(), Area().Build()}});
 
             sut.Playing.Should().BeFalse();
@@ -38,7 +38,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = Area().Build();
-            var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}})), 
+            var sut = new Game(PitchBuilder.Pitch().AddPlayer(player,area).Build(), 
                 new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}}));
             sut.Begin();
 
@@ -53,7 +53,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         {
             var player = new Player();
             var area = Area().Build();
-            var sut = new Game(new Pitch(new Field(Bounds), new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}})),
+            var sut = new Game(PitchBuilder.Pitch().AddPlayer(player, area).Build(),
                 new Dictionary<Player, Area> {{player, area}});
             sut.Begin();
             sut.Draw(player, new Vector2(1));
