@@ -9,6 +9,7 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
         int maxTrampolineLength = int.MaxValue;
         float minTrampolineLength = 0;
         float speedBoost;
+        Vector2 scoringDirection = Vector2.Down;
 
         public static AreaBuilder Area() => new AreaBuilder();
 
@@ -30,8 +31,14 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
             this.minTrampolineLength = minTrampolineLength;
             return this;
         }
+        
+        public AreaBuilder WithScoringDirection(Vector2 direction) 
+        {
+            this.scoringDirection = direction;
+            return this;
+        }
 
-        public Area Build() => new(bounds, minTrampolineLength, maxTrampolineLength, speedBoost);
+        public Area Build() => new(bounds, scoringDirection, minTrampolineLength, maxTrampolineLength, speedBoost);
 
         public AreaBuilder WithSpeedBoost(float boost)
         {

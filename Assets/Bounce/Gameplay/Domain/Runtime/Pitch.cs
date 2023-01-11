@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JunityEngine.Maths.Runtime;
 using RGV.DesignByContract.Runtime;
 using static RGV.DesignByContract.Runtime.Contract;
@@ -7,13 +8,15 @@ namespace Bounce.Gameplay.Domain.Runtime
 {
     public class Pitch
     {
+        public event Action<Player> PlayerReceivedGoal;
+        
         readonly Field field;
-        readonly IDictionary<Player, Area> areas;
+        readonly IDictionary<Player, Area> playerAreas;
 
-        public Pitch(Field field, IDictionary<Player, Area> areas)
+        public Pitch(Field field, IDictionary<Player, Area> playerAreas)
         { 
             this.field = field;
-            this.areas = areas;
+            this.playerAreas = playerAreas;
         }
 
         public Vector2 Center => field.Center;
@@ -21,8 +24,8 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void Draw(Player player, Vector2 position)
         {
-            Require(areas.Keys.Contains(player)).True();
-            areas[player].Draw(position);
+            Require(playerAreas.Keys.Contains(player)).True();
+            playerAreas[player].Draw(position);
         }
 
         public void DropBall(Ball ball)
@@ -34,12 +37,15 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             var previousPosition = field.Ball.Position;
             field.SimulateBall(time);
-            foreach(var pairs in areas)
+            foreach(var playerArea in playerAreas)
             {
-                if(pairs.Value.Trampoline.Completed)
+                if(playerArea.Value.Trampoline.Completed)
                 {
-                    pairs.Value.HandleCollision(field.Ball, previousPosition);
+                    playerArea.Value.HandleCollision(field.Ball, previousPosition);
                 }
+
+                if(playerArea.Value.Scores(Ball))
+                    PlayerReceivedGoal?.Invoke(playerArea.Key);
             }
         }
 
@@ -48,17 +54,17 @@ namespace Bounce.Gameplay.Domain.Runtime
             return field.Contains(area);
         }
 
-        public bool InsideArea(Player player, Vector2 position) => areas[player].InsideBounds(position);
+        public bool InsideArea(Player player, Vector2 position) => playerAreas[player].InsideBounds(position);
 
-        public Bounds2D AreaBoundsOf(Player player) => areas[player].Bounds;
+        public Bounds2D AreaBoundsOf(Player player) => playerAreas[player].Bounds;
 
-        public void StopDrawing(Player player) => areas[player].StopDrawing();
+        public void StopDrawing(Player player) => playerAreas[player].StopDrawing();
 
         public bool Drawing(Player player)
         {
-            return areas[player].Drawing;
+            return playerAreas[player].Drawing;
         }
 
-        public Trampoline TrampolineOf(Player player) => areas[player].Trampoline;
+        public Trampoline TrampolineOf(Player player) => playerAreas[player].Trampoline;
     }
 }

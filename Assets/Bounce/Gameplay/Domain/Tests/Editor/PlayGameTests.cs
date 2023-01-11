@@ -36,7 +36,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var sut = Game()
                 .AddPlayer(player)
-                .WithPitch(Pitch().AddPlayer(player, Area().Build()).Build())
+                .WithPitch(Pitch().AddArea(player, Area().Build()).Build())
                 .Build();
             
             sut.Begin();
@@ -53,7 +53,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var sut = Game()
                 .AddPlayer(player)
-                .WithPitch(Pitch().AddPlayer(player, Area().Build()).Build())
+                .WithPitch(Pitch().AddArea(player, Area().Build()).Build())
                 .Build();
             
             sut.Begin();

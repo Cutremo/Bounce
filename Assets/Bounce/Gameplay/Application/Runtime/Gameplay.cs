@@ -14,7 +14,7 @@ namespace Bounce.Gameplay.Application.Runtime
         readonly DropBall dropBall;
         readonly MoveBall moveBall;
         readonly Game game;
-
+        
         public Gameplay(PlayersController playersController, DropBall dropBall, MoveBall moveBall, Game game)
         {
             this.playersController = playersController;

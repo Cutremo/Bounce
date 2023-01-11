@@ -1,6 +1,7 @@
 ﻿using System;
 using JunityEngine.Maths.Runtime;
 using RGV.DesignByContract.Runtime;
+using static RGV.DesignByContract.Runtime.Contract;
 
 namespace Bounce.Gameplay.Domain.Runtime
 {
@@ -12,16 +13,19 @@ namespace Bounce.Gameplay.Domain.Runtime
         
         readonly Sketchbook sketchbook;
         readonly Bounds2D bounds;
+        readonly Vector2 scoringDirection;
         readonly float speedBoost;
 
         public bool InsideBounds(Vector2 end) => bounds.Contains(end);
         public bool Drawing => sketchbook.Drawing;
         public Bounds2D Bounds => bounds;
 
-        public Area(Bounds2D bounds, float minTrampolineLength, float maxTrampolineLength, float speedBoost)
+        public Area(Bounds2D bounds, Vector2 scoringDirection, float minTrampolineLength, float maxTrampolineLength, float speedBoost)
         {
+            Require(scoringDirection.Cardinalized).True();
             sketchbook = new Sketchbook { Bounds = bounds, MinTrampolineLength = minTrampolineLength, MaxTrampolineLength = maxTrampolineLength};
             this.bounds = bounds;
+            this.scoringDirection = scoringDirection;
             this.speedBoost = speedBoost;
         }
 
@@ -39,7 +43,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void HandleCollision(Ball ball, Vector2 previousBallPosition)
         {
-            Contract.Require(trampoline.Completed).True();
+            Require(trampoline.Completed).True();
             
             var trajectoryCollision = ball.Collision(previousBallPosition, trampoline);
 
@@ -51,6 +55,11 @@ namespace Bounce.Gameplay.Domain.Runtime
                                   previousBallPosition.To(trajectoryCollision).Magnitude;
             ball.Position = trajectoryCollision + bounceMagnitude * ball.Orientation;
             ball.Speed += speedBoost;
+        }
+
+        public bool Scores(Ball ball)
+        {
+            return bounds.IsOutsideOnDirection(ball.Position - ball.Radius * scoringDirection, scoringDirection);
         }
     }
 }

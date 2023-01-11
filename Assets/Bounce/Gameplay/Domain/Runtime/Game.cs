@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JunityEngine.Maths.Runtime;
 using RGV.DesignByContract.Runtime;
 using static RGV.DesignByContract.Runtime.Contract;
@@ -42,6 +43,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             Require(Playing).False();
             Playing = true;
+            pitch.PlayerReceivedGoal += GivePointToOthers;
         }
 
         public void DropBall()
@@ -82,20 +84,27 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public Bounds2D AreaBoundsOf(Player player) => pitch.AreaBoundsOf(player);
 
-        public void GivePointTo(Player player)
+
+        void GivePointToOthers(Player player)
+        {
+            foreach(var p in players.Where(x => x != player))
+            {
+                GivePointToPlayer(p);
+            }
+        }
+        void GivePointToPlayer(Player player)
         {
             Require(Playing).True();
             score.GivePointTo(player);
 
             if (PointsOf(player) >= targetScore)
-            {
                 End();
-            }
         }
 
         public void End()
         {
             Playing = false;
+            pitch.PlayerReceivedGoal -= GivePointToOthers;
         }
 
         public int PointsOf(Player player) => score.PointsOf(player);

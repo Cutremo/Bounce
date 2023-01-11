@@ -16,7 +16,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var area = Area().Build();
             var sut = PitchBuilder.Pitch()
-                .AddPlayer(player, area)
+                .AddArea(player, area)
                 .Build();
             var ball = new Ball(Vector2.One, Vector2.Down);
             sut.DropBall(ball);
@@ -34,7 +34,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var area = Area().Build();
             var sut = PitchBuilder.Pitch()
-                .AddPlayer(player, area)
+                .AddArea(player, area)
                 .Build();
             var ball = new Ball(Vector2.One, Vector2.Down);
             sut.DropBall(ball);
@@ -53,7 +53,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var area = Area().Build();
             var sut = PitchBuilder.Pitch()
-                .AddPlayer(player, area)
+                .AddArea(player, area)
                 .Build();
             var ball = new Ball(new Vector2(1, 1.5f), Vector2.Down);
             sut.DropBall(ball);
@@ -71,7 +71,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var area = Area().Build();
             var sut = PitchBuilder.Pitch()
-                .AddPlayer(player, area)
+                .AddArea(player, area)
                 .Build();
             
             var ball = new Ball(new Vector2(1, 1.5f), Vector2.Down, 1);
@@ -90,7 +90,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var player = new Player();
             var area = Area().Build();
             var sut = PitchBuilder.Pitch()
-                .AddPlayer(player, area)
+                .AddArea(player, area)
                 .Build();
             
             var ball = new Ball(new Vector2(1, 1.5f), Vector2.Down);
@@ -111,7 +111,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
                 .WithSpeedBoost(1)
                 .Build();
             var sut = PitchBuilder.Pitch()
-                .AddPlayer(player, area)
+                .AddArea(player, area)
                 .Build();
             
             var ball = new Ball(Vector2.One, Vector2.Down);

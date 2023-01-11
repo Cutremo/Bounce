@@ -57,10 +57,15 @@ namespace JunityEngine.Maths.Runtime
         public static Vector2 operator * (float t, Vector2 v) => new(v.X * t, v.Y * t);
         public Vector2 To(Vector2 other) => other - this;
         public bool Normalized => Equals(this, Normalize);
+
+        public bool Cardinalized =>
+            Equals(this, Right) || Equals(this, Left) || Equals(this, Up) || Equals(this, Down);
         public Vector2 Normalize => new(X / Magnitude, Y / Magnitude);
         public Vector2 SymmetricOnYAxis => new(-X, Y);
         public Vector2 SymmetricOnXAxis => new(X, -Y);
         public Vector2 Reverse => new(-X, -Y);
+        public static Vector2 MinValue => new(float.MinValue, float.MinValue);
+        public static Vector2 MaxValue => new(float.MaxValue, float.MaxValue);
 
         public override string ToString() => "(" + X + ", " + Y +")";
 

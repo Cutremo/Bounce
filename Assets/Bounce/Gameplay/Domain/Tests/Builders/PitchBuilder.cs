@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Bounce.Gameplay.Domain.Runtime;
 using JunityEngine.Maths.Runtime;
 
@@ -9,11 +10,16 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
         Bounds2D bounds = Bounds2D.Infinite;
         
         IDictionary<Player, Area> players = new Dictionary<Player, Area>();
-        public static PitchBuilder Pitch() => new PitchBuilder();
 
-        public Pitch Build() => new Pitch(new Field(bounds), players);
+        public static PitchBuilder Pitch() => new();
 
-        public PitchBuilder AddPlayer(Player player, Area area)
+        public Pitch Build() => new(new Field(bounds), players);
+
+        public PitchBuilder WithScore(Score score)
+        {
+            return this;
+        }
+        public PitchBuilder AddArea(Player player, Area area)
         {
             players.Add(player, area);
             return this;

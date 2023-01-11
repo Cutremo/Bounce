@@ -1,12 +1,17 @@
-﻿using RGV.DesignByContract.Runtime;
+﻿using System;
+using RGV.DesignByContract.Runtime;
 
 namespace JunityEngine.Maths.Runtime
 {
     public readonly struct Bounds2D
     {
-        public static Bounds2D Infinite => new Bounds2D(Vector2.NegativeInfinite, Vector2.Infinite);
+        const float Tolerance = 0.0001f;
+
+        //Divide by 2 to avoid center at infinite position.
+        public static Bounds2D Infinite => new(Vector2.MinValue / 2, Vector2.MaxValue / 2);
 
         public Vector2 Size => new Vector2(SizeX, SizeY);
+        
         public float SizeX => upperBounds.X - lowerBounds.X;
         public float SizeY => upperBounds.Y - lowerBounds.Y;
         public float LeftEdgeX => lowerBounds.X;
@@ -49,9 +54,11 @@ namespace JunityEngine.Maths.Runtime
                    position.Y <= upperBounds.Y;
         }
 
-        public readonly bool OnLeft(Vector2 position) => position.X < lowerBounds.X;
-        public readonly bool OnRight(Vector2 position) => position.X > upperBounds.X;
-
+        public bool OnLeft(Vector2 position) => position.X < lowerBounds.X;
+        public bool OnRight(Vector2 position) => position.X > upperBounds.X;
+        public bool OnTop(Vector2 position) => position.Y > upperBounds.Y;
+        public bool OnBottom(Vector2 position) => position.Y < lowerBounds.Y;
+        
         public readonly bool Contains(Bounds2D bounds) => Contains(bounds.upperBounds) && Contains(bounds.lowerBounds);
 
         public readonly Vector2 Clamp(Vector2 position)
@@ -84,6 +91,20 @@ namespace JunityEngine.Maths.Runtime
                 return segment.CollisionTo(BottomEdge);
 
             return target;
+        }
+
+        public bool IsOutsideOnDirection(Vector2 position, Vector2 direction)
+        {
+            if(direction == Vector2.Right)
+                return OnRight(position);
+            if(direction == Vector2.Left)
+                return OnLeft(position);
+            if(direction == Vector2.Up)
+                return OnTop(position);
+            if(direction == Vector2.Down)
+                return OnBottom(position);
+
+            throw new NotImplementedException("Does not support diagonals");
         }
     }
 }

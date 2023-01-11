@@ -6,6 +6,8 @@ using FluentAssertions;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
 using static Bounce.Gameplay.Domain.Tests.Builders.AreaBuilder;
+using static Bounce.Gameplay.Domain.Tests.Builders.GameBuilder;
+using static Bounce.Gameplay.Domain.Tests.Builders.PitchBuilder;
 
 namespace Bounce.Gameplay.Domain.Tests.Editor
 {
@@ -26,22 +28,35 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             score.PointsOf(player0).Should().Be(1);
         }
 
+        //Borrar el GivePointTo desde el Game?
+
         [Test]
-        public void WinGame()
+        public void ScoreWhenBallLeavesArea()
         {
             var player0 = new Player();
             var player1 = new Player();
-            var sut = GameBuilder.Game()
+            var pitch = Pitch()
+                .AddArea(player0, Area()
+                    .WithBounds(new Bounds2D(new Vector2(0, -2), new Vector2(1, -1)))
+                    .Build())
+                .AddArea(player1, Area()
+                    .WithBounds(new Bounds2D(new Vector2(0, 1), new Vector2(1, 2)))
+                    .Build())
+                .Build();
+            var sut = Game()
                 .AddPlayer(player0)
                 .AddPlayer(player1)
+                .WithPitch(pitch)
+                .WithTargetScore(1)
                 .Build();
             sut.Begin();
+            sut.DropBall();
             
-            sut.GivePointTo(player0);
+            sut.SimulateBall(5f);
 
+            sut.PointsOf(player0).Should().Be(0);
+            sut.PointsOf(player1).Should().Be(1);
             sut.Playing.Should().BeFalse();
-            sut.PointsOf(player0).Should().Be(1);
-            sut.PointsOf(player1).Should().Be(0);
         }
     }
 }
