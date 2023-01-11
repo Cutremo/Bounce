@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using Bounce.Gameplay.Domain.Runtime;
-using Bounce.Gameplay.Domain.Tests.Builders;
+﻿using Bounce.Gameplay.Domain.Runtime;
 using FluentAssertions;
 using JunityEngine;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
 using static Bounce.Gameplay.Domain.Tests.Builders.AreaBuilder;
+using static Bounce.Gameplay.Domain.Tests.Builders.PitchBuilder;
+using static Bounce.Gameplay.Domain.Tests.Builders.GameBuilder;
 
 namespace Bounce.Gameplay.Domain.Tests.Editor
 {
@@ -15,9 +15,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void StartsGame()
         {
-            var sut = new Game(PitchBuilder.Pitch().Build(), 
-                new Dictionary<Player, Area>()
-                {{new Player(), Area().Build()}});
+            var sut = Game().WithPlayers(1).Build();
 
             sut.Begin();
 
@@ -27,8 +25,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void NotPlayingByDefault()
         {
-            var sut = new Game(PitchBuilder.Pitch().Build(),new Dictionary<Player, Area>()
-                {{new Player(), Area().Build()}});
+            var sut = Game().WithPlayers(1).Build();
 
             sut.Playing.Should().BeFalse();
         }
@@ -37,9 +34,11 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void PlayerCanDrawWhenGameStarted()
         {
             var player = new Player();
-            var area = Area().Build();
-            var sut = new Game(PitchBuilder.Pitch().AddPlayer(player,area).Build(), 
-                new Dictionary<Player, Area>(new Dictionary<Player, Area>() {{player, area}}));
+            var sut = Game()
+                .AddPlayer(player)
+                .WithPitch(Pitch().AddPlayer(player, Area().Build()).Build())
+                .Build();
+            
             sut.Begin();
 
             sut.Draw(player, new Vector2(5));
@@ -52,9 +51,11 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void PlayerStopsDrawing()
         {
             var player = new Player();
-            var area = Area().Build();
-            var sut = new Game(PitchBuilder.Pitch().AddPlayer(player, area).Build(),
-                new Dictionary<Player, Area> {{player, area}});
+            var sut = Game()
+                .AddPlayer(player)
+                .WithPitch(Pitch().AddPlayer(player, Area().Build()).Build())
+                .Build();
+            
             sut.Begin();
             sut.Draw(player, new Vector2(1));
             sut.Draw(player, new Vector2(2));

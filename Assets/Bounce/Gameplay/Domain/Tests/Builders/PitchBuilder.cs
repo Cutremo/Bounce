@@ -23,5 +23,13 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
             this.bounds = bounds;
             return this;
         }
+
+        public PitchBuilder WithPlayers(int amount)
+        {
+            for (int i = 0; i < amount; i++)
+                players.Add(new Player(), AreaBuilder.Area().Build());
+
+            return this;
+        }
     }
 }
