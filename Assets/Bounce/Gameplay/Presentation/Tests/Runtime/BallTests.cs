@@ -25,6 +25,8 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public void BallExists()
         {
+            Task.Yield();
+
             FindObjectsOfType<BallView>()
                 .Length.Should().Be(1);
         }
