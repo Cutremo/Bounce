@@ -1,11 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
 
 namespace Bounce.Gameplay.Application.Runtime
 {
     public interface TrampolinesView
     {
-        public Task Add(Player player, Trampoline trampoline);
-        public Task RemoveCurrent(Player player);
+        public void Add(Trampoline trampoline);
+        public Task RemoveCurrent();
     }
 }

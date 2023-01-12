@@ -23,5 +23,10 @@ namespace Bounce.Gameplay.Presentation.Runtime
         {
             instance.MoveTo(new Vector3(ball.Position.X, ball.Position.Y, 0));
         }
+
+        public async Task RemoveBall(CancellationToken cancellationToken)
+        {
+            Destroy(instance.gameObject);
+        }
     }
 }

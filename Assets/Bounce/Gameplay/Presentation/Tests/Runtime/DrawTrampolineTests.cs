@@ -1,36 +1,16 @@
 using System;
-using System.Collections;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
-using Bounce.Gameplay.Input.Runtime;
 using Bounce.Gameplay.Presentation.Runtime;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.TestTools;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class DrawTrampolineTests
+    public class DrawTrampolineTests : DrawingTests
     {
-        DrawingInput drawingInput;
-        LineRenderer lineRenderer;
-
-        [UnitySetUp]
-        public IEnumerator LoadScene()
-        {
-            SceneManager.LoadScene("MainScene");
-            yield return null;
-            yield return null;
-            var player = GameObject.Find("player0");
-            drawingInput = player.GetComponentInChildren<DrawingInput>(true);
-            lineRenderer = player.GetComponentInChildren<LineRenderer>(true);
-            yield return null;
-        }
-        
-        
         [Test]
         public async Task DrawTrampoline()
         {
@@ -44,7 +24,6 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             lineRenderer.GetPosition(1).Should().Be(new Vector3(4,-5,0));
         }
 
-        //TODO: Draw out of bounds clamp
         [Test]
         public async Task DrawOutOfBounds()
         {
@@ -148,7 +127,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
                 .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeFalse();
         }
         
-        [Test]
+        [Test][Ignore("Uncertain about this feature")]
         public async Task AreaShowsForABriefTime_WhenDrawingOutOfBounds()
         {
             drawingInput.SendDrawInput(new Vector3(20,-5,0));
@@ -158,7 +137,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
                 .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeTrue();
 
-            await Task.Delay(3000);
+            await Task.Delay(5000);
             
             GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
                 .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeFalse();

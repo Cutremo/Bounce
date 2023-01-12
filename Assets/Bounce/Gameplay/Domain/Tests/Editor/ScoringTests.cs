@@ -38,9 +38,11 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             var pitch = Pitch()
                 .AddArea(player0, Area()
                     .WithBounds(new Bounds2D(new Vector2(0, -2), new Vector2(1, -1)))
+                    .WithScoringDirection(Vector2.Down)
                     .Build())
                 .AddArea(player1, Area()
                     .WithBounds(new Bounds2D(new Vector2(0, 1), new Vector2(1, 2)))
+                    .WithScoringDirection(Vector2.Up)
                     .Build())
                 .Build();
             var sut = Game()

@@ -25,7 +25,7 @@ namespace Bounce.Gameplay.Domain.Runtime
                 orientation = value;
             }
         }
-
+        
         public Ball(Vector2 position)
         {
             Position = position;
@@ -50,5 +50,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 
             return collision0 != Vector2.Null ? collision0 : collision1;
         }
+
+        public static Ball Null => null;
     }
 }

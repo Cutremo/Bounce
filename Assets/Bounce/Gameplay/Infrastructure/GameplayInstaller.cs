@@ -32,20 +32,21 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
 
             var field = new Field(new Bounds2D(new Vector2(-5, -8), new Vector2(5, 8)));
             var pitch = new Pitch(field, new Dictionary<Player, Area>() { { player0, area0 }, { player1, area1 } });
-            var game = new Game(pitch, new[] {player0, player1}, 1);
+            var game = new Game(pitch, new[] {player0, player1}, 5);
             
             Container.BindInstance(game).AsSingle();
 
             Container.Bind<PlayersController>().AsSingle().NonLazy();
 
             Container.Bind<Application.Runtime.Gameplay>().AsSingle().NonLazy();
-            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, subContainer)).AsTransient();
-            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, subContainer)).AsTransient();
-            Container.Bind<DropBall>().AsSingle();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, subContainer)).AsCached();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, subContainer)).AsCached();
+            Container.Bind<BallRef>().AsSingle();
             Container.Bind<BallsView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<MoveBall>().AsSingle();
             Container.BindInstance(new CancellationTokenSource());
             Container.Bind<EndGame>().AsSingle();
+            Container.Bind<EndPoint>().AsSingle();
         }
 
         void InstallPlayer(Player player, DiContainer subcontainer)

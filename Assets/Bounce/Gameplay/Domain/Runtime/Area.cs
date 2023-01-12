@@ -61,5 +61,10 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             return bounds.IsOutsideOnDirection(ball.Position - ball.Radius * scoringDirection, scoringDirection);
         }
+
+        public void RemoveTrampoline()
+        {
+            trampoline = Trampoline.Null;
+        }
     }
 }

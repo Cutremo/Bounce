@@ -11,15 +11,17 @@ namespace Bounce.Gameplay.Application.Runtime
     public class Gameplay
     {
         readonly PlayersController playersController;
-        readonly DropBall dropBall;
+        readonly BallRef ballRef;
         readonly MoveBall moveBall;
+        readonly EndPoint endPoint;
         readonly Game game;
         
-        public Gameplay(PlayersController playersController, DropBall dropBall, MoveBall moveBall, Game game)
+        public Gameplay(PlayersController playersController, BallRef ballRef, MoveBall moveBall, EndPoint endPoint, Game game)
         {
             this.playersController = playersController;
-            this.dropBall = dropBall;
+            this.ballRef = ballRef;
             this.moveBall = moveBall;
+            this.endPoint = endPoint;
             this.game = game;
         }
 
@@ -27,13 +29,15 @@ namespace Bounce.Gameplay.Application.Runtime
         {
             game.Begin();
             playersController.EnablePlayers();
-            await dropBall.Run(cancellationToken);
-            while (game.Playing)
+            await ballRef.DropBall(cancellationToken);
+            while (game.PlayingPoint)
             {
                 moveBall.Simulate(0.016f);
                 await Task.Delay(16, cancellationToken);
             }
-            
+            if(game.Playing)
+                await endPoint.Run();
+
             playersController.DisablePlayers();
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Application.Runtime;
 using Bounce.Gameplay.Domain.Runtime;
@@ -31,7 +32,7 @@ namespace Bounce.Gameplay.Presentation.Runtime
             area.gameObject.SetActive(true);
         }
 
-        public Task BeginDraw(Vector2 position)
+        public void BeginDraw(Vector2 position)
         {
             if(!game.AreaBoundsOf(player).Contains(position))
             {
@@ -40,20 +41,17 @@ namespace Bounce.Gameplay.Presentation.Runtime
                 tween = DOVirtual.DelayedCall(0.5f, () => area.gameObject.SetActive(false));
             }
             area.gameObject.SetActive(true);
-            return Task.CompletedTask;
         }
-        public Task Draw(Trampoline trampoline)
+        public void Draw(Trampoline trampoline)
         {
             area.gameObject.SetActive(true);
 
             drawing.positionCount = 2;
             drawing.SetPosition(0, new Vector3(trampoline.Origin.X, trampoline.Origin.Y, 0));
             drawing.SetPosition(1, new Vector3(trampoline.End.X, trampoline.End.Y, 0));
-            
-            return Task.CompletedTask;
         }
         
-        public Task StopDrawing()
+        public void StopDrawing()
         {
             //Class method
             if(tween != null)
@@ -64,7 +62,6 @@ namespace Bounce.Gameplay.Presentation.Runtime
             
             area.gameObject.SetActive(false);
             drawing.positionCount = 0;
-            return Task.CompletedTask;
         }
     }
 }

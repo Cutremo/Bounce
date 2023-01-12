@@ -12,7 +12,7 @@ using UnityEngine.TestTools;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class BallTests : MonoBehaviour
+    public class BallTests 
     {
         [UnitySetUp]
         public IEnumerator LoadScene()
@@ -22,23 +22,31 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             yield return null;
         }
         
-        [Test]
-        public void BallExists()
+        [UnityTearDown]
+        public IEnumerator WaitForEndOfFrame()
         {
-            Task.Yield();
+            yield return null;
+        }
 
-            FindObjectsOfType<BallView>()
+        
+        
+        [Test]
+        public async Task BallExists()
+        {
+            await Task.Yield();
+
+            Object.FindObjectsOfType<BallView>()
                 .Length.Should().Be(1);
         }
         
         [Test]
         public async Task BallMoves()
         {
-            var originalPosition = FindObjectOfType<BallView>().transform.position;
+            var originalPosition = Object.FindObjectOfType<BallView>().transform.position;
             
             await Task.Delay(3000);
 
-            FindObjectOfType<BallView>().transform.position.Should().NotBe(originalPosition);
+            Object.FindObjectOfType<BallView>().transform.position.Should().NotBe(originalPosition);
         }
     }
 }

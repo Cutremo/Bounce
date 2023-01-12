@@ -2,6 +2,7 @@
 using System.Linq;
 using JunityEngine.Maths.Runtime;
 using RGV.DesignByContract.Runtime;
+using Unity.Plastic.Antlr3.Runtime.Misc;
 using static RGV.DesignByContract.Runtime.Contract;
 
 namespace Bounce.Gameplay.Domain.Runtime
@@ -15,7 +16,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         
         bool playersEnabled;
         public bool Playing { get; private set; }
-
+        public bool PlayingPoint { get; private set; }
         public bool PlayersEnabled
         {
             get => playersEnabled;
@@ -43,7 +44,8 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             Require(Playing).False();
             Playing = true;
-            pitch.PlayerReceivedGoal += GivePointToOthers;
+            PlayingPoint = true;
+            pitch.PlayerReceivedGoal += EndPoint;
         }
 
         public void DropBall()
@@ -85,12 +87,11 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Bounds2D AreaBoundsOf(Player player) => pitch.AreaBoundsOf(player);
 
 
-        void GivePointToOthers(Player player)
+        void EndPoint(Player player)
         {
+            PlayingPoint = false;
             foreach(var p in players.Where(x => x != player))
-            {
                 GivePointToPlayer(p);
-            }
         }
         void GivePointToPlayer(Player player)
         {
@@ -104,7 +105,13 @@ namespace Bounce.Gameplay.Domain.Runtime
         public void End()
         {
             Playing = false;
-            pitch.PlayerReceivedGoal -= GivePointToOthers;
+            PlayingPoint = false;
+            pitch.PlayerReceivedGoal -= EndPoint;
+        }
+
+        public void ClearPitch()
+        {
+            pitch.Clear();
         }
 
         public int PointsOf(Player player) => score.PointsOf(player);

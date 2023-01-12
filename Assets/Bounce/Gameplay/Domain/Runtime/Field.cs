@@ -50,5 +50,10 @@ namespace Bounce.Gameplay.Domain.Runtime
         }
 
         public bool Contains(Area area) => bounds.Contains(area.Bounds);
+
+        public void RemoveBall()
+        {
+            Ball = Runtime.Ball.Null;
+        }
     }
 }

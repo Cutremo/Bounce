@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Bounce.Gameplay.Application.Runtime;
 using Bounce.Gameplay.Domain.Runtime;
 using UnityEngine;
@@ -13,16 +14,14 @@ namespace Bounce.Gameplay.Presentation.Runtime
         
         TrampolineView trampolineInstance;
 
-        public Task Add(Player _0, Trampoline trampoline)
+        public void Add(Trampoline trampoline)
         {
             trampolineInstance = Instantiate(prefab, transform);
             trampolineInstance.gameObject.name = "Trampoline";
             trampolineInstance.Draw(trampoline);
-
-            return Task.CompletedTask;
         }
 
-        public async Task RemoveCurrent(Player player)
+        public async Task RemoveCurrent()
         {
             if (trampolineInstance != null)
             {

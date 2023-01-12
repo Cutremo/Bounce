@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Input.Runtime;
 using UnityEngine;
@@ -33,6 +35,13 @@ namespace Bounce.Gameplay.Application.Runtime
             drawingInput.EndDrawInputReceived -= EndDraw;
         }
 
+        //Mover a otro controlador?
+        public async Task Clear(CancellationToken cancellationToken)
+        {
+            sketchbookView.StopDrawing();
+            await trampolinesView.RemoveCurrent();
+        }
+
         void Draw(Vector2 position)
         {
             if(!game.InsideBounds(player, position))
@@ -40,7 +49,7 @@ namespace Bounce.Gameplay.Application.Runtime
 
             if(!game.IsDrawing(player))
             {
-                trampolinesView.RemoveCurrent(player);
+                trampolinesView.RemoveCurrent();
                 sketchbookView.BeginDraw(position);
             }
             game.Draw(player, position);
@@ -57,7 +66,7 @@ namespace Bounce.Gameplay.Application.Runtime
             
             game.StopDrawing(player);
             if(game.TrampolineOf(player) != Trampoline.Null)
-                trampolinesView.Add(player, game.TrampolineOf(player));
+                trampolinesView.Add(game.TrampolineOf(player));
             
             sketchbookView.StopDrawing();
         }

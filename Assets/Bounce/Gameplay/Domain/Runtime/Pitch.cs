@@ -45,10 +45,25 @@ namespace Bounce.Gameplay.Domain.Runtime
                 }
 
                 if(playerArea.Value.Scores(Ball))
+                {
                     PlayerReceivedGoal?.Invoke(playerArea.Key);
+                    break;
+                }
             }
         }
 
+        public void Clear()
+        {
+            foreach(var area in playerAreas.Values)
+            {
+                if (area.Drawing)
+                    area.StopDrawing();
+                if(area.Trampoline != Trampoline.Null)
+                    area.RemoveTrampoline();
+            }
+
+            field.RemoveBall();
+        }
         public bool Contains(Area area)
         {
             return field.Contains(area);

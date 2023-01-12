@@ -16,7 +16,8 @@ namespace Bounce.Gameplay.Application.Runtime
         public void Simulate(float seconds)
         {
             game.SimulateBall(seconds);
-            ballsView.MoveBall(game.Ball);
+            if(game.Ball != Ball.Null)
+                ballsView.MoveBall(game.Ball);
         }
     }
 }
