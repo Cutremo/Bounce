@@ -1,12 +1,15 @@
 ﻿using Bounce.Gameplay.Domain.Runtime;
+using Bounce.Gameplay.Domain.Tests.Builders;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using JunityEngine;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
 using static Bounce.Gameplay.Domain.Tests.Builders.AreaBuilder;
+using static Bounce.Gameplay.Domain.Tests.Builders.BallBuilder;
 using static Bounce.Gameplay.Domain.Tests.Builders.PitchBuilder;
 using static Bounce.Gameplay.Domain.Tests.Builders.GameBuilder;
+using Ball = Bounce.Gameplay.Domain.Runtime.Ball;
 
 namespace Bounce.Gameplay.Domain.Tests.Editor
 {
@@ -77,17 +80,18 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
                 .WithBounds(new Bounds2D(Vector2.MinusOne, new Vector2(5)))
                 .WithScoringDirection(Vector2.Down)
                 .Build();
+            var pitch = Pitch().AddArea(player, area).Build();
             var sut = Game()
                 .AddPlayer(player)
-                .WithPitch(Pitch().AddArea(player, area).Build())
+                .WithPitch(pitch)
                 .Build();
             sut.Begin();
-            sut.DropBall();
+            sut.DropBall(Ball().WithDiameter(1).AtTheCenterOf(pitch).Build());
             sut.Draw(player, Vector2.Down);
             sut.Draw(player, Vector2.Up);
             sut.StopDrawing(player);
             
-            sut.ClearPitch();
+            sut.SimulateBall(5f);
 
             using var _ = new AssertionScope();
             sut.TrampolineOf(player).Should().Be(Trampoline.Null);
@@ -101,16 +105,17 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
                 .WithBounds(new Bounds2D(Vector2.MinusOne, new Vector2(5)))
                 .WithScoringDirection(Vector2.Down)
                 .Build();
+            var pitch = Pitch().AddArea(player, area).Build();
             var sut = Game()
                 .AddPlayer(player)
-                .WithPitch(Pitch().AddArea(player, area).Build())
+                .WithPitch(pitch)
                 .Build();
             sut.Begin();
-            sut.DropBall();
+            sut.DropBall(Ball().WithDiameter(1).AtTheCenterOf(pitch).Build());
             sut.Draw(player, Vector2.Down);
             sut.Draw(player, Vector2.Up);
             
-            sut.ClearPitch();
+            sut.SimulateBall(5f);
 
             using var _ = new AssertionScope();
             sut.IsDrawing(player).Should().BeFalse();
@@ -125,14 +130,15 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
                 .WithBounds(new Bounds2D(Vector2.MinusOne, new Vector2(5)))
                 .WithScoringDirection(Vector2.Down)
                 .Build();
+            var pitch = Pitch().AddArea(player, area).Build();
             var sut = Game()
                 .AddPlayer(player)
-                .WithPitch(Pitch().AddArea(player, area).Build())
+                .WithPitch(pitch)
                 .Build();
             sut.Begin();
-            sut.DropBall();
+            sut.DropBall(Ball().WithDiameter(1).AtTheCenterOf(pitch).Build());
 
-            sut.ClearPitch();
+            sut.SimulateBall(5f);
 
             using var _ = new AssertionScope();
             sut.Ball.Should().Be(Ball.Null);

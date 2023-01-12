@@ -7,7 +7,6 @@ namespace Bounce.Gameplay.Domain.Runtime
     public class Ball
     {
         public Vector2 Position { get; set; }
-
         public float Speed { get; set; } = 1;
         
         Vector2 orientation;
@@ -52,5 +51,10 @@ namespace Bounce.Gameplay.Domain.Runtime
         }
 
         public static Ball Null => null;
+
+        public Ball Copy()
+        {
+            return new Ball(Position, orientation, Diameter) { Speed = Speed };
+        }
     }
 }

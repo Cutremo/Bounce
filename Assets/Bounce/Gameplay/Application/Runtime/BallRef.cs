@@ -8,17 +8,20 @@ namespace Bounce.Gameplay.Application.Runtime
     {
         readonly Game game;
         readonly BallsView ballsView;
-
-        public BallRef(Game game, BallsView ballsView)
+        readonly Ball ball;
+        
+        public BallRef(Game game, Ball ball, BallsView ballsView)
         {
             this.game = game;
             this.ballsView = ballsView;
+            this.ball = ball;
         }
 
         public async Task DropBall(CancellationToken cancellationToken)
         {
-            game.DropBall();
-            await ballsView.DropBall(game.Ball, cancellationToken);
+            var instance = ball.Copy();
+            await ballsView.DropBall(instance, cancellationToken);
+            game.DropBall(instance);
         }
     }
 }

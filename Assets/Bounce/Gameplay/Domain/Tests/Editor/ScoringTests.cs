@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Bounce.Gameplay.Domain.Runtime;
-using Bounce.Gameplay.Domain.Tests.Builders;
 using FluentAssertions;
 using JunityEngine.Maths.Runtime;
 using NUnit.Framework;
 using static Bounce.Gameplay.Domain.Tests.Builders.AreaBuilder;
+using static Bounce.Gameplay.Domain.Tests.Builders.BallBuilder;
 using static Bounce.Gameplay.Domain.Tests.Builders.GameBuilder;
 using static Bounce.Gameplay.Domain.Tests.Builders.PitchBuilder;
 
@@ -27,9 +27,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             score.PointsOf(player0).Should().Be(1);
         }
-
-        //Borrar el GivePointTo desde el Game?
-
+        
         [Test]
         public void ScoreWhenBallLeavesArea()
         {
@@ -52,7 +50,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
                 .WithTargetScore(1)
                 .Build();
             sut.Begin();
-            sut.DropBall();
+            sut.DropBall(Ball().AtTheCenterOf(pitch).WithDiameter(1).Build());
             
             sut.SimulateBall(5f);
 

@@ -44,18 +44,16 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             Require(Playing).False();
             Playing = true;
-            PlayingPoint = true;
             pitch.PlayerReceivedGoal += EndPoint;
         }
 
-        public void DropBall()
+        public void BeginPoint()
         {
-            //Mover esto a infraestructura o lo que sea.
-            var ball = new Ball(pitch.Center, Vector2.Down.Normalize, 1f)
-            {
-                Speed = 4
-            };
+            PlayingPoint = true;
+        }
 
+        public void DropBall(Ball ball)
+        {
             pitch.DropBall(ball);
         }
         
@@ -87,12 +85,14 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Bounds2D AreaBoundsOf(Player player) => pitch.AreaBoundsOf(player);
 
 
-        void EndPoint(Player player)
+        public void EndPoint(Player player)
         {
             PlayingPoint = false;
+            pitch.Clear();
             foreach(var p in players.Where(x => x != player))
                 GivePointToPlayer(p);
         }
+        
         void GivePointToPlayer(Player player)
         {
             Require(Playing).True();
@@ -107,11 +107,6 @@ namespace Bounce.Gameplay.Domain.Runtime
             Playing = false;
             PlayingPoint = false;
             pitch.PlayerReceivedGoal -= EndPoint;
-        }
-
-        public void ClearPitch()
-        {
-            pitch.Clear();
         }
 
         public int PointsOf(Player player) => score.PointsOf(player);
