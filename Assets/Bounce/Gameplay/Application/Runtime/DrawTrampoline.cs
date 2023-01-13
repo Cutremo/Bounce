@@ -36,10 +36,11 @@ namespace Bounce.Gameplay.Application.Runtime
         }
 
         //Mover a otro controlador?
-        public async Task Clear(CancellationToken cancellationToken)
+        public Task Clear(CancellationToken cancellationToken)
         {
             sketchbookView.StopDrawing();
-            await trampolinesView.RemoveCurrent();
+            trampolinesView.RemoveCurrent();
+            return Task.CompletedTask;
         }
 
         void Draw(Vector2 position)

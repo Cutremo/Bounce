@@ -12,19 +12,11 @@ using UnityEngine.TestTools;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class GameplayTests
+    public class GameplayTests : InSceneFixture
     {
         DrawingInput drawingInput;
         LineRenderer lineRenderer;
-
         
-        [UnitySetUp]
-        public IEnumerator LoadScene()
-        {
-            SceneManager.LoadScene("MainScene");
-            yield return null;
-            yield return null;
-        }
 
         [Test]
         public async Task SecondPlayerPlays()

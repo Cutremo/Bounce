@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
 using UnityEngine;
 
@@ -35,6 +37,11 @@ namespace Bounce.Gameplay.Application.Runtime
             }
 
             game.PlayersEnabled = false;
+        }
+
+        public Task ClearPlayers(CancellationToken cancellationToken)
+        {
+            return Task.WhenAll(playersActions.Select(player => player.Clear(cancellationToken)).ToList());
         }
     }
 }

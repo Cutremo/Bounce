@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class DrawTrampolineTests : DrawingTests
+    public class DrawTrampolineTests : FirstPlayerDrawingFixture
     {
         [Test]
         public async Task DrawTrampoline()

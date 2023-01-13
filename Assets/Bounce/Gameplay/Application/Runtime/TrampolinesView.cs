@@ -7,6 +7,6 @@ namespace Bounce.Gameplay.Application.Runtime
     public interface TrampolinesView
     {
         public void Add(Trampoline trampoline);
-        public Task RemoveCurrent();
+        public void RemoveCurrent();
     }
 }

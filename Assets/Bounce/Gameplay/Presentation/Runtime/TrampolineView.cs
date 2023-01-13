@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
+using DG.Tweening;
+using JunityEngine.DotweenExtensions;
 using UnityEngine;
 
 namespace Bounce.Gameplay.Presentation.Runtime
@@ -16,11 +19,14 @@ namespace Bounce.Gameplay.Presentation.Runtime
             lineRenderer.SetPosition(1, new Vector3(trampoline.End.X, trampoline.End.Y, 0));
         }
 
-        public Task Destroy()
+        public void Destroy()
         {
-            Destroy(gameObject);
-            
-            return Task.CompletedTask;
+            lineRenderer
+                .DOColor(
+                new Color2(lineRenderer.startColor, lineRenderer.endColor),
+                new Color2(Color.clear, Color.clear), 
+                0.4f)
+                .onComplete += () => Destroy(gameObject);
         }
     }
 }

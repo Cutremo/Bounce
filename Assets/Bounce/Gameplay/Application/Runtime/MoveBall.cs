@@ -1,4 +1,6 @@
-﻿using Bounce.Gameplay.Domain.Runtime;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Bounce.Gameplay.Domain.Runtime;
 
 namespace Bounce.Gameplay.Application.Runtime
 {
@@ -13,8 +15,9 @@ namespace Bounce.Gameplay.Application.Runtime
             this.ballsView = ballsView;
         }
 
-        public void Simulate(float seconds)
+        public async Task Simulate(float seconds, CancellationToken cancellationToken)
         {
+            await Task.Delay((int)(seconds * 1000), cancellationToken);
             game.SimulateBall(seconds);
             if(game.Ball != Ball.Null)
                 ballsView.MoveBall(game.Ball);

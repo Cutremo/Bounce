@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class PointTests : DrawingTests
+    public class PointTests : FirstPlayerDrawingFixture
     {
         [Test]
         public async Task MayNotDrawWhenGameEnded()

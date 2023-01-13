@@ -21,14 +21,13 @@ namespace Bounce.Gameplay.Presentation.Runtime
             trampolineInstance.Draw(trampoline);
         }
 
-        public async Task RemoveCurrent()
+        public void RemoveCurrent()
         {
-            if (trampolineInstance != null)
-            {
-                await trampolineInstance.Destroy();
-            }
-
+            var instanceToRemove = trampolineInstance;
             trampolineInstance = null;
+            
+            if (instanceToRemove != null)
+                instanceToRemove.Destroy();
         }
     }
 }

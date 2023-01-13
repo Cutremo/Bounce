@@ -9,15 +9,13 @@ using UnityEngine;
 namespace Bounce.Gameplay.Application.Runtime
 {
     public class Gameplay
-    {
-        readonly PlayersController playersController;
+    { 
         readonly MoveBall moveBall;
         readonly PointController pointController;
         readonly Game game;
         
-        public Gameplay(PlayersController playersController, MoveBall moveBall, PointController pointController, Game game)
+        public Gameplay(MoveBall moveBall, PointController pointController, Game game)
         {
-            this.playersController = playersController;
             this.moveBall = moveBall;
             this.pointController = pointController;
             this.game = game;
@@ -25,23 +23,24 @@ namespace Bounce.Gameplay.Application.Runtime
 
         public async Task Play(CancellationToken cancellationToken)
         {
-            game.Begin();
-            playersController.EnablePlayers();
-            await pointController.BeginPoint(cancellationToken);
-            while (game.Playing)
+            try
             {
-                moveBall.Simulate(0.016f);
-                await Task.Delay(16, cancellationToken);
-                if (!game.PlayingPoint)
+                game.Begin();
+                await pointController.BeginPoint(cancellationToken);
+                while (game.Playing)
+                {
+                    while(game.PlayingPoint)
+                        await moveBall.Simulate(0.016f, cancellationToken);
+                    
                     await pointController.EndPoint(cancellationToken);
+                    if(game.Playing)
+                        await pointController.BeginPoint(cancellationToken);
+                }
             }
-
-            playersController.DisablePlayers();
-        }
-
-        public void Quit()
-        {
-            game.End();
+            catch(TaskCanceledException e)
+            {
+                Debug.LogWarning("Canceled running game. Handled");
+            }
         }
     }
 }

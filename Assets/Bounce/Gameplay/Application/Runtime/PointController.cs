@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
+using UnityEngine;
 
 namespace Bounce.Gameplay.Application.Runtime
 {
@@ -10,32 +11,29 @@ namespace Bounce.Gameplay.Application.Runtime
     {
         readonly Game game;
         readonly BallRef ballRef;
-        readonly List<DrawTrampoline> players;
+        readonly PlayersController playersController;
         readonly BallsView ballsView;
 
-        public PointController(Game game, BallRef ballRef, List<DrawTrampoline> players, BallsView ballsView)
+        public PointController(Game game, BallRef ballRef, PlayersController playersController, BallsView ballsView)
         {
             this.game = game;
             this.ballRef = ballRef;
-            this.players = players;
+            this.playersController = playersController;
             this.ballsView = ballsView;
         }
         public async Task EndPoint(CancellationToken cancellationToken)
         {
-            var clearTasks = players.Select(player => player.Clear(cancellationToken)).ToList();
-            clearTasks.Add(ballsView.RemoveBall(cancellationToken));
+            playersController.DisablePlayers();
 
-            await Task.WhenAll(clearTasks);
-
-            if(game.Playing)
-                await BeginPoint(cancellationToken);
+            await Task.WhenAll(playersController.ClearPlayers(cancellationToken), ballsView.RemoveBall(cancellationToken));
+            await Task.Delay(1000, cancellationToken);
         }
 
         public async Task BeginPoint(CancellationToken cancellationToken)
         {
-            await Task.Delay(4000, cancellationToken);
             await ballRef.DropBall(cancellationToken);
             game.BeginPoint();
+            playersController.EnablePlayers();
         }
     }
 }

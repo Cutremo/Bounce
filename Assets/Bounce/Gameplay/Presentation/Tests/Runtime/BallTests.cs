@@ -12,24 +12,8 @@ using UnityEngine.TestTools;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class BallTests 
+    public class BallTests : InSceneFixture
     {
-        [UnitySetUp]
-        public IEnumerator LoadScene()
-        {
-            SceneManager.LoadScene("MainScene");
-            yield return null;
-            yield return null;
-        }
-        
-        [UnityTearDown]
-        public IEnumerator WaitForEndOfFrame()
-        {
-            yield return null;
-        }
-
-        
-        
         [Test]
         public async Task BallExists()
         {
