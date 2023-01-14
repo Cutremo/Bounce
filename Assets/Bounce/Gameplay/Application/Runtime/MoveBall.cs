@@ -15,12 +15,14 @@ namespace Bounce.Gameplay.Application.Runtime
             this.ballsView = ballsView;
         }
 
-        public async Task Simulate(float seconds, CancellationToken cancellationToken)
+        public async Task Simulate(float seconds, CancellationToken ct)
         {
-            await Task.Delay((int)(seconds * 1000), cancellationToken);
+            await Task.Delay((int)(seconds * 1000), ct);
+
             game.SimulateBall(seconds);
+
             if(game.Ball != Ball.Null)
-                ballsView.MoveBall(game.Ball);
+                await ballsView.MoveBall(game.Ball, ct);
         }
     }
 }

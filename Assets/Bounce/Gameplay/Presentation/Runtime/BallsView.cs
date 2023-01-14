@@ -13,20 +13,22 @@ namespace Bounce.Gameplay.Presentation.Runtime
         [SerializeField] BallView prefab;
 
         BallView instance;
-        public async Task DropBall(Ball ball, CancellationToken cancellationToken)
+        public async Task DropBall(Ball ball, CancellationToken ct)
         {
             instance = Instantiate(prefab, new Vector3(ball.Position.X, ball.Position.Y, 0), Quaternion.identity);
-            await instance.ShowAnimation(ball, cancellationToken);
+            await instance.ShowAnimation(ball, ct);
         }
 
-        public void MoveBall(Ball ball)
+        public Task MoveBall(Ball ball, CancellationToken ct)
         {
+            ct.ThrowIfCancellationRequested();
             instance.MoveTo(new Vector3(ball.Position.X, ball.Position.Y, 0));
+            return Task.CompletedTask;
         }
 
-        public async Task RemoveBall(CancellationToken cancellationToken)
+        public async Task RemoveBall(CancellationToken ct)
         {
-            await Task.Delay(200, cancellationToken);
+            await Task.Delay(200, ct);
             Destroy(instance.gameObject);
         }
     }

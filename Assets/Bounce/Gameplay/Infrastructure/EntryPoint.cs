@@ -11,17 +11,15 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
     {
         [Inject] readonly Application.Runtime.Gameplay gameplay;
         [Inject] readonly EndGame endGame;
-        [Inject] CancellationTokenSource cancellationTokenSource;
 
         
         async void Start()
         {
-            await gameplay.Play(cancellationTokenSource.Token);
+            await gameplay.Play(destroyCancellationToken);
         }
 
-        void OnApplicationQuit()
+        void OnDestroy()
         {
-            cancellationTokenSource.Cancel();
             DOTween.KillAll();
         }
     }

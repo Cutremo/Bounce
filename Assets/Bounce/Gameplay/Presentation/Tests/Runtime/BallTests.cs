@@ -28,7 +28,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         {
             var originalPosition = Object.FindObjectOfType<BallView>().transform.position;
             
-            await Task.Delay(3000);
+            await Task.Delay(500);
 
             Object.FindObjectOfType<BallView>().transform.position.Should().NotBe(originalPosition);
         }

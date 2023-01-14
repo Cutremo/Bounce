@@ -12,7 +12,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task MayNotDrawWhenGameEnded()
         {
-            await Task.Delay(7000);
+            await Task.Delay(2500);
             
             drawingInput.SendDrawInput(new Vector3(0.5f,-5,0));
             drawingInput.SendDrawInput(new Vector3(0.5f,-3,0));
@@ -22,7 +22,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task DrawingsAreCancelledWhenGameEnds()
         {
-            await Task.Delay(3000);
+            await Task.Delay(4000);
             drawingInput.SendDrawInput(new Vector3(0.5f,-5,0));
             drawingInput.SendDrawInput(new Vector3(0.5f,-3,0));
 
@@ -49,7 +49,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task BallIsRemovedWhenScoring()
         {
-            await Task.Delay(7000);
+            await Task.Delay(2500);
             
             Object.FindObjectsOfType<BallView>().Length.Should().Be(0);
         }
@@ -68,11 +68,11 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task NewTurnBegins()
         {
-            await Task.Delay(7000);
+            await Task.Delay(2500);
             
             Object.FindObjectsOfType<BallView>().Length.Should().Be(0);
             
-            await Task.Delay(5000);
+            await Task.Delay(2000);
 
             Object.FindObjectsOfType<BallView>().Length.Should().Be(1);
         }

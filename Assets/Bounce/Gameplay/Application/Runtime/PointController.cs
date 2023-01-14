@@ -26,7 +26,7 @@ namespace Bounce.Gameplay.Application.Runtime
             playersController.DisablePlayers();
 
             await Task.WhenAll(playersController.ClearPlayers(cancellationToken), ballsView.RemoveBall(cancellationToken));
-            await Task.Delay(1000, cancellationToken);
+            await Task.Delay(2000, cancellationToken);
         }
 
         public async Task BeginPoint(CancellationToken cancellationToken)

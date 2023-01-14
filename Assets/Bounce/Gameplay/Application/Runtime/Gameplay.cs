@@ -37,7 +37,7 @@ namespace Bounce.Gameplay.Application.Runtime
                         await pointController.BeginPoint(cancellationToken);
                 }
             }
-            catch(TaskCanceledException e)
+            catch(OperationCanceledException e)
             {
                 Debug.LogWarning("Canceled running game. Handled");
             }
