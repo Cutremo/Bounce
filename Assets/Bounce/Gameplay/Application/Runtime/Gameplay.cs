@@ -26,15 +26,14 @@ namespace Bounce.Gameplay.Application.Runtime
             try
             {
                 game.Begin();
-                await pointController.BeginPoint(cancellationToken);
                 while (game.Playing)
                 {
+                    await pointController.BeginPoint(cancellationToken);
+
                     while(game.PlayingPoint)
                         await moveBall.Simulate(0.016f, cancellationToken);
                     
                     await pointController.EndPoint(cancellationToken);
-                    if(game.Playing)
-                        await pointController.BeginPoint(cancellationToken);
                 }
             }
             catch(OperationCanceledException e)
