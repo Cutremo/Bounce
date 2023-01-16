@@ -2,6 +2,7 @@
 using System.Linq;
 using Bounce.Gameplay.Domain.Runtime;
 using JunityEngine.Maths.Runtime;
+using static Bounce.Gameplay.Domain.Tests.Builders.AreaBuilder;
 
 namespace Bounce.Gameplay.Domain.Tests.Builders
 {
@@ -24,6 +25,12 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
             players.Add(player, area);
             return this;
         }
+        
+        public PitchBuilder AddArea(Player player)
+        {
+            players.Add(player, Area().Build());
+            return this;
+        }
         public PitchBuilder WithBounds(Bounds2D bounds)
         {
             this.bounds = bounds;
@@ -33,7 +40,7 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
         public PitchBuilder WithPlayers(int amount)
         {
             for (int i = 0; i < amount; i++)
-                players.Add(new Player(), AreaBuilder.Area().Build());
+                players.Add(new Player(), Area().Build());
 
             return this;
         }

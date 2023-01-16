@@ -18,8 +18,8 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void Score()
         {
-            var player0 = new Player();
-            var player1 = new Player();
+            var player0 = new Player("0");
+            var player1 = new Player("1");
             var players = new List<Player> {player0, player1};
             var score = new Score(players);
 
@@ -31,8 +31,8 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         [Test]
         public void ScoreWhenBallLeavesArea()
         {
-            var player0 = new Player();
-            var player1 = new Player();
+            var player0 = new Player("0");
+            var player1 = new Player("1");
             var pitch = Pitch()
                 .AddArea(player0, Area()
                     .WithBounds(new Bounds2D(new Vector2(0, -2), new Vector2(1, -1)))

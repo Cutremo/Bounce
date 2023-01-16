@@ -55,6 +55,8 @@ namespace Bounce.Gameplay.Domain.Runtime
                                   previousBallPosition.To(trajectoryCollision).Magnitude;
             ball.Position = trajectoryCollision + bounceMagnitude * ball.Orientation;
             ball.Speed += speedBoost;
+
+            Clear();
         }
 
         public bool Scores(Ball ball)
@@ -62,8 +64,11 @@ namespace Bounce.Gameplay.Domain.Runtime
             return bounds.IsOutsideOnDirection(ball.Position - ball.Radius * scoringDirection, scoringDirection);
         }
 
-        public void RemoveTrampoline()
+        public void Clear()
         {
+            if (Drawing)
+                StopDrawing();
+            
             trampoline = Trampoline.Null;
         }
     }

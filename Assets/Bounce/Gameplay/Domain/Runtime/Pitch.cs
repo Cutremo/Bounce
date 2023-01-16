@@ -56,10 +56,8 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             foreach(var area in playerAreas.Values)
             {
-                if (area.Drawing)
-                    area.StopDrawing();
                 if(area.Trampoline != Trampoline.Null)
-                    area.RemoveTrampoline();
+                    area.Clear();
             }
 
             field.RemoveBall();
