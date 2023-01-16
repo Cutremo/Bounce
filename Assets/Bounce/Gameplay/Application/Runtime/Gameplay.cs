@@ -38,7 +38,6 @@ namespace Bounce.Gameplay.Application.Runtime
             }
             catch(OperationCanceledException e)
             {
-                Debug.LogWarning("Canceled running game. Handled");
             }
         }
     }

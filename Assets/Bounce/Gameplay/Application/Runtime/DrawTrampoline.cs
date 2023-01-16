@@ -60,11 +60,8 @@ namespace Bounce.Gameplay.Application.Runtime
         void EndDraw()
         {
             if(!game.IsDrawing(player))
-            {
-                Debug.LogWarning("Ended Drawing when not drawing. Handled.");
                 return;
-            }
-            
+
             game.StopDrawing(player);
             if(game.TrampolineOf(player) != Trampoline.Null)
                 trampolinesView.Add(game.TrampolineOf(player));
