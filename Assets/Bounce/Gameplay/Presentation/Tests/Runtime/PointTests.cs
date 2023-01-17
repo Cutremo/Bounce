@@ -2,12 +2,13 @@
 using Bounce.Gameplay.Presentation.Runtime;
 using Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentation.Runtime;
 using FluentAssertions;
+using FluentAssertions.Execution;
 using NUnit.Framework;
 using UnityEngine;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class PointTests : FirstPlayerDrawingFixture
+    public class PointTests : DrawingFixture
     {
         [Test]
         public async Task MayNotDrawWhenGameEnded()
@@ -75,6 +76,16 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             await Task.Delay(2000);
 
             Object.FindObjectsOfType<BallView>().Length.Should().Be(1);
+        }
+        
+        [Test]
+        public async Task PointAdded()
+        {
+            await Task.Delay(4500);
+
+            using var _ = new AssertionScope();
+            TextOf(player0).text.Should().Be("0");
+            TextOf(player1).text.Should().Be("1");
         }
     }
 }

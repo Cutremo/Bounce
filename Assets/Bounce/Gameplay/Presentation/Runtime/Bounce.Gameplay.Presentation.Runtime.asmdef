@@ -7,7 +7,8 @@
         "GUID:7328033255f3407c9c743ec308a84404",
         "GUID:c8ea9a485723a0347881a35edff04da5",
         "GUID:8c78cdfe7d4656546b93a7613367ae90",
-        "JunityEngine.DoTween.Extensions"
+        "GUID:be42ebacb90584546a7ad4a43791f9b0",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -11,7 +11,7 @@ using Object = UnityEngine.Object;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class DrawTrampolineTests : FirstPlayerDrawingFixture
+    public class DrawTrampolineTests : DrawingFixture
     {
         [Test]
         public async Task DrawTrampoline()

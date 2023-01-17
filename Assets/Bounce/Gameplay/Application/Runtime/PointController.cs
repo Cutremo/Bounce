@@ -11,29 +11,32 @@ namespace Bounce.Gameplay.Application.Runtime
     {
         readonly Game game;
         readonly BallRef ballRef;
-        readonly PlayersController playersController;
+        readonly PlayerDrawing playerDrawing;
         readonly BallsView ballsView;
+        readonly ScoreView scoreView;
 
-        public PointController(Game game, BallRef ballRef, PlayersController playersController, BallsView ballsView)
+        public PointController(Game game, BallRef ballRef, PlayerDrawing playerDrawing, BallsView ballsView, ScoreView scoreView)
         {
             this.game = game;
             this.ballRef = ballRef;
-            this.playersController = playersController;
+            this.playerDrawing = playerDrawing;
             this.ballsView = ballsView;
+            this.scoreView = scoreView;
         }
-        public async Task EndPoint(CancellationToken cancellationToken)
+        public async Task EndPoint(CancellationToken ct)
         {
-            playersController.DisablePlayers();
+            playerDrawing.DisablePlayers();
 
-            await Task.WhenAll(playersController.ClearPlayers(cancellationToken), ballsView.RemoveBall(cancellationToken));
-            await Task.Delay(2000, cancellationToken);
+            await scoreView.SetScore(game.Score, ct);
+            await Task.WhenAll(playerDrawing.ClearPlayers(ct), ballsView.RemoveBall(ct));
+            await Task.Delay(2000, ct);
         }
 
         public async Task BeginPoint(CancellationToken cancellationToken)
         {
             await ballRef.DropBall(cancellationToken);
             game.BeginPoint();
-            playersController.EnablePlayers();
+            playerDrawing.EnablePlayers();
         }
     }
 }

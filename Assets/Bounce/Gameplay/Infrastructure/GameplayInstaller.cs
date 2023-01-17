@@ -4,6 +4,7 @@ using Bounce.Gameplay.Application.Runtime;
 using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Input.Runtime;
 using Bounce.Gameplay.Presentation.Runtime;
+using Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentation.Runtime;
 using JunityEngine.Maths.Runtime;
 using UnityEngine;
 using Zenject;
@@ -22,7 +23,6 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             var area0 = new Area(bounds0, Vector2.Down, 1f, 3f, 1);
             
             var player1 = new Player("player1");
-            var sketchBook1 = new Sketchbook {MaxTrampolineLength = 3};
             var bounds1 = new Bounds2D(new Vector2(-5, 2), new Vector2(5, 8));
             var area1 = new Area(bounds1, Vector2.Up, 1f, 3f, 1);
             
@@ -36,18 +36,20 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             
             Container.BindInstance(game).AsSingle();
 
-            Container.Bind<PlayersController>().AsSingle().NonLazy();
+            Container.Bind<PlayerDrawing>().AsSingle().NonLazy();
 
             Container.BindInstance(new Ball(pitch.Center, Vector2.Down, 1f) { Speed = 4 });
             Container.Bind<Application.Runtime.Gameplay>().AsSingle().NonLazy();
-            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, area0, subContainer)).AsCached();
-            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, area1, subContainer)).AsCached();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, area0, subContainer)).AsCached().NonLazy();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, area1, subContainer)).AsCached().NonLazy();
             Container.Bind<BallRef>().AsSingle();
             Container.Bind<BallsView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<MoveBall>().AsSingle();
             Container.BindInstance(new CancellationTokenSource());
             Container.Bind<EndGame>().AsSingle();
             Container.Bind<PointController>().AsSingle();
+            Container.Bind<ScoreView>().To<UnityScoreView>().AsSingle();
+            Container.Bind<PointsText>().FromComponentsInHierarchy().AsCached().Lazy();
         }
 
         void InstallPlayer(Player player, Area area, DiContainer subcontainer)
@@ -59,6 +61,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             subcontainer.Bind<DrawTrampolineInput>().FromComponentInHierarchy().AsSingle();
             subcontainer.Bind<SketchbookView>().FromComponentInHierarchy().AsSingle();
             subcontainer.Bind<TrampolinesView>().FromComponentInHierarchy().AsSingle();
+            subcontainer.Bind<PointsText>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

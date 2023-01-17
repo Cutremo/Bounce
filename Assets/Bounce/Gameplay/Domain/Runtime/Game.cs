@@ -28,6 +28,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         }
 
         public Ball Ball => pitch.Ball;
+        public Score Score => score;
 
         //Pasar el int.
         public Game(Pitch pitch, IEnumerable<Player> players, int targetScore = int.MaxValue)

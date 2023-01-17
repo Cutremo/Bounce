@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace Bounce.Gameplay.Application.Runtime
 {
-    public class PlayersController
+    public class PlayerDrawing
     {
         readonly Game game;
         readonly DrawTrampoline[] playersActions;
 
-        public PlayersController(Game game, List<DrawTrampoline> playersActions)
+        public PlayerDrawing(Game game, List<DrawTrampoline> playersActions)
         {
             this.game = game;
             this.playersActions = playersActions.ToArray();
