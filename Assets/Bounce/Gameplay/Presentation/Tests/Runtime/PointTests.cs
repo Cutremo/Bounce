@@ -79,13 +79,21 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         }
         
         [Test]
-        public async Task PointAdded()
+        public async Task ChangesScoreWhenPointEnded()
         {
             await Task.Delay(4500);
 
             using var _ = new AssertionScope();
             TextOf(player0).text.Should().Be("0");
             TextOf(player1).text.Should().Be("1");
+        }
+        
+        [Test]
+        public void DefaultPointsAreZero()
+        {
+            using var _ = new AssertionScope();
+            TextOf(player0).text.Should().Be("0");
+            TextOf(player1).text.Should().Be("0");
         }
     }
 }
