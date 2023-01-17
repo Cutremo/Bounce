@@ -115,13 +115,7 @@ k
 ;Assets/Bounce/Gameplay/Domain/Tests/Builders/BallBuilder.cs,b\4\b422045ec68d3a172e41234c2a7940007ed474b6
 k
 ;Assets/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests.cs,b\5\b5067395330a237348fe30a35905e9a169741495
-g
-7Assets/Bounce/Gameplay/Application/Runtime/BallsView.cs,f\7\f7866d1e01d5182766e13d9e2a012a567976555c
 r
 BAssets/Bounce/Gameplay/Presentation/Tests/Runtime/GameplayTests.cs,9\7\970ec8a70598c42cd550db4ab5b1a5ea17d4e9ef
 q
 AAssets/Bounce/Gameplay/Application/Runtime/DrawTrampolineInput.cs,2\e\2e3d53c330e70780f6f925e7a268585e583bbc81
-g
-7Assets/Bounce/Gameplay/Presentation/Runtime/BallView.cs,4\0\40335367b0cc04745ad7ce77418f508fec771cdb
-h
-8Assets/Bounce/Gameplay/Presentation/Runtime/BallsView.cs,2\a\2ae847d5adcbc56e1768cc64d4801551a2686abb

@@ -28,8 +28,7 @@ namespace Bounce.Gameplay.Presentation.Runtime
 
         public async Task RemoveBall(CancellationToken ct)
         {
-            await Task.Delay(200, ct);
-            Destroy(instance.gameObject);
+            await instance.Pop(ct);
         }
     }
 }
