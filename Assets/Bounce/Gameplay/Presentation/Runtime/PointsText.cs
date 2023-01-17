@@ -21,6 +21,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentatio
         {
             var pos = game.AreaBoundsOf(player).Center;
             transform.position = new Vector3(pos.X, pos.Y, 0);
+            text.text = "0";
         }
 
         public async Task UpdatePoints(CancellationToken ct)
