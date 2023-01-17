@@ -19,11 +19,11 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
         public override void InstallBindings()
         {
             var player0 = new Player("player0");
-            var bounds0 = new Bounds2D(new Vector2(-5, -8), new Vector2(5, -2));
+            var bounds0 = new Bounds2D(new Vector2(-5, -9), new Vector2(5, -2));
             var area0 = new Area(bounds0, Vector2.Down, 1f, 3f, 1);
             
             var player1 = new Player("player1");
-            var bounds1 = new Bounds2D(new Vector2(-5, 2), new Vector2(5, 8));
+            var bounds1 = new Bounds2D(new Vector2(-5, 2), new Vector2(5, 9));
             var area1 = new Area(bounds1, Vector2.Up, 1f, 3f, 1);
             
             var players = new List<Player>();
