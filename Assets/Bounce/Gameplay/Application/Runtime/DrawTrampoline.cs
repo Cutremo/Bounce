@@ -19,7 +19,7 @@ namespace Bounce.Gameplay.Application.Runtime
             this.sketchbookView = sketchbookView;
             this.trampolinesView = trampolinesView;
             this.drawingInput = drawingInput;
-            area.TrampolineDestroyed += EndDrawingAndRemoveCurrent;
+            area.TrampolineCollided += EndDrawingAndRemoveCurrent;
         }
 
         public void EnableDraw()
