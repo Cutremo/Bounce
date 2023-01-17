@@ -40,8 +40,8 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
 
             Container.BindInstance(new Ball(pitch.Center, Vector2.Down, 1f) { Speed = 4 });
             Container.Bind<Application.Runtime.Gameplay>().AsSingle().NonLazy();
-            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, subContainer)).AsCached();
-            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, subContainer)).AsCached();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, area0, subContainer)).AsCached();
+            Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, area1, subContainer)).AsCached();
             Container.Bind<BallRef>().AsSingle();
             Container.Bind<BallsView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<MoveBall>().AsSingle();
@@ -50,10 +50,11 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             Container.Bind<PointController>().AsSingle();
         }
 
-        void InstallPlayer(Player player, DiContainer subcontainer)
+        void InstallPlayer(Player player, Area area, DiContainer subcontainer)
         {
             subcontainer.DefaultParent.gameObject.name = player.Id;
             subcontainer.BindInstance(player);
+            subcontainer.BindInstance(area);
             subcontainer.Bind<DrawTrampoline>().AsSingle();
             subcontainer.Bind<DrawTrampolineInput>().FromComponentInHierarchy().AsSingle();
             subcontainer.Bind<SketchbookView>().FromComponentInHierarchy().AsSingle();

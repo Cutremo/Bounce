@@ -9,18 +9,17 @@ namespace Bounce.Gameplay.Application.Runtime
 {
     public class  DrawTrampoline 
     {
-        readonly Game game;
-        readonly Player player;
+        readonly Area area;
         readonly SketchbookView sketchbookView;
         readonly TrampolinesView trampolinesView;
         readonly DrawTrampolineInput drawingInput;
-        public DrawTrampoline(Game game, Player player, SketchbookView sketchbookView, TrampolinesView trampolinesView, DrawTrampolineInput drawingInput)
+        public DrawTrampoline(Area area, SketchbookView sketchbookView, TrampolinesView trampolinesView, DrawTrampolineInput drawingInput)
         {
-            this.game = game;
-            this.player = player;
+            this.area = area;
             this.sketchbookView = sketchbookView;
             this.trampolinesView = trampolinesView;
             this.drawingInput = drawingInput;
+            area.TrampolineDestroyed += EndDrawingAndRemoveCurrent;
         }
 
         public void EnableDraw()
@@ -45,26 +44,34 @@ namespace Bounce.Gameplay.Application.Runtime
 
         void Draw(Vector2 position)
         {
-            if(!game.InsideBounds(player, position))
+            if(!area.InsideBounds(position))
                 return;
 
-            if(!game.IsDrawing(player))
+            if(!area.Drawing)
             {
-                trampolinesView.RemoveCurrent();
+                RemoveCurrent();
                 sketchbookView.BeginDraw(position);
             }
-            game.Draw(player, position);
-            sketchbookView.Draw(game.TrampolineOf(player));
+            area.Draw(position);
+            sketchbookView.Draw(area.Trampoline);
         }
+
+        void EndDrawingAndRemoveCurrent()
+        {
+            EndDraw();
+            RemoveCurrent();
+        }
+
+        void RemoveCurrent() => trampolinesView.RemoveCurrent();
 
         void EndDraw()
         {
-            if(!game.IsDrawing(player))
+            if(!area.Drawing)
                 return;
 
-            game.StopDrawing(player);
-            if(game.TrampolineOf(player) != Trampoline.Null)
-                trampolinesView.Add(game.TrampolineOf(player));
+            area.StopDrawing();
+            if(area.Trampoline != Trampoline.Null)
+                trampolinesView.Add(area.Trampoline);
             
             sketchbookView.StopDrawing();
         }

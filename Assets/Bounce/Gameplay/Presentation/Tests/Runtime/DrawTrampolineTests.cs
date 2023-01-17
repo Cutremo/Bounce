@@ -2,10 +2,12 @@ using System;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Presentation.Runtime;
+using Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentation.Runtime;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
@@ -141,6 +143,18 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             
             GameObject.Find("player0").GetComponentInChildren<SketchbookPanel>()
                 .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeFalse();
+        }
+        
+        [Test]
+        public async Task BounceRemovesTrampoline()
+        {
+            drawingInput.SendDrawInput(new Vector3(-1,-5,0));
+            drawingInput.SendDrawInput(new Vector3(1,-5f,0));
+            drawingInput.SendEndDrawInput();
+            
+            await Task.Delay(3000);
+
+            Object.FindObjectOfType<TrampolineView>().Should().BeNull();
         }
     }
 }
