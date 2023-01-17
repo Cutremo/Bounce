@@ -89,7 +89,6 @@ namespace Bounce.Gameplay.Domain.Runtime
         public void EndPoint(Player player)
         {
             PlayingPoint = false;
-            pitch.Clear();
             foreach(var p in players.Where(x => x != player))
                 GivePointToPlayer(p);
         }
@@ -113,5 +112,10 @@ namespace Bounce.Gameplay.Domain.Runtime
         public int PointsOf(Player player) => score.PointsOf(player);
 
         public void SimulateBall(float seconds) => pitch.SimulateBall(seconds);
+
+        public void RemoveBall()
+        {
+            pitch.RemoveBall();
+        }
     }
 }

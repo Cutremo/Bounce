@@ -12,7 +12,9 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentatio
     {
         [SerializeField] SpriteRenderer sprite;
         [SerializeField] ParticleSystem particles;
-        [SerializeField] AnimationCurve explossionCurve;
+        [SerializeField] TrailRenderer trail;
+        
+        [FormerlySerializedAs("explossionCurve")] [SerializeField] AnimationCurve explosionCurve;
         public async Task ShowAnimation(Ball ball, CancellationToken cancellationToken)
         {
             var endScale = ball.Diameter;
@@ -28,10 +30,14 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentatio
             transform.position = targetPosition;
         }
 
+        public void ClearTrail()
+        {
+            trail.Clear();
+        }
         public Task Pop(CancellationToken ct)
         {
             var sequence = DOTween.Sequence();
-            return sequence.Append(sprite.transform.DOScale(Vector3.one * 2.5f, 0.5f).SetEase(explossionCurve))
+            return sequence.Append(sprite.transform.DOScale(Vector3.one * 2.5f, 0.5f).SetEase(explosionCurve))
                 .AppendCallback(() => sprite.gameObject.SetActive(false))
                 .AppendCallback(() => particles.Play())
                 .AppendInterval(particles.main.duration)

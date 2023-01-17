@@ -23,5 +23,11 @@ namespace Bounce.Gameplay.Application.Runtime
             await ballsView.DropBall(instance, cancellationToken);
             game.DropBall(instance);
         }
+
+        public async Task RemoveBall(Ball gameBall, CancellationToken ct)
+        {
+            game.RemoveBall();
+            await ballsView.RemoveBall(gameBall, ct);
+        }
     }
 }

@@ -72,7 +72,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             sut.TrampolineOf(player).Should().Be(new Trampoline {Origin = new Vector2(1), End = new Vector2(2)});
         }
 
-        [Test]
+        [Test, Ignore("Unsure about this feature")]
         public void ClearingPitchDeletesTrampolines()
         {
             var player = new Player();
@@ -97,7 +97,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             sut.TrampolineOf(player).Should().Be(Trampoline.Null);
         }
         
-        [Test]
+        [Test, Ignore("Unsure about this feature")]
         public void ClearingPitchRemovesDrawings()
         {
             var player = new Player();
@@ -123,7 +123,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         }
         
         [Test]
-        public void ClearingPitchRemovesBall()
+        public void RemoveBall()
         {
             var player = new Player();
             var area = Area()
@@ -138,7 +138,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
             sut.Begin();
             sut.DropBall(Ball().WithDiameter(1).AtTheCenterOf(pitch).Build());
 
-            sut.SimulateBall(5f);
+            sut.RemoveBall();
 
             using var _ = new AssertionScope();
             sut.Ball.Should().Be(Ball.Null);

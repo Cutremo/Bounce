@@ -15,8 +15,14 @@ namespace Bounce.Gameplay.Presentation.Runtime
         BallView instance;
         public async Task DropBall(Ball ball, CancellationToken ct)
         {
+            ball.Bounced += ClearTrail;
             instance = Instantiate(prefab, new Vector3(ball.Position.X, ball.Position.Y, 0), Quaternion.identity);
             await instance.ShowAnimation(ball, ct);
+        }
+
+        void ClearTrail()
+        {
+            instance.ClearTrail();
         }
 
         public Task MoveBall(Ball ball, CancellationToken ct)
@@ -26,8 +32,9 @@ namespace Bounce.Gameplay.Presentation.Runtime
             return Task.CompletedTask;
         }
 
-        public async Task RemoveBall(CancellationToken ct)
+        public async Task RemoveBall(Ball ball, CancellationToken ct)
         {
+            ball.Bounced -= ClearTrail;
             await instance.Pop(ct);
         }
     }

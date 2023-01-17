@@ -113,8 +113,6 @@ k
 ;Assets/Bounce/Gameplay/Domain/Tests/Builders/GameBuilder.cs,2\3\23bbd312a9686b005d057103c96bea9ff37fa398
 k
 ;Assets/Bounce/Gameplay/Domain/Tests/Builders/BallBuilder.cs,b\4\b422045ec68d3a172e41234c2a7940007ed474b6
-k
-;Assets/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests.cs,b\5\b5067395330a237348fe30a35905e9a169741495
 r
 BAssets/Bounce/Gameplay/Presentation/Tests/Runtime/GameplayTests.cs,9\7\970ec8a70598c42cd550db4ab5b1a5ea17d4e9ef
 q

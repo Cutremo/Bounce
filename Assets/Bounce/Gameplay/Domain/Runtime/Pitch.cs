@@ -52,16 +52,6 @@ namespace Bounce.Gameplay.Domain.Runtime
             }
         }
 
-        public void Clear()
-        {
-            foreach(var area in playerAreas.Values)
-            {
-                if(area.Trampoline != Trampoline.Null)
-                    area.Clear();
-            }
-
-            field.RemoveBall();
-        }
         public bool Contains(Area area)
         {
             return field.Contains(area);
@@ -79,5 +69,10 @@ namespace Bounce.Gameplay.Domain.Runtime
         }
 
         public Trampoline TrampolineOf(Player player) => playerAreas[player].Trampoline;
+
+        public void RemoveBall()
+        {
+            field.RemoveBall();
+        }
     }
 }

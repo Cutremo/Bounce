@@ -56,7 +56,7 @@ namespace Bounce.Gameplay.Domain.Runtime
                                   previousBallPosition.To(trajectoryCollision).Magnitude;
             ball.Position = trajectoryCollision + bounceMagnitude * ball.Orientation;
             ball.Speed += speedBoost;
-
+            ball.Bounce();
             TrampolineCollided?.Invoke();
         }
 
@@ -67,9 +67,6 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public void Clear()
         {
-            if (Drawing)
-                StopDrawing();
-            
             trampoline = Trampoline.Null;
         }
     }

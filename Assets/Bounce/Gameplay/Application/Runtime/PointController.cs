@@ -27,8 +27,7 @@ namespace Bounce.Gameplay.Application.Runtime
         {
             playerDrawing.DisablePlayers();
 
-            await ballsView.RemoveBall(ct);
-            await playerDrawing.ClearPlayers(ct);
+            await Task.WhenAll(playerDrawing.ClearPlayers(ct), ballRef.RemoveBall(game.Ball, ct));
             await scoreView.SetScore(game.Score, ct);
             await Task.Delay(2000, ct);
         }

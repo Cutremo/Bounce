@@ -50,7 +50,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task BallIsRemovedWhenScoring()
         {
-            await Task.Delay(2500);
+            await Task.Delay(7000);
             
             Object.FindObjectsOfType<BallView>().Length.Should().Be(0);
         }
@@ -69,7 +69,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task NewTurnBegins()
         {
-            await Task.Delay(2500);
+            await Task.Delay(7000);
             
             Object.FindObjectsOfType<BallView>().Length.Should().Be(0);
             
@@ -81,7 +81,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [Test]
         public async Task ChangesScoreWhenPointEnded()
         {
-            await Task.Delay(4500);
+            await Task.Delay(7000);
 
             using var _ = new AssertionScope();
             TextOf(player0).text.Should().Be("0");

@@ -5019,7 +5019,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 3018714475784358562}
   particles: {fileID: 7429347011869176873}
-  explossionCurve:
+  trail: {fileID: 7158199409562118162}
+  explosionCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -5094,7 +5095,7 @@ TrailRenderer:
   m_SortingLayerID: -2067350213
   m_SortingLayer: 3
   m_SortingOrder: -1
-  m_Time: 1
+  m_Time: 9999
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -5103,22 +5104,22 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.72979736
-        inSlope: 0
-        outSlope: 0
+        time: 0.0025673942
+        value: 0.6054744
+        inSlope: -0.10796546
+        outSlope: -0.10796546
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.07657976
       - serializedVersion: 3
         time: 0.99157715
         value: 0.032822847
-        inSlope: -2.2926905
-        outSlope: -2.2926905
+        inSlope: -2.3678167
+        outSlope: -2.3678167
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.039990913
+        inWeight: 0.04599794
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2

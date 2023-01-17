@@ -36,7 +36,7 @@ namespace Bounce.Gameplay.Application.Runtime
                     await pointController.EndPoint(cancellationToken);
                 }
             }
-            catch(OperationCanceledException e)
+            catch(OperationCanceledException _)
             {
             }
         }

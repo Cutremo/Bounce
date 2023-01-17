@@ -103,36 +103,5 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
 
             sut.Ball.Speed.Should().Be(2);
         }
-        
-        [Test]
-        public void DrawingIsRemovedAfterBounce()
-        {
-            var sut = PitchBuilder.Pitch()
-                .AddArea(SomePlayer)
-                .Build();
-            sut.DropBall(new Ball(Vector2.One, Vector2.Down));
-            sut.Draw(SomePlayer, Vector2.Half);
-            sut.Draw(SomePlayer, new Vector2(1.5f, 0.5f));
-
-            sut.SimulateBall(1f);
-
-            sut.TrampolineOf(SomePlayer).Should().Be(Trampoline.Null);
-        }
-        
-        [Test]
-        public void TrampolineIsRemovedAfterBounce()
-        {
-            var sut = PitchBuilder.Pitch()
-                .AddArea(SomePlayer)
-                .Build();
-            sut.DropBall(new Ball(Vector2.One, Vector2.Down));
-            sut.Draw(SomePlayer, Vector2.Half);
-            sut.Draw(SomePlayer, new Vector2(1.5f, 0.5f));
-            sut.StopDrawing(SomePlayer);
-            
-            sut.SimulateBall(1f);
-
-            sut.TrampolineOf(SomePlayer).Should().Be(Trampoline.Null);
-        }
     }
 }

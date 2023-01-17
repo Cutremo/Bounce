@@ -6,6 +6,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 {
     public class Ball
     {
+        public event Action Bounced; 
         public Vector2 Position { get; set; }
         public float Speed { get; set; } = 1;
         
@@ -55,6 +56,11 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Ball Copy()
         {
             return new Ball(Position, orientation, Diameter) { Speed = Speed };
+        }
+
+        public void Bounce()
+        {
+            Bounced?.Invoke();
         }
     }
 }
