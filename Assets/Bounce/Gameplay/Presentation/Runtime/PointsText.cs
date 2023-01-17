@@ -15,6 +15,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentatio
 
         [Inject] Game game;
         [Inject] Player player;
+        string PlayerPointsString => game.PointsOf(player).ToString();
 
         void Start()
         {
@@ -22,10 +23,13 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentatio
             transform.position = new Vector3(pos.X, pos.Y, 0);
         }
 
-        public Task UpdatePoints(CancellationToken ct)
-        {
-            text.text = game.PointsOf(player).ToString();
-            return Task.CompletedTask;
+        public async Task UpdatePoints(CancellationToken ct)
+        { 
+            if (text.text == PlayerPointsString)
+                return;
+
+            await Task.Delay(500, ct);
+            text.text = PlayerPointsString;
         }
     }
 }
