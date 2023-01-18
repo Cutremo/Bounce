@@ -1,9 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Application.Runtime;
-using Bounce.Gameplay.Domain.Runtime;
 using UnityEngine;
-using Zenject;
 using Vector2 = JunityEngine.Maths.Runtime.Vector2;
 
 namespace Bounce.Gameplay.Input.Runtime

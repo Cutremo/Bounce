@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
-using UnityEngine;
 
 namespace Bounce.Gameplay.Application.Runtime
 {

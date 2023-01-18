@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Presentation.Runtime;
 using Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentation.Runtime;
 using FluentAssertions;

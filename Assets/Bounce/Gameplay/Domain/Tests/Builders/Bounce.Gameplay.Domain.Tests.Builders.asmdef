@@ -5,7 +5,7 @@
         "GUID:66e31060f5d1b0c468d39f745c179957",
         "GUID:4764913e29b5d97458b0ad11ce20df92",
         "GUID:7328033255f3407c9c743ec308a84404",
-        "RGV.DesignByContract.Runtime"
+        "GUID:4f3166ce75f1424a9d8c84f49b07f6c9"
     ],
     "includePlatforms": [
         "Editor"
@@ -14,7 +14,7 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [],
-    "autoReferenced": true,
+    "autoReferenced": false,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": true

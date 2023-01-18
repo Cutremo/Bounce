@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
-using UnityEngine;
 
 namespace Bounce.Gameplay.Application.Runtime
 {

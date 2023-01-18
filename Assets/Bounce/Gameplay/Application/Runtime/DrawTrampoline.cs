@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Input.Runtime;
-using UnityEngine;
+
 using Vector2 = JunityEngine.Maths.Runtime.Vector2;
 
 namespace Bounce.Gameplay.Application.Runtime

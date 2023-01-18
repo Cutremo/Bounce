@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Bounce.Gameplay.Domain.Runtime;
-using NUnit.Framework;
 using static Bounce.Gameplay.Domain.Tests.Builders.PitchBuilder;
 
 namespace Bounce.Gameplay.Domain.Tests.Builders
