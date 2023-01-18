@@ -1,0 +1,21 @@
+[Trace]   DarkRiftServer        System Details:
+                                	OS: Microsoft Windows NT 6.2.9200.0
+                                	CLS Version: 4.0.30319.42000
+                                	DarkRift: 2.10.1.0 - Free
+[Trace]   PluginFactory         Created plugin 'BichannelListener'.
+[Trace]   HttpHealthCheck       HTTP health check started at 'http://localhost:10666/health'
+[Trace]   DarkRiftServer        Binding listeners to ClientManager as server is externally visible.
+[Trace]   DefaultNetworkListener Starting bichannel listener.
+[Info]    DefaultNetworkListener Server mounted, listening on port 4296.
+[Trace]   CommandEngine         Command entered: 'asdasd'
+[Error]   CommandEngine         Unable to find an appropriate handler for the command. Cannot invoke it
+                                 System.InvalidOperationException: Could not find any plugins able to handle the command asdasd.
+                                    en DarkRift.Server.CommandEngine.FindPluginWithCommand(String commandName)
+                                    en DarkRift.Server.CommandEngine.FindCommand(String command)
+                                    en DarkRift.Server.CommandEngine.HandleCommand(String command)
+[Trace]   CommandEngine         Command entered: 'asd'
+[Error]   CommandEngine         Unable to find an appropriate handler for the command. Cannot invoke it
+                                 System.InvalidOperationException: Could not find any plugins able to handle the command asd.
+                                    en DarkRift.Server.CommandEngine.FindPluginWithCommand(String commandName)
+                                    en DarkRift.Server.CommandEngine.FindCommand(String command)
+                                    en DarkRift.Server.CommandEngine.HandleCommand(String command)

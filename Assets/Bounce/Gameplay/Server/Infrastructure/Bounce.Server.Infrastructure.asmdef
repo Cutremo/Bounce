@@ -1,0 +1,22 @@
+{
+    "name": "Bounce.Server.Infrastructure",
+    "rootNamespace": "",
+    "references": [
+        "Bounce.Gameplay.Application.Runtime",
+        "Bounce.Gameplay.Domain.Runtime",
+        "Zenject"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DarkRift.dll",
+        "DarkRift.Server.dll",
+        "Zenject-usage.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
