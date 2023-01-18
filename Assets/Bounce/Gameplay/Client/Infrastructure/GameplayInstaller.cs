@@ -39,7 +39,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             Container.Bind<PlayerDrawing>().AsSingle().NonLazy();
 
             Container.BindInstance(new Ball(pitch.Center, Vector2.Down, 1f) { Speed = 4 });
-            Container.Bind<Application.Runtime.Gameplay>().AsSingle().NonLazy();
+            Container.Bind<Application.Runtime.Match>().AsSingle().NonLazy();
             Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, area0, subContainer)).AsCached().NonLazy();
             Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, area1, subContainer)).AsCached().NonLazy();
             Container.Bind<BallRef>().AsSingle();

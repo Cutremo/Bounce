@@ -7,13 +7,13 @@ using Bounce.Gameplay.Domain.Runtime;
 
 namespace Bounce.Gameplay.Application.Runtime
 {
-    public class Gameplay
+    public class Match
     { 
         readonly MoveBall moveBall;
         readonly PointController pointController;
         readonly Game game;
         
-        public Gameplay(MoveBall moveBall, PointController pointController, Game game)
+        public Match(MoveBall moveBall, PointController pointController, Game game)
         {
             this.moveBall = moveBall;
             this.pointController = pointController;

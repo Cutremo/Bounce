@@ -9,13 +9,13 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
 {
     public class EntryPoint : MonoBehaviour
     {
-        [Inject] readonly Application.Runtime.Gameplay gameplay;
+        [Inject] readonly Application.Runtime.Match match;
         [Inject] readonly EndGame endGame;
 
         
         async void Start()
         {
-            await gameplay.Play(destroyCancellationToken);
+            await match.Play(destroyCancellationToken);
         }
 
         void OnDestroy()
