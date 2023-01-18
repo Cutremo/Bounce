@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4809060368892050817}
   - component: {fileID: 4470956221902813954}
-  - component: {fileID: 8120740252226824185}
+  - component: {fileID: 1993091628647104387}
   m_Layer: 0
   m_Name: Trampoline
   m_TagString: Untagged
@@ -155,7 +155,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
---- !u!114 &8120740252226824185
+--- !u!114 &1993091628647104387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
