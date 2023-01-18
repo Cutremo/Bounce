@@ -1,0 +1,36 @@
+[Trace]   DarkRiftServer        System Details:
+                                	OS: Microsoft Windows NT 6.2.9200.0
+                                	CLS Version: 4.0.30319.42000
+                                	DarkRift: 2.10.1.0 - Free
+[Trace]   PluginFactory         Created plugin 'EntryPoint'.
+[Info]    PluginManager         Installed plugin EntryPoint version 0.0.0
+[Trace]   PluginFactory         Created plugin 'BichannelListener'.
+[Trace]   HttpHealthCheck       HTTP health check started at 'http://localhost:10666/health'
+[Trace]   DarkRiftServer        Binding listeners to ClientManager as server is externally visible.
+[Trace]   DefaultNetworkListener Starting bichannel listener.
+[Info]    DefaultNetworkListener Server mounted, listening on port 4296.
+[Trace]   CommandEngine         Command entered: 'plugins'
+[Error]   CommandEngine         Syntax Error: Expected 1 argument but found 0.
+                                Usage: plugins uninstall <plugin-name>
+                                plugins loaded (-h)
+                                	Adding option -h will include hidden plugins.
+                                plugins installed
+[Trace]   CommandEngine         Command entered: 'plugins loaded'
+[Info]    PluginController      Found 1 plugins loaded.
+                                1   EntryPoint              
+                                
+[Trace]   CommandEngine         Command entered: 'plugins installed'
+[Info]    PluginController      Found 12 plugins installed.
+                                1   HelpCommand              V1.0.0
+                                2   PluginController         V1.0.0
+                                3   Sniffer                  V1.0.0
+                                4   DemoCommand              V1.0.0
+                                5   MessageCommand           V1.0.0
+                                6   MockCommand              V1.0.0
+                                7   DebugCommand             V1.0.0
+                                8   ClientCommand            V1.0.0
+                                9   ClearCommand             V1.0.0
+                                10  ObjectCacheMonitor       V1.0.0
+                                11  HttpHealthCheck          V1.0.0
+                                12  EntryPoint               V0.0.0
+                                

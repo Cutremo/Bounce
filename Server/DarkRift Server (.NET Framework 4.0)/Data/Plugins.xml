@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plugins nextID="11">
+<plugins nextID="12">
   <plugin id="0" name="HelpCommand" version="1.0.0" />
   <plugin id="1" name="PluginController" version="1.0.0" />
   <plugin id="2" name="Sniffer" version="1.0.0" />
@@ -11,4 +11,5 @@
   <plugin id="8" name="ClearCommand" version="1.0.0" />
   <plugin id="9" name="ObjectCacheMonitor" version="1.0.0" />
   <plugin id="10" name="HttpHealthCheck" version="1.0.0" />
+  <plugin id="11" name="EntryPoint" version="0.0.0" />
 </plugins>

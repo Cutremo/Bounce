@@ -1,4 +1,5 @@
-﻿using Bounce.Gameplay.Application.Runtime;
+﻿using System.Threading;
+using Bounce.Gameplay.Application.Runtime;
 using DarkRift.Server;
 using Zenject;
 
@@ -19,21 +20,13 @@ namespace Bounce.Server.Runtime
         {
             Container = new DiContainer();
 
-            Container.BindInstance(pluginLoadData.ClientManager).WhenInjectedInto<IClientManager>();
             Container.Bind<MatchMaking>().AsSingle().NonLazy();
-            Container.BindMemoryPool<Match, MatchFactory>()
+
+            Container.BindInstance(pluginLoadData.ClientManager).WhenInjectedInto<IClientManager>();
+            Container.BindInstance(new CancellationTokenSource().Token);
+            Container.BindMemoryPool<Match>()
                 .FromSubContainerResolve()
-                .ByMethod(InstallGame);
-        }
-
-        void InstallGame(DiContainer obj)
-        {
-            
-        }
-    }
-
-    public class MatchFactory : MemoryPool<Match>
-    {
-        
+                .ByInstaller<MatchInstaller>();
+        } 
     }
 }

@@ -4,7 +4,8 @@
     "references": [
         "Bounce.Gameplay.Application.Runtime",
         "Bounce.Gameplay.Domain.Runtime",
-        "Zenject"
+        "JunityEngine.Commons.Runtime",
+        "JunityEngine.Maths.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -13,10 +14,11 @@
     "precompiledReferences": [
         "DarkRift.dll",
         "DarkRift.Server.dll",
+        "Zenject.dll",
         "Zenject-usage.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
-    "noEngineReferences": false
+    "noEngineReferences": true
 }
