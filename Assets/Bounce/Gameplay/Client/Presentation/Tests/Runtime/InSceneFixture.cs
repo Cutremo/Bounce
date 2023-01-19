@@ -18,14 +18,18 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             yield return null;
             yield return new WaitForSeconds(3f);
         }
-        
-        
-        // [UnityTearDown]
-        // public IEnumerator UnloadScene()
-        // {
-        //     yield return null;
-        //     Action unload = () => SceneManager.LoadScene("Empty");
-        //     unload.Should().Throw<OperationCanceledException>();
-        // }
+
+        public IEnumerator AssertThatHappensInTime(Func<bool> operation, float timeOut)
+        {
+            var counter = timeOut;
+
+            while(!operation() && timeOut > 0)
+            {
+                timeOut -= Time.deltaTime;
+                yield return null;
+            }
+
+            operation().Should().BeTrue("TimeOut");
+        }
     }
 }

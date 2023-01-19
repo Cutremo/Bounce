@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Threading.Tasks;
 using Bounce.Gameplay.Presentation.Runtime;
 using Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentation.Runtime;
@@ -6,6 +7,7 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
 using Object = UnityEngine.Object;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
@@ -39,20 +41,23 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             lineRenderer.GetPosition(0).Should().Be(new Vector3(4,-4,0));
         }
         
-        [Test]
-        public async Task EndDrawTrampolineRemains()
+        [UnityTest]
+        public IEnumerator EndDrawTrampolineRemains()
         {
             drawingInput.SendDrawInput(new Vector3(4,-4,0));
             drawingInput.SendDrawInput(new Vector3(3,-4,0));
             
             drawingInput.SendEndDrawInput();
 
-            await Task.Delay(500);
+            yield return new WaitUntil(
+                () => GameObject.Find("player0").GetComponentInChildren<TrampolineView>() != null);
             
             using var _ = new AssertionScope();
-            GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(0)
+            GameObject.Find("player0").GetComponentInChildren<TrampolineView>()
+                .GetComponent<LineRenderer>().GetPosition(0)
                 .Should().Be(new Vector3(4,-4,0));
-            GameObject.Find("player0").GetComponentsInChildren<LineRenderer>()[1].GetPosition(1)
+            GameObject.Find("player0").GetComponentInChildren<TrampolineView>()
+                .GetComponent<LineRenderer>().GetPosition(1)
                 .Should().Be(new Vector3(3,-4,0));
         }
         
@@ -66,8 +71,8 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
 
             drawingInput.SendDrawInput(new Vector3(4,-4,0));
             drawingInput.SendDrawInput(new Vector3(3,-4,0));
-            
-            await Task.Delay(500);
+
+            await Task.Yield();
             using var _ = new AssertionScope();
             lineRenderer.GetPosition(0).Should().Be(new Vector3(4,-4,0));
             lineRenderer.GetPosition(1).Should().Be(new Vector3(3,-4,0));
@@ -144,16 +149,14 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
                 .GetComponentInChildren<SpriteRenderer>(true).gameObject.activeInHierarchy.Should().BeFalse();
         }
         
-        [Test]
-        public async Task BounceRemovesTrampoline()
+        [UnityTest]
+        public IEnumerator BounceRemovesTrampoline()
         {
             drawingInput.SendDrawInput(new Vector3(-1,-5,0));
             drawingInput.SendDrawInput(new Vector3(1,-5f,0));
             drawingInput.SendEndDrawInput();
             
-            await Task.Delay(3000);
-
-            Object.FindObjectOfType<TrampolineView>().Should().BeNull();
+            yield return AssertThatHappensInTime(() => Object.FindObjectOfType<TrampolineView>() == null, 3f);
         }
     }
 }
