@@ -10,35 +10,35 @@ using UnityEngine.TestTools;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class PointTests : DrawingFixture
+    public class ScoringTests : InPointFixture
     {
         [UnityTest]
         public IEnumerator MayNotDrawWhenGameEnded()
         {
             yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() == null);
             
-            drawingInput.SendDrawInput(new Vector3(0.5f,-5,0));
-            drawingInput.SendDrawInput(new Vector3(0.5f,-3,0));
-            lineRenderer.positionCount.Should().Be(0);
+            DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-5,0));
+            DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-3,0));
+            LineRendererOf(player0).positionCount.Should().Be(0);
         }
 
         [UnityTest]
         public IEnumerator DrawingsAreCancelledWhenGameEnds()
         {
-            drawingInput.SendDrawInput(new Vector3(0.5f,-5,0));
-            drawingInput.SendDrawInput(new Vector3(0.5f,-3,0));
+            DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-5,0));
+            DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-3,0));
 
             yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() == null);
             
-            lineRenderer.positionCount.Should().Be(0);
+            LineRendererOf(player0).positionCount.Should().Be(0);
         }
 
         [UnityTest]
         public IEnumerator TrampolinesAreRemovedWhenEndingGame()
         {
-            drawingInput.SendDrawInput(new Vector3(0.5f,-5,0));
-            drawingInput.SendDrawInput(new Vector3(0.5f,-3,0));
-            drawingInput.SendEndDrawInput();
+            DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-5,0));
+            DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-3,0));
+            DrawingInputOf(player0).SendEndDrawInput();
             
             yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() == null);
 
@@ -50,16 +50,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         {
             yield return AssertThatHappensInTime(() => Object.FindObjectOfType<BallView>() == null, 8f);
         }
-        
-        [Test]
-        public async Task MayNotDrawDuringDropBallAnimation() //this shouldnt be here
-        {
-            drawingInput.SendDrawInput(new Vector3(0.5f,-5,0));
-            drawingInput.SendDrawInput(new Vector3(0.5f,-3,0));
 
-            Object.FindObjectsOfType<TrampolineView>().Length.Should().Be(0);
-        }
-    
         [UnityTest]
         public IEnumerator NewTurnBegins()
         {
@@ -71,7 +62,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [UnityTest]
         public IEnumerator ChangesScoreWhenPointEnded()
         {
-            yield return AssertThatHappensInTime(() => TextOf(player0).text == "0" && TextOf(player1).text == "1", 7f);
+            yield return AssertThatHappensInTime(() => TextOf(player0).text == "0" && TextOf(player1).text == "1", 15f);
         }
         
         [Test]

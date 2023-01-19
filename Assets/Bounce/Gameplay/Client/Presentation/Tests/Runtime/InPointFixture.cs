@@ -8,18 +8,15 @@ using UnityEngine.TestTools;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public abstract class DrawingFixture : InSceneFixture
+    public abstract class InPointFixture : GameplayFixture
     {
-        protected DrawingInput drawingInput;
-        protected LineRenderer lineRenderer;
-
         [UnitySetUp]
         public override IEnumerator LoadScene()
         {
             yield return base.LoadScene();
-
-            drawingInput = player0.GetComponentInChildren<DrawingInput>(true);
-            lineRenderer = player0.GetComponentInChildren<LineRenderer>(true);
+            yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() != null);
+            Vector3 startPostiion = Object.FindObjectOfType<BallView>().transform.position;
+            yield return new WaitUntil(() => Object.FindObjectOfType<BallView>().transform.position != startPostiion);
         }
     }
 }

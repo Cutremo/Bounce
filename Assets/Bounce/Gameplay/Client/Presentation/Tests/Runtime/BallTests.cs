@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public class BallTests : InSceneFixture
+    public class BallTests : InPointFixture
     {
         [Test]
         public async Task BallExists()

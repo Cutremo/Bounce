@@ -11,7 +11,7 @@ using UnityEngine.TestTools;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
-    public abstract class InSceneFixture
+    public abstract class GameplayFixture
     {
         protected GameObject player0;
         protected GameObject player1;
@@ -21,11 +21,8 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         {
             SceneManager.LoadScene("MainScene");
             yield return null;
-            yield return null;
             player0 = GameObject.Find("player0");
             player1 = GameObject.Find("player1");
-            
-            yield return new WaitForSeconds(3f);
             
         }
 
@@ -39,7 +36,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
                 yield return null;
             }
 
-            operation().Should().BeTrue("TimeOut");
+            operation().Should().BeTrue("If not, it timed out.");
         }
         
         protected DrawingInput DrawingInputOf(GameObject player)
