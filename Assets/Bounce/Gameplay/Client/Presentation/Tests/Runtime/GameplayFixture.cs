@@ -8,11 +8,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
+using Object = UnityEngine.Object;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
     public abstract class GameplayFixture
     {
+        protected BallView Ball => Object.FindObjectOfType<BallView>();
+
         protected GameObject player0;
         protected GameObject player1;
         
@@ -28,8 +31,6 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
 
         public IEnumerator AssertThatHappensInTime(Func<bool> operation, float timeOut)
         {
-            var counter = timeOut;
-
             while(!operation() && timeOut > 0)
             {
                 timeOut -= Time.deltaTime;
@@ -52,6 +53,11 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         protected TMP_Text TextOf(GameObject player)
         {
             return player.GetComponentInChildren<PointsText>(true).GetComponentInChildren<TMP_Text>(true);
+        }
+        
+        protected bool BallExists()
+        {
+            return Ball != null;
         }
     }
 }

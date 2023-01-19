@@ -10,13 +10,27 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
     public abstract class InPointFixture : GameplayFixture
     {
+        Vector3 ballStartPosition;
+
+        protected bool firstPointStarted;
         [UnitySetUp]
         public override IEnumerator LoadScene()
         {
             yield return base.LoadScene();
-            yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() != null);
-            Vector3 startPostiion = Object.FindObjectOfType<BallView>().transform.position;
-            yield return new WaitUntil(() => Object.FindObjectOfType<BallView>().transform.position != startPostiion);
+            yield return new WaitUntil(BallExists);
+            ballStartPosition = Ball.transform.position;
+            yield return new WaitUntil(PlayingPoint);
+            firstPointStarted = true;
+        }
+        
+        public bool PlayingPoint()
+        {
+            return BallExists() && Ball.transform.position != ballStartPosition;
+        }
+
+        protected bool Scored()
+        {
+            return Ball == null && firstPointStarted;
         }
     }
 }

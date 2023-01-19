@@ -13,9 +13,9 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
     public class ScoringTests : InPointFixture
     {
         [UnityTest]
-        public IEnumerator MayNotDrawWhenGameEnded()
+        public IEnumerator MayNotDrawWhenGamePoint()
         {
-            yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() == null);
+            yield return new WaitUntil(Scored);
             
             DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-5,0));
             DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-3,0));
@@ -23,24 +23,24 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         }
 
         [UnityTest]
-        public IEnumerator DrawingsAreCancelledWhenGameEnds()
+        public IEnumerator DrawingsAreCancelledWhenPointEnds()
         {
             DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-5,0));
             DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-3,0));
 
-            yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() == null);
+            yield return new WaitUntil(Scored);
             
             LineRendererOf(player0).positionCount.Should().Be(0);
         }
 
         [UnityTest]
-        public IEnumerator TrampolinesAreRemovedWhenEndingGame()
+        public IEnumerator TrampolinesAreRemovedWhenPoint()
         {
             DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-5,0));
             DrawingInputOf(player0).SendDrawInput(new Vector3(0.5f,-3,0));
             DrawingInputOf(player0).SendEndDrawInput();
             
-            yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() == null);
+            yield return new WaitUntil(Scored);
 
             Object.FindObjectsOfType<TrampolineView>().Length.Should().Be(0);
         }
@@ -48,21 +48,23 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         [UnityTest]
         public IEnumerator BallIsRemovedWhenScoring()
         {
-            yield return AssertThatHappensInTime(() => Object.FindObjectOfType<BallView>() == null, 8f);
+            yield return AssertThatHappensInTime(() => Ball == null, 8f);
         }
 
         [UnityTest]
-        public IEnumerator NewTurnBegins()
+        public IEnumerator NewPointBeginsAutomatically()
         {
-            yield return new WaitUntil(() => Object.FindObjectOfType<BallView>() == null);
+            yield return new WaitUntil(Scored);
             
-            yield return AssertThatHappensInTime(() => Object.FindObjectOfType<BallView>() != null, 3f);
+            yield return AssertThatHappensInTime(PlayingPoint, 5f);
         }
         
         [UnityTest]
         public IEnumerator ChangesScoreWhenPointEnded()
         {
-            yield return AssertThatHappensInTime(() => TextOf(player0).text == "0" && TextOf(player1).text == "1", 15f);
+            yield return new WaitUntil(Scored);
+
+            yield return AssertThatHappensInTime(() => TextOf(player0).text == "0" && TextOf(player1).text == "1", 10f);
         }
         
         [Test]

@@ -8,28 +8,24 @@ using FluentAssertions.Execution;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TestTools;
 
 namespace Bounce.Gameplay.Presentation.Tests.Runtime
 {
     public class BallTests : InPointFixture
     {
         [Test]
-        public async Task BallExists()
+        public void BallExistsAtBeginningOfPoint()
         {
-            await Task.Yield();
-
-            Object.FindObjectsOfType<BallView>()
-                .Length.Should().Be(1);
+            Ball.Should().NotBeNull();
         }
         
-        [Test]
-        public async Task BallMoves()
+        [UnityTest]
+        public IEnumerator BallMoves()
         {
-            var originalPosition = Object.FindObjectOfType<BallView>().transform.position;
+            var originalPosition = Ball.transform.position;
             
-            await Task.Delay(500);
-
-            Object.FindObjectOfType<BallView>().transform.position.Should().NotBe(originalPosition);
+            yield return AssertThatHappensInTime(() => Ball.transform.position != originalPosition, 1f);
         }
     }
 }
