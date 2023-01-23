@@ -1,0 +1,2 @@
+﻿- name: Unity - Request Activation File
+  uses: game-ci/unity-request-activation-file@v2.0.0
