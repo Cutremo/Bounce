@@ -51,13 +51,19 @@ namespace Bounce.Gameplay.Domain.Runtime
             if(trajectoryCollision == Vector2.Null)
                 return;
             
+            BounceBall(ball, previousBallPosition, trajectoryCollision);
+            
+            TrampolineCollided?.Invoke();
+        }
+
+        private void BounceBall(Ball ball, Vector2 previousBallPosition, Vector2 trajectoryCollision)
+        {
             ball.Orientation = trampoline.Reflect(ball.Orientation);
             var bounceMagnitude = previousBallPosition.To(ball.Position).Magnitude -
                                   previousBallPosition.To(trajectoryCollision).Magnitude;
             ball.Position = trajectoryCollision + bounceMagnitude * ball.Orientation;
             ball.Speed += speedBoost;
             ball.Bounce();
-            TrampolineCollided?.Invoke();
         }
 
         public bool Scores(Ball ball)
