@@ -57,7 +57,7 @@ namespace JunityEngine.Maths.Runtime
         }
         public Vector2 Project(Vector2 point)
         {
-            // Contract.Require(CanBeProjected(point)).True();
+            Contract.Require(CanBeProjected(point)).True();
             return point.Dot(AToB) / AToB.Dot(AToB) * AToB;
         }
 
