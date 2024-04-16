@@ -32,7 +32,7 @@ namespace Bounce.Server.Runtime
 
             Container.Bind<PlayerDrawing>().AsSingle().NonLazy();
 
-            Container.BindInstance(new Ball(pitch.Center, Vector2.Down, 1f) { Speed = 4 });
+            Container.BindInstance(new Ball(pitch.Center, Vector2.Down, 1f, speed: 10));
             Container.Bind<Match>().AsSingle().NonLazy();
             Container.Bind<DrawTrampoline>().FromSubContainerResolve()
                 .ByMethod(subContainer => InstallPlayer(player0, area0, subContainer))

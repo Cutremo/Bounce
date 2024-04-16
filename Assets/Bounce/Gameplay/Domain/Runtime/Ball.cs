@@ -8,7 +8,9 @@ namespace Bounce.Gameplay.Domain.Runtime
     {
         public event Action Bounced; 
         public Vector2 Position { get; set; }
-        public float Speed { get; set; } = 1;
+        public float Speed { get; private set; }
+        public float TimesMultipliedSpeed => Speed / BaseSpeed;
+        public float BaseSpeed { get; init; } = 1;
         
         Vector2 orientation;
         
@@ -31,10 +33,11 @@ namespace Bounce.Gameplay.Domain.Runtime
             Position = position;
         }
         
-        public Ball(Vector2 position, Vector2 orientation, float diameter = 0) : this(position)
+        public Ball(Vector2 position, Vector2 orientation, float diameter = 0, float speed = 1) : this(position)
         {
             Orientation = orientation;
             Diameter = diameter;
+            Speed = BaseSpeed = speed;
         }
 
         public void MoveForward(float movement)
@@ -58,6 +61,10 @@ namespace Bounce.Gameplay.Domain.Runtime
             return new Ball(Position, orientation, Diameter) { Speed = Speed };
         }
 
+        public void IncreaseSpeed(float speedBoost)
+        {
+            Speed += speedBoost;
+        }
         public void Bounce()
         {
             Bounced?.Invoke();

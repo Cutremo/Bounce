@@ -95,8 +95,7 @@ namespace Bounce.Gameplay.Domain.Tests.Editor
         public void BallWithMoreSpeed()
         {
             var field = new Field(new Bounds2D(Vector2.Zero, new Vector2(5)));
-            var sut = new Ball(Vector2.Zero, Vector2.Right, 1);
-            sut.Speed = 3;
+            var sut = new Ball(Vector2.Zero, Vector2.Right, 1, 3);
             field.DropBall(sut);
             
             field.SimulateBall(1f);

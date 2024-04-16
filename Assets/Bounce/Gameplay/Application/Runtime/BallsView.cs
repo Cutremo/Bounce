@@ -8,6 +8,6 @@ namespace Bounce.Gameplay.Application.Runtime
     {
         public Task DropBall(Ball ball, CancellationToken ct);
         Task MoveBall(Ball position, CancellationToken ct);
-        Task RemoveBall(Ball ball, CancellationToken ct);
+        Task ExplodeBall(Ball ball, CancellationToken ct);
     }
 }

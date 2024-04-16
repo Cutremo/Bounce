@@ -17,7 +17,7 @@ namespace Bounce.Server.Runtime
             throw new System.NotImplementedException();
         }
 
-        public async Task RemoveBall(Ball ball, CancellationToken ct)
+        public async Task ExplodeBall(Ball ball, CancellationToken ct)
         {
             throw new System.NotImplementedException();
         }

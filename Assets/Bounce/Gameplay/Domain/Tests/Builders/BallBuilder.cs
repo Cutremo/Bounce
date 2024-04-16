@@ -11,7 +11,7 @@ namespace Bounce.Gameplay.Domain.Tests.Builders
         float speed = 4;
         
         public static BallBuilder Ball() => new();
-        public Ball Build() => new Ball(position, orientation, diameter) { Speed = speed };
+        public Ball Build() => new Ball(position, orientation, diameter, speed);
 
         public BallBuilder WithDiameter(float diameter)
         {

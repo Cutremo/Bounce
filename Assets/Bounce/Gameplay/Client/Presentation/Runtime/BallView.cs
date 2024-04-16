@@ -36,8 +36,9 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentatio
         }
         public Task Pop(CancellationToken ct)
         {
+            FindObjectOfType<CameraShake>().Shake(3);
             var sequence = DOTween.Sequence();
-            return sequence.Append(sprite.transform.DOScale(Vector3.one * 2.5f, 0.5f).SetEase(explosionCurve))
+            return sequence.Append(sprite.transform.DOScale(Vector3.one * 5f, 0.2f).SetEase(explosionCurve))
                 .AppendCallback(() => sprite.gameObject.SetActive(false))
                 .AppendCallback(() => particles.Play())
                 .AppendInterval(particles.main.duration)

@@ -63,7 +63,7 @@ namespace Bounce.Gameplay.Domain.Runtime
             var bounceMagnitude = previousBallPosition.To(ball.Position).Magnitude -
                                   previousBallPosition.To(trajectoryCollision).Magnitude;
             ball.Position = trajectoryCollision + bounceMagnitude * ball.Orientation;
-            ball.Speed += speedBoost;
+            ball.IncreaseSpeed(speedBoost);
             ball.Bounce();
         }
 

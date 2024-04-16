@@ -27,7 +27,7 @@ namespace Bounce.Gameplay.Application.Runtime
         public async Task RemoveBall(Ball gameBall, CancellationToken ct)
         {
             game.RemoveBall();
-            await ballsView.RemoveBall(gameBall, ct);
+            await ballsView.ExplodeBall(gameBall, ct);
         }
     }
 }
