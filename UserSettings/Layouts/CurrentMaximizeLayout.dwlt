@@ -19,12 +19,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1920
-    height: 939
+    width: 2558
+    height: 1283
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: -1
+  controlID: 24
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -43,12 +43,13 @@ MonoBehaviour:
     m_Text: Game
     m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
+    m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 576
-    width: 695
-    height: 415
+    x: 1281
+    y: 581
+    width: 1022
+    height: 762
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -58,6 +59,8 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+    m_ContainerData: []
+    m_OverlaysVisible: 1
   m_SerializedViewNames: []
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
@@ -69,13 +72,8 @@ MonoBehaviour:
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
   m_EnterPlayModeBehavior: 0
-  m_fullscreenMonitorIdx: 0
-  m_playModeBehaviorIdx: 0
   m_UseMipMap: 0
-  m_isFullscreen: 0
-  m_suppressRenderingForFullscreen: 0
   m_VSyncEnabled: 0
-  m_PlayFocused: 0
   m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 07000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -96,7 +94,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -105,30 +103,28 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 695
-      height: 394
-    m_Scale: {x: 0.20520833, y: 0.20520833}
-    m_Translation: {x: 347.5, y: 197}
+      width: 1022
+      height: 741
+    m_Scale: {x: 0.3859375, y: 0.3859375}
+    m_Translation: {x: 511.00003, y: 370.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1693.401
+      x: -1324.0486
       y: -960
-      width: 3386.802
+      width: 2648.0972
       height: 1920
     m_MinimalGUI: 1
-  m_defaultScale: 0.20520833
-  m_LastWindowPixelSize: {x: 695, y: 415}
+  m_defaultScale: 0.3859375
+  m_LastWindowPixelSize: {x: 1022, y: 762}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
-  m_showToolbar: 1
-  m_showToolbarOnFullscreen: 0
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,12 +144,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1045
-    height: 939
+    width: 1628
+    height: 1283
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: -1
+  controlID: 25
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,12 +169,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 696
-    height: 939
+    width: 1023
+    height: 1283
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: -1
+  controlID: 26
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,8 +192,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 696
-    height: 503
+    width: 1023
+    height: 500
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
@@ -223,12 +219,13 @@ MonoBehaviour:
     m_Text: Scene
     m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
+    m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 73
-    width: 695
-    height: 482
+    x: 1281
+    y: 81
+    width: 1022
+    height: 479
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -240,351 +237,534 @@ MonoBehaviour:
     m_SaveData:
     - dockPosition: 0
       containerId: overlay-toolbar__top
+      displayed: 1
+      id: Tool Settings
+      index: 0
+      contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":-166.0,"y":-26.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":3,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 1
       snapOffset: {x: -166, y: -26}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
-      id: Tool Settings
-      index: 0
       layout: 1
       size: {x: 0, y: 0}
-      sizeOverriden: 0
+      sizeOverridden: 0
     - dockPosition: 0
       containerId: overlay-toolbar__top
-      floating: 0
-      collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: 149}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
       id: unity-grid-and-snap-toolbar
       index: 1
-      layout: 1
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-toolbar__top
+      contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":-141.0,"y":-208.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":3,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: -141, y: -208}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
+      snapCorner: 3
+      layout: 1
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      displayed: 1
       id: unity-scene-view-toolbar
       index: 0
-      layout: 1
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-toolbar__top
+      contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
-      id: unity-search-toolbar
-      index: 1
-      layout: 1
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 0
-      containerId: overlay-container--left
-      floating: 0
-      collapsed: 0
-      displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 24, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
-      id: unity-transform-toolbar
-      index: 0
-      layout: 2
+      layout: 1
       size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 0
-      containerId: overlay-container--left
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      displayed: 0
+      id: unity-search-toolbar
+      index: 2
+      contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":-24.0,"y":0.0},"m_FloatingSnapCorner":1,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: -24, y: 0}
+      snapCorner: 1
+      layout: 1
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 0
+      containerId: overlay-container--left
       displayed: 1
+      id: unity-transform-toolbar
+      index: 0
+      contents: '{"m_Layout":2,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 24, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      layout: 2
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 0
+      containerId: overlay-container--left
+      displayed: 1
+      id: unity-component-tools
+      index: 1
+      contents: 
+      floating: 0
+      collapsed: 0
       snapOffset: {x: 0, y: 197}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
-      id: unity-component-tools
-      index: 1
       layout: 2
       size: {x: 0, y: 0}
-      sizeOverriden: 0
+      sizeOverridden: 0
     - dockPosition: 0
       containerId: overlay-container--right
+      displayed: 1
+      id: Orientation
+      index: 0
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":67.5,"y":-75.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":2,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 1
       snapOffset: {x: 67.5, y: -75}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 2
-      id: Orientation
-      index: 0
       layout: 4
       size: {x: 0, y: 0}
-      sizeOverriden: 0
+      sizeOverridden: 0
     - dockPosition: 1
       containerId: overlay-container--right
-      floating: 0
-      collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
       id: Scene View/Light Settings
       index: 2
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Camera
       index: 3
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: 
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Cloth Constraints
-      index: 4
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
-      floating: 0
-      collapsed: 0
-      displayed: 0
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
-      id: Scene View/Cloth Collisions
       index: 5
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Cloth Collisions
+      index: 6
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Navmesh Display
       index: 4
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: 
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Agent Display
       index: 5
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: 
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Obstacle Display
       index: 6
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: 
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Occlusion Culling
-      index: 6
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
-      floating: 0
-      collapsed: 0
-      displayed: 0
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
-      id: Scene View/Physics Debugger
       index: 7
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
       snapCorner: 0
-      id: Scene View/Scene Visibility
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Physics Debugger
       index: 8
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
-      snapOffset: {x: 0, y: -172}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 2
-      id: Scene View/Particles
-      index: 9
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
-      floating: 0
-      collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Scene Visibility
+      index: 9
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Particles
+      index: 10
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Tilemap
       index: 11
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: 
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Tilemap Palette Helper
       index: 12
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: 
       floating: 0
       collapsed: 0
-      displayed: 0
-      snapOffset: {x: 48, y: 48}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Open Tile Palette
       index: 0
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":48.0,"y":48.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 48, y: 48}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
       id: Scene View/Tilemap Focus
-      index: 1
-      layout: 4
-      size: {x: 0, y: 0}
-      sizeOverriden: 0
-    - dockPosition: 1
-      containerId: overlay-container--right
+      index: 3
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":48.0,"y":48.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 48, y: 48}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
-      id: Scene View/Path
-      index: 10
       layout: 4
       size: {x: 0, y: 0}
-      sizeOverriden: 0
+      sizeOverridden: 0
     - dockPosition: 1
       containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Path
+      index: 14
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":48.0,"y":48.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
+      snapOffset: {x: 48, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
       displayed: 1
+      id: AINavigationOverlay
+      index: 15
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":48.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
       snapOffset: {x: 48, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
-      id: AINavigationOverlay
-      index: 11
       layout: 4
       size: {x: 0, y: 0}
-      sizeOverriden: 0
+      sizeOverridden: 0
     - dockPosition: 1
       containerId: overlay-container--right
+      displayed: 0
+      id: APV Overlay
+      index: 16
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":48.0,"y":48.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
       snapOffset: {x: 48, y: 48}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
-      id: APV Overlay
-      index: 12
       layout: 4
       size: {x: 0, y: 0}
-      sizeOverriden: 0
+      sizeOverridden: 0
     - dockPosition: 1
       containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/TrailRenderer
+      index: 11
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":48.0,"y":48.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      displayed: 0
-      snapOffset: {x: 48, y: -143}
+      snapOffset: {x: 48, y: 48}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 2
-      id: Scene View/TrailRenderer
-      index: 13
+      snapCorner: 0
       layout: 4
       size: {x: 0, y: 0}
-      sizeOverriden: 0
+      sizeOverridden: 0
+    - dockPosition: 0
+      containerId: overlay-toolbar__top
+      displayed: 0
+      id: Brush Attributes
+      index: 2
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      displayed: 1
+      id: unity-scene-view-camera-mode-toolbar
+      index: 1
+      contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 24, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      layout: 1
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 0
+      containerId: overlay-toolbar__left
+      displayed: 0
+      id: Terrain Tools
+      index: 0
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 0
+      containerId: overlay-toolbar__left
+      displayed: 0
+      id: Brush Masks
+      index: 1
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--left
+      displayed: 0
+      id: Scene View/Lighting Visualization Colors
+      index: 0
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: SceneView/CamerasOverlay
+      index: 12
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/PBR Validation Settings
+      index: 13
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Tile Palette Clipboard
+      index: 1
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Tile Palette Brush Pick
+      index: 4
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 0
+      id: Scene View/Sprite Swap
+      index: 17
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 24, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
+    m_ContainerData:
+    - containerId: overlay-toolbar__top
+      scrollOffset: 0
+    - containerId: overlay-toolbar__left
+      scrollOffset: 0
+    - containerId: overlay-container--left
+      scrollOffset: 0
+    - containerId: overlay-container--right
+      scrollOffset: 0
+    - containerId: overlay-toolbar__right
+      scrollOffset: 0
+    - containerId: overlay-toolbar__bottom
+      scrollOffset: 0
+    - containerId: Floating
+      scrollOffset: 0
+    m_OverlaysVisible: 1
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
-  m_Gizmos: 0
+  m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
-  m_SceneIsLit: 1
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
+  m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
     m_Target: {x: 0, y: 0, z: 0}
     speed: 2
@@ -599,7 +779,7 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 1
+    showSkybox: 0
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -660,10 +840,16 @@ MonoBehaviour:
     m_OcclusionCulling: 0
   m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
+  m_Viewpoint:
+    m_SceneView: {fileID: 6}
+    m_CameraOverscanSettings:
+      m_Opacity: 50
+      m_Scale: 1
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
+  m_LastDebugDrawMode: 35
   m_ViewIsLockedToObject: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -681,9 +867,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 503
-    width: 696
-    height: 436
+    y: 500
+    width: 1023
+    height: 783
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 2}
@@ -708,14 +894,14 @@ MonoBehaviour:
   - {fileID: 11}
   m_Position:
     serializedVersion: 2
-    x: 696
+    x: 1023
     y: 0
-    width: 349
-    height: 939
+    width: 605
+    height: 1283
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 30053
+  controlID: 51
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -733,8 +919,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 349
-    height: 595
+    width: 605
+    height: 813
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 10}
@@ -760,12 +946,13 @@ MonoBehaviour:
     m_Text: Hierarchy
     m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
+    m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 696
-    y: 73
-    width: 347
-    height: 574
+    x: 2304
+    y: 81
+    width: 603
+    height: 792
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -775,12 +962,14 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+    m_ContainerData: []
+    m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: aa88f7ffdc88f7ff948ff8ffc68ff8ff7255f9ff1efbffff
+      m_ExpandedIDs: e62dffff8e2efffff43cffffca3dffff9c4afffff881ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -796,7 +985,8 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 9}
+        m_TrimLeadingAndTrailingWhitespace: 0
+        m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -820,9 +1010,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 595
-    width: 349
-    height: 344
+    y: 813
+    width: 605
+    height: 470
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 12}
@@ -848,12 +1038,13 @@ MonoBehaviour:
     m_Text: Project
     m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
+    m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 696
-    y: 668
-    width: 347
-    height: 323
+    x: 2304
+    y: 894
+    width: 603
+    height: 449
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -863,23 +1054,25 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+    m_ContainerData: []
+    m_OverlaysVisible: 1
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
-    m_VersionControlStates: []
-    m_SoftLockControlStates: []
     m_ReferencingInstanceIDs: 
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Bounce/Gameplay/Prefabs
+    m_Folders: []
     m_Globs: []
+    m_ProductIds: 
+    m_AnyWithAssetOrigin: 0
     m_OriginalText: 
     m_ImportLogFlags: 0
+    m_FilterByTypeIntersection: 0
   m_ViewMode: 0
   m_StartGridSize: 16
   m_LastFolders:
@@ -892,7 +1085,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 98060000
     m_LastClickedID: 1688
-    m_ExpandedIDs: ffffffff000000008c760000c4760000c6760000c8760000ca760000cc760000ce760000d0760000d2760000d4760000d6760000d8760000da760000dc760000de760000e0760000e2760000e4760000e6760000e8760000ea760000ec760000ee760000f0760000f2760000f4760000f6760000f8760000fa760000fc760000fe760000be780000f47800008c7f000084940000ffffff7f
+    m_ExpandedIDs: 00000000eecf0000f0cf0000f2cf0000f4cf0000f6cf0000f8cf0000facf0000fccf0000fecf000000d0000002d0000004d0000006d0000008d000000ad000000cd000000ed0000010d0000012d0000014d0000016d00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -908,6 +1101,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
+      m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 0}
     m_SearchString: 
     m_CreateAssetUtility:
@@ -917,10 +1111,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 92}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000008c760000c4760000c6760000c8760000ca760000cc760000ce760000d0760000d2760000d4760000d6760000d8760000da760000dc760000de760000e0760000e2760000e4760000e6760000e8760000ea760000ec760000ee760000f0760000f2760000f4760000f6760000f8760000fa760000fc760000fe760000be780000f47800008c7f000084940000ffffff7f
+    m_ExpandedIDs: ffffffff00000000eecf0000f0cf0000f2cf0000f4cf0000f6cf0000f8cf0000facf0000fccf0000fecf000000d0000002d0000004d0000006d0000008d000000ad000000ed0000010d0000012d0000016d0000050d1000060d10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -936,6 +1130,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
+      m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
     m_CreateAssetUtility:
@@ -947,7 +1142,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -964,7 +1159,8 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_TrimLeadingAndTrailingWhitespace: 0
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -993,14 +1189,14 @@ MonoBehaviour:
   - {fileID: 17}
   m_Position:
     serializedVersion: 2
-    x: 1045
+    x: 1628
     y: 0
-    width: 875
-    height: 939
+    width: 930
+    height: 1283
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 30114
+  controlID: 114
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1011,23 +1207,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 875
-    height: 626
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 15}
+    width: 930
+    height: 857
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1046,12 +1242,13 @@ MonoBehaviour:
     m_Text: Inspector
     m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
+    m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1045
-    y: 73
-    width: 874
-    height: 605
+    x: 2909
+    y: 81
+    width: 929
+    height: 836
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1061,10 +1258,12 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+    m_ContainerData: []
+    m_OverlaysVisible: 1
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: -160
+    m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -1092,12 +1291,13 @@ MonoBehaviour:
     m_Text: Test Runner
     m_Image: {fileID: 0}
     m_Tooltip: 
+    m_TextWithWhitespace: "UnityEditor.TestTools.TestRunner.TestRunnerWindow\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1045
-    y: 73
-    width: 874
-    height: 605
+    x: 2909
+    y: 81
+    width: 929
+    height: 836
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1107,23 +1307,25 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+    m_ContainerData: []
+    m_OverlaysVisible: 1
   m_Spl:
-    ID: 7666
-    splitterInitialOffset: 0
+    ID: 1308
+    splitterInitialOffset: 502
     currentActiveSplitter: -1
     realSizes:
-    - 406
-    - 136
+    - 431
+    - 335
     relativeSizes:
-    - 0.75
-    - 0.25
+    - 0.5626632
+    - 0.4373368
     minSizes:
     - 32
     - 32
     maxSizes:
     - 0
     - 0
-    lastTotalSize: 542
+    lastTotalSize: 766
     splitSize: 6
     xOffset: 0
     m_Version: 1
@@ -1131,6 +1333,2059 @@ MonoBehaviour:
     oldMinSizes: 
     oldMaxSizes: 
     oldSplitSize: 0
+  m_TestTypeToolbarIndex: 0
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 16}
+    m_NewResultList:
+    - id: 1168
+      uniqueId: '[Bounce][suite]'
+      name: Bounce
+      fullName: Bounce
+      resultStatus: 4
+      duration: 90.35317
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1195
+      uniqueId: '[Bounce.Gameplay.Presentation.Tests.Runtime.dll][suite]'
+      name: Bounce.Gameplay.Presentation.Tests.Runtime.dll
+      fullName: C:/Users/G732/Documents/Gamedev/unity-projects/Bounce/Library/ScriptAssemblies/Bounce.Gameplay.Presentation.Tests.Runtime.dll
+      resultStatus: 4
+      duration: 90.32976
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1168
+      parentUniqueId: '[Bounce][suite]'
+    - id: 1196
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/[Bounce][suite]'
+      name: Bounce
+      fullName: Bounce
+      resultStatus: 4
+      duration: 90.32139
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1195
+      parentUniqueId: '[Bounce.Gameplay.Presentation.Tests.Runtime.dll][suite]'
+    - id: 1197
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/[Gameplay][suite]'
+      name: Gameplay
+      fullName: Bounce.Gameplay
+      resultStatus: 4
+      duration: 90.31154
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1196
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/[Bounce][suite]'
+    - id: 1198
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/[Presentation][suite]'
+      name: Presentation
+      fullName: Bounce.Gameplay.Presentation
+      resultStatus: 4
+      duration: 90.302635
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1197
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/[Gameplay][suite]'
+    - id: 1199
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/[Tests][suite]'
+      name: Tests
+      fullName: Bounce.Gameplay.Presentation.Tests
+      resultStatus: 4
+      duration: 90.294174
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1198
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/[Presentation][suite]'
+    - id: 1200
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime][suite]'
+      name: Runtime
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime
+      resultStatus: 4
+      duration: 90.28649
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1199
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/[Tests][suite]'
+    - id: 1169
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.BallDropAnimationTests][suite]'
+      name: BallDropAnimationTests
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.BallDropAnimationTests
+      resultStatus: 1
+      duration: 0.5764158
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1200
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime][suite]'
+    - id: 1170
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/BallDropAnimationTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.BallDropAnimationTests.MayNotDrawDuringDropBallAnimation]'
+      name: MayNotDrawDuringDropBallAnimation
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.BallDropAnimationTests.MayNotDrawDuringDropBallAnimation
+      resultStatus: 1
+      duration: 0.5530347
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1169
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.BallDropAnimationTests][suite]'
+    - id: 1171
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.BallTests][suite]'
+      name: BallTests
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.BallTests
+      resultStatus: 1
+      duration: 4.0487323
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1200
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime][suite]'
+    - id: 1172
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/BallTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.BallTests.BallExistsAtBeginningOfPoint]'
+      name: BallExistsAtBeginningOfPoint
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.BallTests.BallExistsAtBeginningOfPoint
+      resultStatus: 1
+      duration: 1.9689472
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1171
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.BallTests][suite]'
+    - id: 1173
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/BallTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.BallTests.BallMoves]'
+      name: BallMoves
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.BallTests.BallMoves
+      resultStatus: 1
+      duration: 1.9781075
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1171
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.BallTests][suite]'
+    - id: 1174
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+      name: DrawTrampolineTests
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests
+      resultStatus: 4
+      duration: 23.462732
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1200
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime][suite]'
+    - id: 1183
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.AreaHiddenWhenNotDrawing]'
+      name: AreaHiddenWhenNotDrawing
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.AreaHiddenWhenNotDrawing
+      resultStatus: 1
+      duration: 1.980937
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1050
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.AreaShowsForABriefTime_WhenDrawingOutOfBounds]'
+      name: AreaShowsForABriefTime_WhenDrawingOutOfBounds
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.AreaShowsForABriefTime_WhenDrawingOutOfBounds
+      resultStatus: 4
+      duration: 0.0002709
+      messages: Uncertain about this feature
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 1
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1040
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1185
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.BounceRemovesTrampoline]'
+      name: BounceRemovesTrampoline
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.BounceRemovesTrampoline
+      resultStatus: 1
+      duration: 3.61941
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1180
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawingADotDoesNotThrow]'
+      name: DrawingADotDoesNotThrow
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawingADotDoesNotThrow
+      resultStatus: 1
+      duration: 1.9820108
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1178
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawingAnotherTrampoline]'
+      name: DrawingAnotherTrampoline
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawingAnotherTrampoline
+      resultStatus: 1
+      duration: 1.9796066
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1182
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawingAreaShowsExample]'
+      name: DrawingAreaShowsExample
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawingAreaShowsExample
+      resultStatus: 1
+      duration: 1.9690166
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1176
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawOutOfBounds]'
+      name: DrawOutOfBounds
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawOutOfBounds
+      resultStatus: 1
+      duration: 2.013966
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1175
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawTrampoline]'
+      name: DrawTrampoline
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawTrampoline
+      resultStatus: 1
+      duration: 1.9864175
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1179
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawTrampolineMinSize]'
+      name: DrawTrampolineMinSize
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.DrawTrampolineMinSize
+      resultStatus: 1
+      duration: 1.976166
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1177
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.EndDrawTrampolineRemains]'
+      name: EndDrawTrampolineRemains
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.EndDrawTrampolineRemains
+      resultStatus: 1
+      duration: 1.998732
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1186
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.SecondPlayerDrawsPlays]'
+      name: SecondPlayerDrawsPlays
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.SecondPlayerDrawsPlays
+      resultStatus: 1
+      duration: 1.9656985
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1181
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/DrawTrampolineTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.ShowsAreaWhenDrawing]'
+      name: ShowsAreaWhenDrawing
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests.ShowsAreaWhenDrawing
+      resultStatus: 1
+      duration: 1.9689407
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1174
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.DrawTrampolineTests][suite]'
+    - id: 1187
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests][suite]'
+      name: ScoringTests
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests
+      resultStatus: 1
+      duration: 62.188892
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1200
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime][suite]'
+    - id: 1191
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/ScoringTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.BallIsRemovedWhenScoring]'
+      name: BallIsRemovedWhenScoring
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.BallIsRemovedWhenScoring
+      resultStatus: 1
+      duration: 9.300134
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1187
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests][suite]'
+    - id: 1193
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/ScoringTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.ChangesScoreWhenPointEnded]'
+      name: ChangesScoreWhenPointEnded
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.ChangesScoreWhenPointEnded
+      resultStatus: 1
+      duration: 9.756729
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1187
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests][suite]'
+    - id: 1194
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/ScoringTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.DefaultPointsAreZero]'
+      name: DefaultPointsAreZero
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.DefaultPointsAreZero
+      resultStatus: 1
+      duration: 1.9699966
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1187
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests][suite]'
+    - id: 1189
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/ScoringTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.DrawingsAreCancelledWhenPointEnds]'
+      name: DrawingsAreCancelledWhenPointEnds
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.DrawingsAreCancelledWhenPointEnds
+      resultStatus: 1
+      duration: 9.240614
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1187
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests][suite]'
+    - id: 1188
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/ScoringTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.MayNotDrawWhenGamePoint]'
+      name: MayNotDrawWhenGamePoint
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.MayNotDrawWhenGamePoint
+      resultStatus: 1
+      duration: 9.254859
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1187
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests][suite]'
+    - id: 1192
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/ScoringTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.NewPointBeginsAutomatically]'
+      name: NewPointBeginsAutomatically
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.NewPointBeginsAutomatically
+      resultStatus: 1
+      duration: 13.415353
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1187
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests][suite]'
+    - id: 1190
+      uniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/ScoringTests/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.TrampolinesAreRemovedWhenPoint]'
+      name: TrampolinesAreRemovedWhenPoint
+      fullName: Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests.TrampolinesAreRemovedWhenPoint
+      resultStatus: 1
+      duration: 9.22931
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1187
+      parentUniqueId: 'Bounce.Gameplay.Presentation.Tests.Runtime.dll/Bounce/Gameplay/Presentation/Tests/Runtime/[Bounce.Gameplay.Presentation.Tests.Runtime][Bounce.Gameplay.Presentation.Tests.Runtime.ScoringTests][suite]'
+    m_ResultText: 'AreaShowsForABriefTime_WhenDrawingOutOfBounds (0,000s)
+
+      ---
+
+      Uncertain
+      about this feature'
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 101}
+      m_SelectedIDs: 3a2cef29
+      m_LastClickedID: 703540282
+      m_ExpandedIDs: 27ac36a9d86167bc491f0fd1443aede948ecf9f0c808060ec993ce0f1c90622eb2a5e62e6ab3bf3afd8c9f75ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_TrimLeadingAndTrailingWhitespace: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 16}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[Bounce][suite]'
+      name: Bounce
+      fullName: Bounce
+      resultStatus: 2
+      duration: 0.335617
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1043
+      uniqueId: '[Bounce.Gameplay.Domain.Tests.Editor.dll][suite]'
+      name: Bounce.Gameplay.Domain.Tests.Editor.dll
+      fullName: C:/Users/G732/Documents/Gamedev/unity-projects/Bounce/Library/ScriptAssemblies/Bounce.Gameplay.Domain.Tests.Editor.dll
+      resultStatus: 4
+      duration: 0.1773522
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Bounce][suite]'
+    - id: 1044
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/[Bounce][suite]'
+      name: Bounce
+      fullName: Bounce
+      resultStatus: 4
+      duration: 0.1765141
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1043
+      parentUniqueId: '[Bounce.Gameplay.Domain.Tests.Editor.dll][suite]'
+    - id: 1045
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/[Gameplay][suite]'
+      name: Gameplay
+      fullName: Bounce.Gameplay
+      resultStatus: 4
+      duration: 0.1748157
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1044
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/[Bounce][suite]'
+    - id: 1046
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/[Domain][suite]'
+      name: Domain
+      fullName: Bounce.Gameplay.Domain
+      resultStatus: 4
+      duration: 0.1726654
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1045
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/[Gameplay][suite]'
+    - id: 1047
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/[Tests][suite]'
+      name: Tests
+      fullName: Bounce.Gameplay.Domain.Tests
+      resultStatus: 4
+      duration: 0.1711445
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1046
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/[Domain][suite]'
+    - id: 1048
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor][suite]'
+      name: Editor
+      fullName: Bounce.Gameplay.Domain.Tests.Editor
+      resultStatus: 4
+      duration: 0.1679146
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1047
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/[Tests][suite]'
+    - id: 1001
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+      name: BallTests
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests
+      resultStatus: 1
+      duration: 0.0465986
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor][suite]'
+    - id: 1009
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.BallWithMoreSpeed]'
+      name: BallWithMoreSpeed
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.BallWithMoreSpeed
+      resultStatus: 1
+      duration: 0.0222804
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1008
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.BallWithSizeBounceLeft]'
+      name: BallWithSizeBounceLeft
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.BallWithSizeBounceLeft
+      resultStatus: 1
+      duration: 0.0004806
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1007
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.BallWithSizeBounceRight]'
+      name: BallWithSizeBounceRight
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.BallWithSizeBounceRight
+      resultStatus: 1
+      duration: 0.0003371
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1005
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.BounceOnLeftEdge]'
+      name: BounceOnLeftEdge
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.BounceOnLeftEdge
+      resultStatus: 1
+      duration: 0.0003042
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1004
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.BounceOnRightEdge]'
+      name: BounceOnRightEdge
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.BounceOnRightEdge
+      resultStatus: 1
+      duration: 0.0003016
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1010
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.ChangesDirectionAfterBounce]'
+      name: ChangesDirectionAfterBounce
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.ChangesDirectionAfterBounce
+      resultStatus: 1
+      duration: 0.0003039
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1006
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.DiagonalMovement]'
+      name: DiagonalMovement
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.DiagonalMovement
+      resultStatus: 1
+      duration: 0.0004938
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1002
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.DropBall]'
+      name: DropBall
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.DropBall
+      resultStatus: 1
+      duration: 0.0005559
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1003
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BallTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests.MoveBall]'
+      name: MoveBall
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BallTests.MoveBall
+      resultStatus: 1
+      duration: 0.0003075
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BallTests][suite]'
+    - id: 1011
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests][suite]'
+      name: BounceTests
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BounceTests
+      resultStatus: 1
+      duration: 0.020124
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor][suite]'
+    - id: 1015
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BounceTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests.BallWithRadius]'
+      name: BallWithRadius
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BounceTests.BallWithRadius
+      resultStatus: 1
+      duration: 0.0014574
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests][suite]'
+    - id: 1012
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BounceTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests.Bounces]'
+      name: Bounces
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BounceTests.Bounces
+      resultStatus: 1
+      duration: 0.0003908
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests][suite]'
+    - id: 1013
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BounceTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests.ChangesDirectionAfterBounce]'
+      name: ChangesDirectionAfterBounce
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BounceTests.ChangesDirectionAfterBounce
+      resultStatus: 1
+      duration: 0.0003656
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests][suite]'
+    - id: 1014
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BounceTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests.DiagonalDirection]'
+      name: DiagonalDirection
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BounceTests.DiagonalDirection
+      resultStatus: 1
+      duration: 0.0004638
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests][suite]'
+    - id: 1016
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BounceTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests.DrawingOnTheOppositeDirectionDoesNotChangeBounce]'
+      name: DrawingOnTheOppositeDirectionDoesNotChangeBounce
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BounceTests.DrawingOnTheOppositeDirectionDoesNotChangeBounce
+      resultStatus: 1
+      duration: 0.0003623
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests][suite]'
+    - id: 1017
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/BounceTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests.SpeedIncreases]'
+      name: SpeedIncreases
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.BounceTests.SpeedIncreases
+      resultStatus: 1
+      duration: 0.0019124
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.BounceTests][suite]'
+    - id: 1018
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+      name: DrawTrampolineTests
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests
+      resultStatus: 1
+      duration: 0.0741766
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor][suite]'
+    - id: 1019
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.BeginDraw]'
+      name: BeginDraw
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.BeginDraw
+      resultStatus: 1
+      duration: 0.003571
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1029
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.BeginDrawFromOutsideBoundsDoesNotDraw]'
+      name: BeginDrawFromOutsideBoundsDoesNotDraw
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.BeginDrawFromOutsideBoundsDoesNotDraw
+      resultStatus: 1
+      duration: 0.0004762
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1021
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.ClampToMaxLength]'
+      name: ClampToMaxLength
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.ClampToMaxLength
+      resultStatus: 1
+      duration: 0.0004046
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1020
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.Draw]'
+      name: Draw
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.Draw
+      resultStatus: 1
+      duration: 0.0551628
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1031
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.DrawingDotDoesNotDraw]'
+      name: DrawingDotDoesNotDraw
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.DrawingDotDoesNotDraw
+      resultStatus: 1
+      duration: 0.0003302
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1030
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.DrawingOutsideClamps]'
+      name: DrawingOutsideClamps
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.DrawingOutsideClamps
+      resultStatus: 1
+      duration: 0.0003156
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1022
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.EndDraw]'
+      name: EndDraw
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.EndDraw
+      resultStatus: 1
+      duration: 0.0021498
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1027
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.MinTrampolineSizeDoesNotApplyBeforeEndingDraw]'
+      name: MinTrampolineSizeDoesNotApplyBeforeEndingDraw
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.MinTrampolineSizeDoesNotApplyBeforeEndingDraw
+      resultStatus: 1
+      duration: 0.0004348
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1026
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.MinTrampolineSizeWhenEndingDraw]'
+      name: MinTrampolineSizeWhenEndingDraw
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.MinTrampolineSizeWhenEndingDraw
+      resultStatus: 1
+      duration: 0.0003184
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1028
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.MinTrampolineSizeWhenOriginIsAtBorder]'
+      name: MinTrampolineSizeWhenOriginIsAtBorder
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.MinTrampolineSizeWhenOriginIsAtBorder
+      resultStatus: 1
+      duration: 0.0003009
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1023
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.PlayerDrawsTrampoline]'
+      name: PlayerDrawsTrampoline
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.PlayerDrawsTrampoline
+      resultStatus: 1
+      duration: 0.0002764
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1025
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.TrampolineChangesWhenDrawingNew]'
+      name: TrampolineChangesWhenDrawingNew
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.TrampolineChangesWhenDrawingNew
+      resultStatus: 1
+      duration: 0.000295
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1024
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/DrawTrampolineTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.TrampolineRemains]'
+      name: TrampolineRemains
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests.TrampolineRemains
+      resultStatus: 1
+      duration: 0.0003117
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.DrawTrampolineTests][suite]'
+    - id: 1032
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests][suite]'
+      name: PlayGameTests
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests
+      resultStatus: 4
+      duration: 0.0135589
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor][suite]'
+    - id: 1121
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.ClearingPitchDeletesTrampolines]'
+      name: ClearingPitchDeletesTrampolines
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.ClearingPitchDeletesTrampolines
+      resultStatus: 4
+      duration: 0.0002668
+      messages: Unsure about this feature
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 1
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1116
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests][suite]'
+    - id: 1122
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.ClearingPitchRemovesDrawings]'
+      name: ClearingPitchRemovesDrawings
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.ClearingPitchRemovesDrawings
+      resultStatus: 4
+      duration: 0.0000026
+      messages: Unsure about this feature
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 1
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1116
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests][suite]'
+    - id: 1034
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.NotPlayingByDefault]'
+      name: NotPlayingByDefault
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.NotPlayingByDefault
+      resultStatus: 1
+      duration: 0.0007668
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1032
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests][suite]'
+    - id: 1035
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.PlayerCanDrawWhenGameStarted]'
+      name: PlayerCanDrawWhenGameStarted
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.PlayerCanDrawWhenGameStarted
+      resultStatus: 1
+      duration: 0.0008477
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1032
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests][suite]'
+    - id: 1036
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.PlayerStopsDrawing]'
+      name: PlayerStopsDrawing
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.PlayerStopsDrawing
+      resultStatus: 1
+      duration: 0.0005776
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1032
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests][suite]'
+    - id: 1039
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.RemoveBall]'
+      name: RemoveBall
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.RemoveBall
+      resultStatus: 1
+      duration: 0.000871
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1032
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests][suite]'
+    - id: 1033
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/PlayGameTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.StartsGame]'
+      name: StartsGame
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests.StartsGame
+      resultStatus: 1
+      duration: 0.0002531
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1032
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.PlayGameTests][suite]'
+    - id: 1040
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.ScoringTests][suite]'
+      name: ScoringTests
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.ScoringTests
+      resultStatus: 1
+      duration: 0.0088607
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1048
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor][suite]'
+    - id: 1041
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/ScoringTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.ScoringTests.Score]'
+      name: Score
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.ScoringTests.Score
+      resultStatus: 1
+      duration: 0.0014028
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1040
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.ScoringTests][suite]'
+    - id: 1042
+      uniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/ScoringTests/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.ScoringTests.ScoreWhenBallLeavesArea]'
+      name: ScoreWhenBallLeavesArea
+      fullName: Bounce.Gameplay.Domain.Tests.Editor.ScoringTests.ScoreWhenBallLeavesArea
+      resultStatus: 1
+      duration: 0.0009927
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1040
+      parentUniqueId: 'Bounce.Gameplay.Domain.Tests.Editor.dll/Bounce/Gameplay/Domain/Tests/Editor/[Bounce.Gameplay.Domain.Tests.Editor][Bounce.Gameplay.Domain.Tests.Editor.ScoringTests][suite]'
+    - id: 1060
+      uniqueId: '[JunityEngine.Commons.Tests.Editor.dll][suite]'
+      name: JunityEngine.Commons.Tests.Editor.dll
+      fullName: C:/Users/G732/Documents/Gamedev/unity-projects/Bounce/Library/ScriptAssemblies/JunityEngine.Commons.Tests.Editor.dll
+      resultStatus: 1
+      duration: 0.0200652
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Bounce][suite]'
+    - id: 1061
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/[JunityEngine][suite]'
+      name: JunityEngine
+      fullName: JunityEngine
+      resultStatus: 1
+      duration: 0.0148701
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1060
+      parentUniqueId: '[JunityEngine.Commons.Tests.Editor.dll][suite]'
+    - id: 1062
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/[Commons][suite]'
+      name: Commons
+      fullName: JunityEngine.Commons
+      resultStatus: 1
+      duration: 0.0145642
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1061
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/[JunityEngine][suite]'
+    - id: 1063
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests][suite]'
+      name: Tests
+      fullName: JunityEngine.Commons.Tests
+      resultStatus: 1
+      duration: 0.0114476
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1062
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/[Commons][suite]'
+    - id: 1049
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+      name: Bounds2DTest
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest
+      resultStatus: 1
+      duration: 0.0080719
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1063
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests][suite]'
+    - id: 1059
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.Clamp]'
+      name: Clamp
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.Clamp
+      resultStatus: 1
+      duration: 0.0006679
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1058
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.IntersectionLeftEdge]'
+      name: IntersectionLeftEdge
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.IntersectionLeftEdge
+      resultStatus: 1
+      duration: 0.00035
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1056
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.IntersectionOnExactTarget]'
+      name: IntersectionOnExactTarget
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.IntersectionOnExactTarget
+      resultStatus: 1
+      duration: 0.0002288
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1055
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.IntersectionOnOrigin]'
+      name: IntersectionOnOrigin
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.IntersectionOnOrigin
+      resultStatus: 1
+      duration: 0.0002296
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1054
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.IntersectionRightEdge]'
+      name: IntersectionRightEdge
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.IntersectionRightEdge
+      resultStatus: 1
+      duration: 0.0002523
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1050
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.LowerEdge]'
+      name: LowerEdge
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.LowerEdge
+      resultStatus: 1
+      duration: 0.0002266
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1052
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.Middle]'
+      name: Middle
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.Middle
+      resultStatus: 1
+      duration: 0.0002005
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1057
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.NoIntersection]'
+      name: NoIntersection
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.NoIntersection
+      resultStatus: 1
+      duration: 0.000243
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1053
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.Outside]'
+      name: Outside
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.Outside
+      resultStatus: 1
+      duration: 0.0002117
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1051
+      uniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/Bounds2DTest/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest.UpperEdge]'
+      name: UpperEdge
+      fullName: JunityEngine.Commons.Tests.Bounds2DTest.UpperEdge
+      resultStatus: 1
+      duration: 0.0002024
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1049
+      parentUniqueId: 'JunityEngine.Commons.Tests.Editor.dll/JunityEngine/Commons/Tests/[JunityEngine.Commons.Tests.Editor][JunityEngine.Commons.Tests.Bounds2DTest][suite]'
+    - id: 1076
+      uniqueId: '[JunityEngine.Maths.Tests.Editor.dll][suite]'
+      name: JunityEngine.Maths.Tests.Editor.dll
+      fullName: C:/Users/G732/Documents/Gamedev/unity-projects/Bounce/Library/ScriptAssemblies/JunityEngine.Maths.Tests.Editor.dll
+      resultStatus: 2
+      duration: 0.1211598
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Bounce][suite]'
+    - id: 1077
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/[JunityEngine][suite]'
+      name: JunityEngine
+      fullName: JunityEngine
+      resultStatus: 2
+      duration: 0.1156195
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1076
+      parentUniqueId: '[JunityEngine.Maths.Tests.Editor.dll][suite]'
+    - id: 1078
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/[Maths][suite]'
+      name: Maths
+      fullName: JunityEngine.Maths
+      resultStatus: 2
+      duration: 0.1152532
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1077
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/[JunityEngine][suite]'
+    - id: 1079
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests][suite]'
+      name: Tests
+      fullName: JunityEngine.Maths.Tests
+      resultStatus: 2
+      duration: 0.1117862
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1078
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/[Maths][suite]'
+    - id: 1064
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.BoxTests][suite]'
+      name: BoxTests
+      fullName: JunityEngine.Maths.Tests.BoxTests
+      resultStatus: 2
+      duration: 0.0827589
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1079
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests][suite]'
+    - id: 1065
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/BoxTests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.BoxTests.METHOD]'
+      name: METHOD
+      fullName: JunityEngine.Maths.Tests.BoxTests.METHOD
+      resultStatus: 2
+      duration: 0.0732134
+      messages: "Expected sut.Project(new Vector2(0.5f, 3f)) to be JunityEngine.Maths.Runtime.Projection\r\n{\r\n   
+        NormalDirection = (0, 1), \r\n    OriginToProjection = \r\n    JunityEngine.Maths.Runtime.Segment\r\n   
+        {\r\n        A = (0,5, 3), \r\n        AToB = (0, -1), \r\n        B = (0,5,
+        2), \r\n        BToA = (0, 1), \r\n        Magnitude = 1F\r\n    }, \r\n   
+        ProjectedDistance = 1F, \r\n    ProjectionToOrigin = \r\n    JunityEngine.Maths.Runtime.Segment\r\n   
+        {\r\n        A = (0,5, 2), \r\n        AToB = (0, 1), \r\n        B = (0,5,
+        3), \r\n        BToA = (0, -1), \r\n        Magnitude = 1F\r\n    }\r\n},
+        but found JunityEngine.Maths.Runtime.Projection\r\n{\r\n    NormalDirection
+        = (0, 1), \r\n    OriginToProjection = \r\n    JunityEngine.Maths.Runtime.Segment\r\n   
+        {\r\n        A = (0,5, 3), \r\n        AToB = (0, -3), \r\n        B = (0,5,
+        0), \r\n        BToA = (0, 3), \r\n        Magnitude = 3F\r\n    }, \r\n   
+        ProjectedDistance = 3F, \r\n    ProjectionToOrigin = \r\n    JunityEngine.Maths.Runtime.Segment\r\n   
+        {\r\n        A = (0,5, 0), \r\n        AToB = (0, 3), \r\n        B = (0,5,
+        3), \r\n        BToA = (0, -3), \r\n        Magnitude = 3F\r\n    }\r\n}."
+      output: 
+      stacktrace: 'at FluentAssertions.Execution.LateBoundTestFramework.Throw (System.String
+        message) [0x0005c] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\LateBoundTestFramework.cs:22
+
+        at
+        FluentAssertions.Execution.TestFrameworkProvider.Throw (System.String message)
+        [0x00019] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\TestFrameworkProvider.cs:34
+
+        at
+        FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure (System.String
+        message) [0x00001] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\DefaultAssertionStrategy.cs:25
+
+        at
+        FluentAssertions.Execution.AssertionScope.FailWith (System.Func`1[TResult]
+        failReasonFunc) [0x00057] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\AssertionScope.cs:274
+
+        at
+        FluentAssertions.Execution.AssertionScope.FailWith (System.Func`1[TResult]
+        failReasonFunc) [0x00015] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\AssertionScope.cs:246
+
+        at
+        FluentAssertions.Execution.AssertionScope.FailWith (System.String message,
+        System.Object[] args) [0x00015] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\AssertionScope.cs:296
+
+        at
+        FluentAssertions.Primitives.ObjectAssertions`2[TSubject,TAssertions].Be (TSubject
+        expected, System.String because, System.Object[] becauseArgs) [0x00001] in
+        .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Primitives\ObjectAssertions.cs:44
+
+        at
+        JunityEngine.Maths.Tests.BoxTests.METHOD () [0x00043] in C:\Users\G732\Documents\Gamedev\unity-projects\Bounce\Assets\JunityEngine\Maths\Tests\BoxTests.cs:14
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1064
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.BoxTests][suite]'
+    - id: 1066
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/BoxTests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.BoxTests.METHODs]'
+      name: METHODs
+      fullName: JunityEngine.Maths.Tests.BoxTests.METHODs
+      resultStatus: 2
+      duration: 0.0049785
+      messages: "Expected sut.Project(new Vector2(2f, 2f)) to be JunityEngine.Maths.Runtime.Projection\r\n{\r\n   
+        NormalDirection = (1, 0), \r\n    OriginToProjection = \r\n    JunityEngine.Maths.Runtime.Segment\r\n   
+        {\r\n        A = (0,5, 1), \r\n        AToB = (-0,5, 0), \r\n        B =
+        (0, 1), \r\n        BToA = (0,5, 0), \r\n        Magnitude = 0.5F\r\n   
+        }, \r\n    ProjectedDistance = 0.5F, \r\n    ProjectionToOrigin = \r\n   
+        JunityEngine.Maths.Runtime.Segment\r\n    {\r\n        A = (0, 1), \r\n       
+        AToB = (0,5, 0), \r\n        B = (0,5, 1), \r\n        BToA = (-0,5, 0),
+        \r\n        Magnitude = 0.5F\r\n    }\r\n}, but found JunityEngine.Maths.Runtime.Projection\r\n{\r\n   
+        NormalDirection = (0, 1), \r\n    OriginToProjection = \r\n    JunityEngine.Maths.Runtime.Segment\r\n   
+        {\r\n        A = (2, 2), \r\n        AToB = (0, -2), \r\n        B = (2,
+        0), \r\n        BToA = (0, 2), \r\n        Magnitude = 2F\r\n    }, \r\n   
+        ProjectedDistance = 2F, \r\n    ProjectionToOrigin = \r\n    JunityEngine.Maths.Runtime.Segment\r\n   
+        {\r\n        A = (2, 0), \r\n        AToB = (0, 2), \r\n        B = (2, 2),
+        \r\n        BToA = (0, -2), \r\n        Magnitude = 2F\r\n    }\r\n}."
+      output: 
+      stacktrace: 'at FluentAssertions.Execution.LateBoundTestFramework.Throw (System.String
+        message) [0x0005c] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\LateBoundTestFramework.cs:22
+
+        at
+        FluentAssertions.Execution.TestFrameworkProvider.Throw (System.String message)
+        [0x00019] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\TestFrameworkProvider.cs:34
+
+        at
+        FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure (System.String
+        message) [0x00001] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\DefaultAssertionStrategy.cs:25
+
+        at
+        FluentAssertions.Execution.AssertionScope.FailWith (System.Func`1[TResult]
+        failReasonFunc) [0x00057] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\AssertionScope.cs:274
+
+        at
+        FluentAssertions.Execution.AssertionScope.FailWith (System.Func`1[TResult]
+        failReasonFunc) [0x00015] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\AssertionScope.cs:246
+
+        at
+        FluentAssertions.Execution.AssertionScope.FailWith (System.String message,
+        System.Object[] args) [0x00015] in .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Execution\AssertionScope.cs:296
+
+        at
+        FluentAssertions.Primitives.ObjectAssertions`2[TSubject,TAssertions].Be (TSubject
+        expected, System.String because, System.Object[] becauseArgs) [0x00001] in
+        .\Library\PackageCache\com.boundfoxstudios.fluentassertions@7357551604\Runtime\FluentAssertions\Primitives\ObjectAssertions.cs:44
+
+        at
+        JunityEngine.Maths.Tests.BoxTests.METHODs () [0x00011] in C:\Users\G732\Documents\Gamedev\unity-projects\Bounce\Assets\JunityEngine\Maths\Tests\BoxTests.cs:23
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1064
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.BoxTests][suite]'
+    - id: 1067
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests][suite]'
+      name: SegmentTests
+      fullName: JunityEngine.Maths.Tests.SegmentTests
+      resultStatus: 1
+      duration: 0.0131561
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1079
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests][suite]'
+    - id: 1071
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/SegmentTests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests.CanBeProjected]'
+      name: CanBeProjected
+      fullName: JunityEngine.Maths.Tests.SegmentTests.CanBeProjected
+      resultStatus: 1
+      duration: 0.0007621
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1067
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests][suite]'
+    - id: 1072
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/SegmentTests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests.CanBeProjectedDiagonally]'
+      name: CanBeProjectedDiagonally
+      fullName: JunityEngine.Maths.Tests.SegmentTests.CanBeProjectedDiagonally
+      resultStatus: 1
+      duration: 0.0004312
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1067
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests][suite]'
+    - id: 1073
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/SegmentTests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests.CannotBeProjected]'
+      name: CannotBeProjected
+      fullName: JunityEngine.Maths.Tests.SegmentTests.CannotBeProjected
+      resultStatus: 1
+      duration: 0.0003615
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1067
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests][suite]'
+    - id: 1068
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/SegmentTests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests.ProjectPointToSegment]'
+      name: ProjectPointToSegment
+      fullName: JunityEngine.Maths.Tests.SegmentTests.ProjectPointToSegment
+      resultStatus: 1
+      duration: 0.0003921
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1067
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests][suite]'
+    - id: 1069
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/SegmentTests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests.ProjectPointToSegmentDiagonally]'
+      name: ProjectPointToSegmentDiagonally
+      fullName: JunityEngine.Maths.Tests.SegmentTests.ProjectPointToSegmentDiagonally
+      resultStatus: 1
+      duration: 0.0003986
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1067
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests][suite]'
+    - id: 1070
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/SegmentTests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests.SegmentToPoint]'
+      name: SegmentToPoint
+      fullName: JunityEngine.Maths.Tests.SegmentTests.SegmentToPoint
+      resultStatus: 1
+      duration: 0.0005095
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1067
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.SegmentTests][suite]'
+    - id: 1074
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.Vector2Tests][suite]'
+      name: Vector2Tests
+      fullName: JunityEngine.Maths.Tests.Vector2Tests
+      resultStatus: 1
+      duration: 0.0113118
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1079
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests][suite]'
+    - id: 1075
+      uniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/Vector2Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.Vector2Tests.NormalizeVector]'
+      name: NormalizeVector
+      fullName: JunityEngine.Maths.Tests.Vector2Tests.NormalizeVector
+      resultStatus: 1
+      duration: 0.0005021
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1074
+      parentUniqueId: 'JunityEngine.Maths.Tests.Editor.dll/JunityEngine/Maths/Tests/[JunityEngine.Maths.Tests.Editor][JunityEngine.Maths.Tests.Vector2Tests][suite]'
+    m_ResultText: SegmentTests (0,013s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: baa6ed48
+      m_LastClickedID: 1223534266
+      m_ExpandedIDs: 3e239e89ae63289b4803c9a55a4416addf801dadf2bbe1b5567729b6d8811cbbc8dd5fbefa6e1dc61a74c7d0d2292ad9c50f42fab53fcc1f749cf32d1c90622e6702143c11ebbb3d7d61e747baa6ed48ef0b674d20335860ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_TrimLeadingAndTrailingWhitespace: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1147,9 +3402,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 626
-    width: 875
-    height: 313
+    y: 857
+    width: 930
+    height: 426
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
@@ -1175,12 +3430,13 @@ MonoBehaviour:
     m_Text: Console
     m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
+    m_TextWithWhitespace: "Console\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1045
-    y: 699
-    width: 874
-    height: 292
+    x: 2909
+    y: 938
+    width: 929
+    height: 405
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1190,3 +3446,5 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+    m_ContainerData: []
+    m_OverlaysVisible: 1

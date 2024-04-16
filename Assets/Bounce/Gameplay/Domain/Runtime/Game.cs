@@ -29,6 +29,9 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public Ball Ball => pitch.Ball;
         public Score Score => score;
+        public bool CollidedWithTrampoline => pitch.CollidedWithTrampoline;
+
+        public void HandleCollision() => pitch.HandleCollision();
 
         //Pasar el int.
         public Game(Pitch pitch, IEnumerable<Player> players, int targetScore = int.MaxValue)

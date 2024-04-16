@@ -50,7 +50,7 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
             return player.GetComponentInChildren<LineRenderer>(true);
         }
         
-        protected TMP_Text TextOf(GameObject player)
+        protected TMP_Text PointsTextOf(GameObject player)
         {
             return player.GetComponentInChildren<PointsText>(true).GetComponentInChildren<TMP_Text>(true);
         }

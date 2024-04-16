@@ -64,15 +64,15 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime
         {
             yield return new WaitUntil(Scored);
 
-            yield return AssertThatHappensInTime(() => TextOf(player0).text == "0" && TextOf(player1).text == "1", 10f);
+            yield return AssertThatHappensInTime(() => PointsTextOf(player0).text == "0" && PointsTextOf(player1).text == "1", 10f);
         }
         
         [Test]
         public void DefaultPointsAreZero()
         {
             using var _ = new AssertionScope();
-            TextOf(player0).text.Should().Be("0");
-            TextOf(player1).text.Should().Be("0");
+            PointsTextOf(player0).text.Should().Be("0");
+            PointsTextOf(player1).text.Should().Be("0");
         }
     }
 }

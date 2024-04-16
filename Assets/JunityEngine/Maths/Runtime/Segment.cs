@@ -15,6 +15,7 @@ namespace JunityEngine.Maths.Runtime
 
         public Vector2 AToB => B - A;
         public Vector2 BToA => A - B;
+        public float Magnitude => AToB.Magnitude;
 
         public Segment Pararel0(float distance)
         {
@@ -57,8 +58,12 @@ namespace JunityEngine.Maths.Runtime
         }
         public Vector2 Project(Vector2 point)
         {
-            Contract.Require(CanBeProjected(point)).True();
             return point.Dot(AToB) / AToB.Dot(AToB) * AToB;
+        }
+
+        public Projection NewProject(Vector2 point)
+        {
+            return new Projection(point, Project(point));
         }
 
         public Vector2 To(Vector2 point)
@@ -66,5 +71,7 @@ namespace JunityEngine.Maths.Runtime
             var pointOnLine = Project(point);
             return AToB.NormalDirection0 * point.DistanceTo(pointOnLine);
         }
+
+        public Segment Reverse() => new Segment(B, A);
     }
 }

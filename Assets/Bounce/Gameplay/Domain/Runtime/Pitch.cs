@@ -21,6 +21,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public Vector2 Center => field.Center;
         public Ball Ball => field.Ball;
+        public bool CollidedWithTrampoline { get; set; }
 
         public void Draw(Player player, Vector2 position)
         {
@@ -41,7 +42,11 @@ namespace Bounce.Gameplay.Domain.Runtime
             {
                 if(playerArea.Value.Trampoline.Completed)
                 {
-                    playerArea.Value.HandleCollision(field.Ball, previousPosition);
+                    var collision = playerArea.Value.HandleCollision(field.Ball, previousPosition);
+                    if(collision)
+                    {
+                        CollidedWithTrampoline = true;
+                    }
                 }
 
                 if(playerArea.Value.Scores(Ball))
@@ -52,6 +57,10 @@ namespace Bounce.Gameplay.Domain.Runtime
             }
         }
 
+        public void HandleCollision()
+        {
+            CollidedWithTrampoline = false;
+        }
         public bool Contains(Area area)
         {
             return field.Contains(area);

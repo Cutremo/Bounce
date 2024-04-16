@@ -42,18 +42,19 @@ namespace Bounce.Gameplay.Domain.Runtime
             sketchbook.StopDrawing();
         }
 
-        public void HandleCollision(Ball ball, Vector2 previousBallPosition)
+        public bool HandleCollision(Ball ball, Vector2 previousBallPosition)
         {
             Require(trampoline.Completed).True();
             
             var trajectoryCollision = ball.Collision(previousBallPosition, trampoline);
 
             if(trajectoryCollision == Vector2.Null)
-                return;
+                return false;
             
             BounceBall(ball, previousBallPosition, trajectoryCollision);
             
             TrampolineCollided?.Invoke();
+            return true;
         }
 
         private void BounceBall(Ball ball, Vector2 previousBallPosition, Vector2 trajectoryCollision)

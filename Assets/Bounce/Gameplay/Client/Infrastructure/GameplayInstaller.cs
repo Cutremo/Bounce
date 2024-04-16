@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Bounce.Gameplay.Application.Runtime;
+using Bounce.Gameplay.Client.Presentation.Runtime;
 using Bounce.Gameplay.Domain.Runtime;
 using Bounce.Gameplay.Input.Runtime;
 using Bounce.Gameplay.Presentation.Runtime;
@@ -38,7 +39,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
 
             Container.Bind<PlayerDrawing>().AsSingle().NonLazy();
 
-            Container.BindInstance(new Ball(pitch.Center, Vector2.Down, 1f) { Speed = 4 });
+            Container.BindInstance(new Ball(pitch.Center, Vector2.Down, 1f) { Speed = 10 });
             Container.Bind<Application.Runtime.Match>().AsSingle().NonLazy();
             Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab, subContainer => InstallPlayer(player0, area0, subContainer)).AsCached().NonLazy();
             Container.Bind<DrawTrampoline>().FromSubContainerResolve().ByNewPrefabMethod(playerPrefab,subContainer => InstallPlayer(player1, area1, subContainer)).AsCached().NonLazy();
@@ -49,6 +50,7 @@ namespace Bounce.Gameplay.Infrastructure.Runtime
             Container.Bind<EndGame>().AsSingle();
             Container.Bind<PointController>().AsSingle();
             Container.Bind<ScoreView>().To<UnityScoreView>().AsSingle();
+            Container.Bind<CollisionView>().To<UnityCollisionView>().AsSingle();
             Container.Bind<PointsText>().FromComponentsInHierarchy().AsCached().Lazy();
         }
 

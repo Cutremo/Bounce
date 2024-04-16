@@ -8,7 +8,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Vector2 End { get; set; }
 
         public bool Completed => Origin != End;
-        public Segment Segment => new Segment(Origin, End);
+        public Segment Segment => new(Origin, End);
         
         public Vector2 Reflect(Vector2 ballOrientation)
         {

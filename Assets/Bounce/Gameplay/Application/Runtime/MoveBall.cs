@@ -8,11 +8,13 @@ namespace Bounce.Gameplay.Application.Runtime
     {
         readonly Game game;
         readonly BallsView ballsView;
+        readonly CollisionView collisionView;
 
-        public MoveBall(Game game, BallsView ballsView)
+        public MoveBall(Game game, BallsView ballsView, CollisionView collisionView)
         {
             this.game = game;
             this.ballsView = ballsView;
+            this.collisionView = collisionView;
         }
 
         public async Task Simulate(float seconds, CancellationToken ct)
@@ -20,7 +22,11 @@ namespace Bounce.Gameplay.Application.Runtime
             await Task.Delay((int)(seconds * 1000), ct);
 
             game.SimulateBall(seconds);
-
+            if(game.CollidedWithTrampoline)
+            {
+                game.HandleCollision();
+                await collisionView.HandleCollision();
+            }
             if(game.Ball != Ball.Null)
                 await ballsView.MoveBall(game.Ball, ct);
         }

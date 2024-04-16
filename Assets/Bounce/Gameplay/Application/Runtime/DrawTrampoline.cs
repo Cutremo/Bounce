@@ -34,7 +34,6 @@ namespace Bounce.Gameplay.Application.Runtime
             drawingInput.EndDrawInputReceived -= EndDraw;
         }
 
-        //Mover a otro controlador?
         public Task Clear(CancellationToken ct)
         {
             EndDrawingAndRemoveCurrent();
