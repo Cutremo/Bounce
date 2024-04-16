@@ -10,7 +10,7 @@ namespace Bounce.Gameplay.Domain.Runtime
         public Vector2 Position { get; set; }
         public float Speed { get; private set; }
         public float TimesMultipliedSpeed => Speed / BaseSpeed;
-        public float BaseSpeed { get; init; } = 1;
+        public float BaseSpeed { get; init; }
         
         Vector2 orientation;
         
@@ -37,7 +37,8 @@ namespace Bounce.Gameplay.Domain.Runtime
         {
             Orientation = orientation;
             Diameter = diameter;
-            Speed = BaseSpeed = speed;
+            Speed = speed;
+            BaseSpeed = speed;
         }
 
         public void MoveForward(float movement)
@@ -58,7 +59,7 @@ namespace Bounce.Gameplay.Domain.Runtime
 
         public Ball Copy()
         {
-            return new Ball(Position, orientation, Diameter) { Speed = Speed };
+            return new Ball(Position, orientation, Diameter, BaseSpeed);
         }
 
         public void IncreaseSpeed(float speedBoost)

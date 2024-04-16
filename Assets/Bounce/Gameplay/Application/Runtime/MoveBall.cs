@@ -25,7 +25,7 @@ namespace Bounce.Gameplay.Application.Runtime
             if(game.CollidedWithTrampoline)
             {
                 game.HandleCollision();
-                await collisionView.HandleCollision();
+                await collisionView.HandleCollision(game.Ball);
             }
             if(game.Ball != Ball.Null)
                 await ballsView.MoveBall(game.Ball, ct);

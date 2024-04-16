@@ -34,13 +34,14 @@ namespace Bounce.Gameplay.Presentation.Tests.Runtime.Bounce.Gameplay.Presentatio
         {
             trail.Clear();
         }
-        public Task Pop(CancellationToken ct)
+        public Task Pop(CancellationToken ct, Ball ball)
         {
-            FindObjectOfType<CameraShake>().Shake(3);
             var sequence = DOTween.Sequence();
-            return sequence.Append(sprite.transform.DOScale(Vector3.one * 5f, 0.2f).SetEase(explosionCurve))
+            return sequence.Append(sprite.transform.DOScale(Vector3.one * 4f * ball.TimesMultipliedSpeed, 0.2f).SetEase(explosionCurve))
+                .AppendInterval(0.1f)
                 .AppendCallback(() => sprite.gameObject.SetActive(false))
                 .AppendCallback(() => particles.Play())
+                .AppendCallback(() => FindObjectOfType<CameraShake>().Shake(3 * ball.TimesMultipliedSpeed))
                 .AppendInterval(particles.main.duration)
                 .AppendCallback(() => Destroy(gameObject))
                 .AsTask(ct);

@@ -25,7 +25,7 @@ public class CameraShake : MonoBehaviour
     {
         StopIncrementalShake();
         transform.DOKill(true);
-        transform.DOShakePosition(duration * multiplier, strength * multiplier, vibrato).SetUpdate(true);
+        transform.DOShakePosition(duration, strength * multiplier, vibrato).SetUpdate(true);
     }
 
     public void StartIncrementalShake()

@@ -35,7 +35,7 @@ namespace Bounce.Gameplay.Presentation.Runtime
         public async Task ExplodeBall(Ball ball, CancellationToken ct)
         {
             ball.Bounced -= ClearTrail;
-            await instance.Pop(ct);
+            await instance.Pop(ct, ball);
         }
     }
 }

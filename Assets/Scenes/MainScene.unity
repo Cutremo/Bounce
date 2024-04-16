@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffaf42ee92e5fb4ca541904565c17ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.65
+  duration: 0.5
   strength: 0.2
   vibrato: 20
   timeIncrementMultiplier: 0
